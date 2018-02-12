@@ -11,14 +11,20 @@ class Sequence
 public:
 	
 	Sequence(char * sequence, unsigned int sequence_length, ostream & err_msg=cout);
-
+	~Sequence();
 	bool show_statistics(ostream & out=cout, ostream &err_msg=cout); //prints out the nucleotide contribution of the sequence
 	bool show_All(ostream & out = cout, ostream &err_msg = cout); //prints out the show_statistics() and then the actual sequence
 
 	char * get_pointer_to_sequence() {return sequence;};
-
+	int get_sequence_length() { return seq_length; };
 };
-
+Sequence::~Sequence()
+{
+	if (sequence != NULL)
+	{
+		delete[] sequence;
+	}
+}
 Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & err_msg)
 {
 	if (_sequence_length == 0)
