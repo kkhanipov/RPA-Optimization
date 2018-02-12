@@ -36,15 +36,26 @@ public:
 	bool show_statistics(ostream & out = cout, ostream &err_msg = cout); // gives the values of the calculate_statistics();
 	bool show_All(ostream & out = cout, ostream &err_msg = cout); // first shows the show_statistics() and then prints the primer_location profile
 
-	unsigned int get_number_forward_primers(ostream &err_msg = cout);
-	unsigned int get_number_reverse_primers(ostream &err_msg = cout);
-	unsigned int get_number_short_amplicons(ostream &err_msg = cout);
-	unsigned int get_number_long_amplicons(ostream &err_msg = cout);
-	unsigned int get_total_lenght_short_amplicons(ostream &err_msg = cout);
-	unsigned int get_total_lenght_long_amplicons(ostream &err_msg = cout);
+	unsigned int get_number_forward_primers() { return number_forward_primers;}
+	unsigned int get_number_reverse_primers() { return number_reverse_primers; }
+	unsigned int get_number_short_amplicons() { return number_short_amplicons; }
+	unsigned int get_number_long_amplicons() { return number_long_amplicons; }
+	unsigned int get_total_lenght_short_amplicons() { return total_lenght_short_amplicons; }
+	unsigned int get_total_lenght_long_amplicons() { return total_lenght_long_amplicons; }
 
-
-
-
-	
 };
+
+PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream &err_msg)
+{
+	number_forward_primers = 0;
+	number_reverse_primers = 0;
+	number_short_amplicons = 0;
+	number_long_amplicons = 0;
+	total_lenght_short_amplicons = 0;
+	total_lenght_long_amplicons = 0;
+	p_set = new Primer_Set(_primer_set, err_msg);
+	sequence = new Sequence(_sequence, err_msg);
+
+	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
+	primer_locations = new int[profile_length];
+}

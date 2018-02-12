@@ -27,8 +27,8 @@ public:
 	bool add_sequence(Sequence * _sequence, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by sequence object
 	bool add_sequence(char * _sequence, unsigned int _sequence_length, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by giving the actual sequence
 	
-	unsigned int get_number_of_sequences() { return number_of_sequences; };
-	Sequence * get_pointer_to_sequence_object(unsigned int position) { return sequence[position]; };
+	unsigned int get_number_of_sequences() { return number_of_sequences; }
+	Sequence * get_pointer_to_sequence_object(unsigned int position) { return sequence[position]; }
 };
 Array_Sequences::~Array_Sequences()
 {
