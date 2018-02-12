@@ -15,7 +15,7 @@ class PCR_Profile
 	//0 will denote a non mapped location, -1 will denote a reverse mapping primer location, -5 will denote positions which are not available due to unknown nucletodies 
 	//being present there, 5 will denote if there are primers in both directions at the same location.
 	unsigned int * pos_strand_sequence_int_profile;
-	unsigned int * neg_strand_sequence_int_profile;
+	//unsigned int * neg_strand_sequence_int_profile;
 
 	Sequence * sequence;
 	//sequence to use for the primer_locations_profile
@@ -32,10 +32,11 @@ class PCR_Profile
 	unsigned int max_primer_distance;
 
 public:
+	PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profile_b, ostream &err_msg = cout);
 	PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg = cout);
 	PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream &err_msg = cout);
 
-
+	bool PCR_profile_calculation(ostream &err_msg = cout);
 	bool calculate_statistics(ostream & out = cout, ostream &err_msg = cout); //calculates statistics on the primer_locations array
 
 	bool show_statistics(ostream & out = cout, ostream &err_msg = cout); // gives the values of the calculate_statistics();
@@ -47,8 +48,55 @@ public:
 	unsigned int get_number_long_amplicons() { return number_long_amplicons; }
 	unsigned int get_total_lenght_short_amplicons() { return total_lenght_short_amplicons; }
 	unsigned int get_total_lenght_long_amplicons() { return total_lenght_long_amplicons; }
-
+	unsigned int get_profile_length() { return profile_length; }
+	Primer_Set * get_pointer_to_primer_set() { return p_set; }
+	int * get_pointer_to_primer_locations() { return primer_locations; }
 };
+PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profile_b, ostream &err_msg)
+{
+	number_forward_primers = 0;
+	number_reverse_primers = 0;
+	number_short_amplicons = 0;
+	number_long_amplicons = 0;
+	total_lenght_short_amplicons = 0;
+	total_lenght_long_amplicons = 0;
+	min_primer_distance = 50;
+	max_primer_distance = 1500;
+	if (_pcr_profile_a->get_profile_length() != _pcr_profile_b->get_profile_length())
+	{
+		err_msg << "ERROR: PCR_Profile::PCR_Profile(...) Profile Lenght of Profiles A and B is not the same" << endl;
+		throw("PCR Profiles must have same profile lenght");
+	}
+	profile_length = _pcr_profile_a->get_profile_length();
+	unsigned int max_number_of_primers = _pcr_profile_a->get_pointer_to_primer_set()->get_number_of_primers() + _pcr_profile_b->get_pointer_to_primer_set()->get_number_of_primers();
+	p_set = new Primer_Set(max_number_of_primers);
+
+	for (int i = 0; i < _pcr_profile_a->get_pointer_to_primer_set()->get_number_of_primers(); i++)
+	{
+		p_set->add_primer(_pcr_profile_a->get_pointer_to_primer_set()->get_primer_as_value(i));
+	}
+
+	for (int i = 0; i < _pcr_profile_b->get_pointer_to_primer_set()->get_number_of_primers(); i++)
+	{
+		p_set->add_primer(_pcr_profile_b->get_pointer_to_primer_set()->get_primer_as_value(i));
+	}
+	primer_locations = new int[profile_length];
+	for (int i = 0; i < profile_length; i++)
+	{
+		primer_locations[i] = _pcr_profile_a->get_pointer_to_primer_locations()[i];
+	}
+	for (int i = 0; i < profile_length; i++)
+	{
+		if (primer_locations[i] == -5) continue;
+		if (primer_locations[i] == 5) continue;
+		if (primer_locations[i] == 1 && _pcr_profile_b->get_pointer_to_primer_locations()[i] == 1) continue;
+		if (primer_locations[i] == -1 && _pcr_profile_b->get_pointer_to_primer_locations()[i] == -1) continue;
+		if (primer_locations[i] == 0) primer_locations[i] = _pcr_profile_b->get_pointer_to_primer_locations()[i];
+
+		
+	}
+
+}
 
 PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream &err_msg)
 {
@@ -68,10 +116,7 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
 	primer_locations = new int[profile_length];
 	pos_strand_sequence_int_profile = new unsigned int [profile_length];
-	for (int i = 0; i < profile_length; i++)
-	{
-		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], pos_strand_sequence_int_profile[i]);
-	}
+	
 }
 
 bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
@@ -87,33 +132,41 @@ bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
 {
 	show_statistics();
 }
-bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
+
+bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 {
+	for (int j = 0; j < profile_length; j++)
+	{
+		primer_locations[j] = 0;
+	}
+
 	for (int i = 0; i < p_set->get_number_of_primers; i++)
+	{
+		for (int j = 0; j < profile_length; j++)
 		{
-			for (int j = 0; j < profile_length; j++)
+			if (pos_strand_sequence_int_profile[j] == 999999999)
 			{
-				primer_locations[j] = 0;
+				primer_locations[j] = -5;
+				continue;
+			}
 
-				if (pos_strand_sequence_int_profile[j] == 999999999)
-				{
-					primer_locations[j] = -5;
-					continue;
-				}
-
-				if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_primer_array[i])
-				{
-					primer_locations[j] = 1;
-				}
-				if (pos_strand_sequence_int_profile[j] == p_set->convert_primer_to_reverse_complement(i))
-				{
-					if (primer_locations[j] == 1) primer_locations[j] = 5;
-					else primer_locations[j] = -1;
-				}
-		
+			if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_primer_array[i])
+			{
+				if (primer_locations[j] == -1 || primer_locations[j] == 5) primer_locations[j] = 5;
+				else primer_locations[j] = 1;
+			}
+			if (pos_strand_sequence_int_profile[j] == p_set->convert_primer_to_reverse_complement(i))
+			{
+				if (primer_locations[j] == 1 || primer_locations[j] == 5) primer_locations[j] = 5;
+				else primer_locations[j] = -1;
 			}
 
 		}
+
+	}
+}
+bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
+{
 	unsigned int start_position = 0;
 	unsigned int end_position = 0;
 	for (int i = 0; i < profile_length; i++)

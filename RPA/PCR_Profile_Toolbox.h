@@ -9,3 +9,8 @@ public:
 	//takes two PCR profiles and merges them into a new third one. As part of the process, it recalculates the statistics in the new PCR profile.
 
 };
+
+bool PCR_Profile_Toolbox::merge_pcr_profiles(PCR_Profile * & resulting, PCR_Profile * input_a, PCR_Profile * input_b, ostream &err_msg)
+{
+	return true;
+}
