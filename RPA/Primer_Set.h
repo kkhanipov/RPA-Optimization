@@ -39,7 +39,7 @@ public:
 
 	bool convert_primer_int_to_txt(unsigned int primer_value, char *& primer, ostream & err_msg = cout);
 	bool convert_primer_txt_to_int(char * primer, unsigned int & primer_value,  ostream & err_msg = cout);
-
+	unsigned int convert_primer_to_reverse_complement(int position, ostream & err_msg = cout);
 	unsigned int * get_pointer_to_primer_array() { return primer; };
 
 	unsigned int get_number_of_primers() { return number_of_primers; };
@@ -53,7 +53,23 @@ Primer_Set::Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg)
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
 }
-
+bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer_value, ostream & err_msg)
+{
+	primer_value = 0;
+	int n = 1024;
+	for (int i = 0; i < 6; i++)
+	{
+		switch (_primer[i])
+		{
+			case 'A':primer_value += 0; break;
+			case 'T':primer_value += n; break;
+			case 'C':primer_value += n * 2; break;
+			case 'G':primer_value += n * 3; break;
+			default: return 999999999;
+		}
+		n /= 4;
+	}
+}
 Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg)
 {
 	Array_Sequences * as = new Array_Sequences(filename, err_msg);

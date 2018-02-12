@@ -14,6 +14,8 @@ class PCR_Profile
 	// an array the size of the seqeunce of interest to denote where the primers from the p_set are mapping. +1 will denote forward mapping primer location, 
 	//0 will denote a non mapped location, -1 will denote a reverse mapping primer location, -5 will denote positions which are not available due to unknown nucletodies 
 	//being present there, 5 will denote if there are primers in both directions at the same location.
+	unsigned int * pos_strand_sequence_int_profile;
+	unsigned int * neg_strand_sequence_int_profile;
 
 	Sequence * sequence;
 	//sequence to use for the primer_locations_profile
@@ -25,6 +27,9 @@ class PCR_Profile
 	unsigned int number_long_amplicons;// calculated by calculate_statistics(), contains the number of amplicons of a good size than designed by a global variable in the primer locations profile
 	unsigned int total_lenght_short_amplicons; // calculated by calculate_statistics(),  total length of the primer locations profile covered by short amplicons
 	unsigned int total_lenght_long_amplicons;// calculated by calculate_statistics(),  total length of the primer locations profile covered by long amplicons
+
+	unsigned int min_primer_distance;
+	unsigned int max_primer_distance;
 
 public:
 	PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg = cout);
@@ -53,9 +58,89 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	number_long_amplicons = 0;
 	total_lenght_short_amplicons = 0;
 	total_lenght_long_amplicons = 0;
+	min_primer_distance = 50;
+	max_primer_distance = 1500;
+
 	p_set = new Primer_Set(_primer_set, err_msg);
 	sequence = new Sequence(_sequence, err_msg);
 
+	
 	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
 	primer_locations = new int[profile_length];
+	pos_strand_sequence_int_profile = new unsigned int [profile_length];
+	for (int i = 0; i < profile_length; i++)
+	{
+		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], pos_strand_sequence_int_profile[i]);
+	}
+}
+
+bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
+{
+	out << "number_forward_primers " << get_number_forward_primers() << endl;
+	out << "number_reverse_primers " << get_number_reverse_primers() << endl;
+	out << "number_short_amplicons " << get_number_short_amplicons() << endl;
+	out << "number_long_amplicons " << get_number_long_amplicons() << endl;
+	out << "total_lenght_short_amplicons " << get_total_lenght_short_amplicons() << endl;
+	out << "total_lenght_long_amplicons " << get_total_lenght_long_amplicons() << endl;
+}
+bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
+{
+	show_statistics();
+}
+bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
+{
+	for (int i = 0; i < p_set->get_number_of_primers; i++)
+		{
+			for (int j = 0; j < profile_length; j++)
+			{
+				primer_locations[j] = 0;
+
+				if (pos_strand_sequence_int_profile[j] == 999999999)
+				{
+					primer_locations[j] = -5;
+					continue;
+				}
+
+				if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_primer_array[i])
+				{
+					primer_locations[j] = 1;
+				}
+				if (pos_strand_sequence_int_profile[j] == p_set->convert_primer_to_reverse_complement(i))
+				{
+					if (primer_locations[j] == 1) primer_locations[j] = 5;
+					else primer_locations[j] = -1;
+				}
+		
+			}
+
+		}
+	unsigned int start_position = 0;
+	unsigned int end_position = 0;
+	for (int i = 0; i < profile_length; i++)
+	{
+		if (primer_locations[i] == 1 || primer_locations[i] == -1 || primer_locations[i] == 5)
+		{
+			start_position = i;
+		}
+	}
+	for (int i = start_position + 1; i < profile_length; i++)
+	{
+		if (primer_locations[i] == 1 || primer_locations[i] == -1  || primer_locations[i] == 5)
+		{
+			end_position = i;
+			unsigned int distance = end_position - start_position;
+			if (distance >= min_primer_distance && distance <= max_primer_distance)
+			{
+				total_lenght_long_amplicons += distance;
+				number_long_amplicons++;
+			}
+			if (distance < min_primer_distance)
+			{
+				total_lenght_short_amplicons += distance;
+				number_short_amplicons++;
+			}
+			start_position = end_position;
+		}
+	}
+
 }
