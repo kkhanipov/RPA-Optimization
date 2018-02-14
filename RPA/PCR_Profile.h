@@ -91,10 +91,10 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profil
 		if (primer_locations[i] == 5) continue;
 		if (primer_locations[i] == 1 && _pcr_profile_b->get_pointer_to_primer_locations()[i] == 1) continue;
 		if (primer_locations[i] == -1 && _pcr_profile_b->get_pointer_to_primer_locations()[i] == -1) continue;
-		if (primer_locations[i] == 0) primer_locations[i] = _pcr_profile_b->get_pointer_to_primer_locations()[i];
-
-		
+		if (primer_locations[i] + _pcr_profile_b->get_pointer_to_primer_locations()[i] == 0)primer_locations[i] = 5;
+		else _pcr_profile_b->get_pointer_to_primer_locations()[i];
 	}
+
 
 }
 
@@ -169,30 +169,38 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 {
 	unsigned int start_position = 0;
 	unsigned int end_position = 0;
-	for (int i = 0; i < profile_length; i++)
+	for (int j = 0; j < profile_length; j++)
 	{
-		if (primer_locations[i] == 1 || primer_locations[i] == -1 || primer_locations[i] == 5)
+		if (start_position == 0)
 		{
-			start_position = i;
+			for (int i = j; i < profile_length; i++)
+			{
+				if (primer_locations[i] == 1 || primer_locations[i] == 5)
+				{
+					start_position = i;
+				}
+			}
 		}
-	}
-	for (int i = start_position + 1; i < profile_length; i++)
-	{
-		if (primer_locations[i] == 1 || primer_locations[i] == -1  || primer_locations[i] == 5)
+		for (int i = start_position + 1; i < profile_length; i++)
 		{
-			end_position = i;
-			unsigned int distance = end_position - start_position;
-			if (distance >= min_primer_distance && distance <= max_primer_distance)
+			if (primer_locations[i] == -1 || primer_locations[i] == 5)
 			{
-				total_lenght_long_amplicons += distance;
-				number_long_amplicons++;
+				end_position = i;
+				unsigned int distance = end_position - start_position;
+				if (distance >= min_primer_distance && distance <= max_primer_distance)
+				{
+					total_lenght_long_amplicons += distance;
+					number_long_amplicons++;
+				}
+				if (distance < min_primer_distance)
+				{
+					total_lenght_short_amplicons += distance;
+					number_short_amplicons++;
+				}
+				if(primer_locations[i] == 5)start_position = end_position;
+				else start_position = 0;
+				j = end_position;
 			}
-			if (distance < min_primer_distance)
-			{
-				total_lenght_short_amplicons += distance;
-				number_short_amplicons++;
-			}
-			start_position = end_position;
 		}
 	}
 
