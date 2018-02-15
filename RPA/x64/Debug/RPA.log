@@ -1,9 +1,22 @@
 ﻿  main.cpp
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(53): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(82): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(38): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(148): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(156): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(86): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(41): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(159): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(74): warning C4305: 'return': truncation from 'int' to 'bool'
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(92): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(115): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(139): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(146): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(181): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(206): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(232): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\main.cpp(13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(78): warning C4715: 'Primer_Set::convert_primer_txt_to_int': not all control paths return a value
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(193): warning C4715: 'Primer_Set::show_All': not all control paths return a value
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(216): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(242): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
   RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.exe
   RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.pdb (Partial PDB)

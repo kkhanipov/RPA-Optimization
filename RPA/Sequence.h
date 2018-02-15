@@ -1,3 +1,6 @@
+#ifndef Sequence_H
+#define Sequence_H
+
 #include <iostream>
 
 using namespace std;
@@ -88,3 +91,6 @@ bool Sequence::show_All(ostream & out, ostream &err_msg)
 
 	return true;
 }
+
+
+#endif

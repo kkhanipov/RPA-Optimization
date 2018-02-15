@@ -1,3 +1,6 @@
+#ifndef Array_Sequences_H
+#define Array_Sequences_H
+
 #include "Sequence.h"
 #include <iostream>
 #include <fstream>
@@ -159,3 +162,5 @@ bool Array_Sequences::show_All(ostream & out, ostream &err_msg)
 	}
 	return true;
 }
+
+#endif

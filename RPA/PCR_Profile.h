@@ -1,3 +1,7 @@
+#ifndef PCR_Profile_H
+#define PCR_Profile_H
+
+
 #include "Primer_Set.h"
 #include "Sequence.h"
 #include <iostream>
@@ -205,3 +209,6 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 	}
 
 }
+
+
+#endif

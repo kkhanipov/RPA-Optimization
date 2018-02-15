@@ -1,5 +1,11 @@
+#ifndef Primer_Set_H
+#define Primer_Set_H
+
+
 #include <iostream>
 #include "Array_Sequences.h"
+
+
 using namespace std;
 //this object will hold a list of primers to be used in the computation. It will be part of the PCR profile object. 
 
@@ -11,11 +17,11 @@ class Primer_Set
 	unsigned int max_number_of_primers; // the array size of the list
 
 	unsigned int number_of_primers; // the number of primers in the list
-	
+
 public:
 
 	Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg = cout);
-	Primer_Set(char * filename, unsigned int _max_number_of_primers,ostream & err_msg = cout); // ability to read a list or primers from a FASTA file
+	Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg = cout); // ability to read a list or primers from a FASTA file
 	Primer_Set(Primer_Set * primer_set, ostream & err_msg = cout);
 	Primer_Set(unsigned int * primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout); //constructor to make a primer set from a array of primers converted to integers
 	Primer_Set(char ** primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout);//constructor to make a primer set from a array of primers in char array
@@ -23,12 +29,12 @@ public:
 	bool write_to_file(char * filename, ostream & err_msg = cout); //writes the list of primers in FASTA format to file
 
 	bool show_statistics(ostream & out = cout, ostream &err_msg = cout); //prints out the nucleotide contribution of the sequence
-	 
+
 	bool show_All(ostream & out = cout, ostream &err_msg = cout); //prints out the show_statistics() and then the actual sequences
 
 	unsigned int get_primer_as_value(unsigned int position) { return primer[position]; }
 
-//	bool get_primer_as_txt(unsigned int position, char *& primer, ostream & err_msg = cout); //copies the primers to the char ** primers object as text
+	//	bool get_primer_as_txt(unsigned int position, char *& primer, ostream & err_msg = cout); //copies the primers to the char ** primers object as text
 
 	bool delete_primer(int position, ostream & err_msg = cout); //ability to mark a primer for deletion at a specific position in the array. 
 //	bool delete_primer(int primer_value, ostream & err_msg = cout); //mark a primer for deletion based on its value
@@ -38,7 +44,7 @@ public:
 	bool add_primer(char * primer, ostream & err_msg = cout); // add a primer to the array based on its sequence
 
 	bool convert_primer_int_to_txt(unsigned int primer_value, char *& primer, ostream & err_msg = cout);
-	bool convert_primer_txt_to_int(char * primer, unsigned int & primer_value,  ostream & err_msg = cout);
+	bool convert_primer_txt_to_int(char * primer, unsigned int & primer_value, ostream & err_msg = cout);
 	unsigned int convert_primer_to_reverse_complement(int position, ostream & err_msg = cout);
 	unsigned int * get_pointer_to_primer_array() { return primer; };
 
@@ -61,11 +67,11 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 	{
 		switch (_primer[i])
 		{
-			case 'A':primer_value += 0; break;
-			case 'T':primer_value += n; break;
-			case 'C':primer_value += n * 2; break;
-			case 'G':primer_value += n * 3; break;
-			default: return 999999999;
+		case 'A':primer_value += 0; break;
+		case 'T':primer_value += n; break;
+		case 'C':primer_value += n * 2; break;
+		case 'G':primer_value += n * 3; break;
+		default: return 999999999;
 		}
 		n /= 4;
 	}
@@ -73,7 +79,7 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg)
 {
 	Array_Sequences * as = new Array_Sequences(filename, err_msg);
-	number_of_primers=as->get_number_of_sequences();
+	number_of_primers = as->get_number_of_sequences();
 	if (number_of_primers == 0)
 	{
 		err_msg << "Primer_Set::Primer_Set(...) 0 primers were read from the file";
@@ -112,7 +118,7 @@ bool Primer_Set::write_to_file(char * filename, ostream & err_msg)
 		char * text_primer;
 		if (!convert_primer_int_to_txt(primer[i], text_primer))
 		{
-			err_msg << "ERROR: bool Primer_Set::write_to_file() could not convert primer "<<i<< " to text" << endl;
+			err_msg << "ERROR: bool Primer_Set::write_to_file() could not convert primer " << i << " to text" << endl;
 		}
 		out << text_primer << endl;
 	}
@@ -163,6 +169,11 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 	return true;
 }
 
+bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& primer, ostream & err_msg)
+{
+	return true;
+}
+
 bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 {
 	show_statistics();
@@ -173,11 +184,12 @@ bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 		if (!convert_primer_int_to_txt(primer[i], text))
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
-		}
-		cout << "Primer id: " << i << " text: " << text << endl;
-	}
 
-	return true;
+			cout << "Primer id: " << i << " text: " << text << endl;
+		}
+
+		return true;
+	}
 }
 bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 {
@@ -228,3 +240,8 @@ bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
 	primer[number_of_primers] = primer_value;
 	number_of_primers++;
 }
+
+
+
+
+#endif // !Primer_Set_H
