@@ -116,7 +116,6 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	p_set = new Primer_Set(_primer_set, err_msg);
 	sequence = new Sequence(_sequence, err_msg);
 
-	
 	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
 	primer_locations = new int[profile_length];
 	pos_strand_sequence_int_profile = new unsigned int [profile_length];

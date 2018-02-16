@@ -18,7 +18,7 @@ void test_1()
 		pareto[i] = 0;
 	}
 	
-	Optimization_Toolbox::calculate_pareto_frontier(x, y, pareto, 100, true, false);
+	Optimization_Toolbox::calculate_pareto_frontier(x, y, pareto, 100, false, true);
 }
 
 int main()

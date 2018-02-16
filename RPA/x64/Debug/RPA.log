@@ -2,9 +2,9 @@
 c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(44): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(57): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(86): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(41): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(151): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(159): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(150): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(158): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(74): warning C4305: 'return': truncation from 'int' to 'bool'
 c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(92): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(115): warning C4018: '<': signed/unsigned mismatch

@@ -37,8 +37,7 @@ Array_Sequences::~Array_Sequences()
 {
 	if (sequence != NULL)
 	{
-
-		for (int i = 0; i < number_of_sequences; i++) sequence[i]->~Sequence();
+		for (int i = 0; i < number_of_sequences; i++) if(sequence[i]!=NULL) delete sequence[i];
 		delete[] sequence;
 	}
 }
