@@ -22,7 +22,41 @@ void test_1()
 	
 	Optimization_Toolbox::calculate_pareto_frontier(x, y, pareto, 100, false, true);
 }
+bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_pcr_profiles, PCR_Profile *& optimal_solution)
+{
+	double *genome_coverage, *genome_overrepresentation;
+	bool *pareto_set;
 
+	genome_coverage = new double[num_pcr_profiles];
+	genome_overrepresentation = new double[num_pcr_profiles];
+	pareto_set = new bool[num_pcr_profiles];
+
+	for (int i = 0; i < num_pcr_profiles; i++)
+	{
+		genome_coverage[i] = pcr_profiles_4_comparison[i]->get_total_lenght_long_amplicons();
+		genome_overrepresentation[i] = pcr_profiles_4_comparison[i]->get_total_lenght_short_amplicons();
+		pareto_set[i] = false;
+	}
+
+	Optimization_Toolbox::calculate_pareto_frontier(genome_coverage, genome_overrepresentation, pareto_set, num_pcr_profiles, true, false);
+	srand(time(0));
+	int position = rand()% num_pcr_profiles;
+	int ii = position;
+	for (int i = 0; i < num_pcr_profiles; i++)
+	{
+		if (ii >= num_pcr_profiles) ii = 0;
+		if (pareto_set[ii])
+		{
+			position = i;
+			break;
+		}
+		ii++;
+	}
+
+	optimal_solution = new PCR_Profile(pcr_profiles_4_comparison[position]);
+
+	return true;
+}
 int main()
 {
 
@@ -31,28 +65,28 @@ int main()
 	as->show_Statistics();
 	//as->show_All();
 	Primer_Set * primers = new Primer_Set("primers.fasta", 2048);
-
+	unsigned int number_of_individual_primers = 2048;
 	Primer_Set ** individual_primers;
-	individual_primers = new Primer_Set *[2048];
+	individual_primers = new Primer_Set *[number_of_individual_primers];
 	PCR_Profile ** individual_PCR_profiles;
-	individual_PCR_profiles = new PCR_Profile *[2048];
+	individual_PCR_profiles = new PCR_Profile *[number_of_individual_primers];
 	ofstream log_out;
 	log_out.open("log_file.txt");
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
-
+	//pareralize this loop
 	for (int i = 0; i < 10; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
 		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
 		individual_PCR_profiles[i]->show_All(log_out);
+		cout << "Processed a PCR profile" << endl;
 	}
-
 	log_out.close();
-
-	
-	
+	PCR_Profile * pareto_PCR_profile;
+	prepare_pareto(individual_PCR_profiles, 10, pareto_PCR_profile);
+	pareto_PCR_profile->show_All();
 	
 	system("PAUSE");
 	return 1;

@@ -37,7 +37,7 @@ public:
 
 	//	bool get_primer_as_txt(unsigned int position, char *& primer, ostream & err_msg = cout); //copies the primers to the char ** primers object as text
 
-	bool delete_primer(int position, ostream & err_msg = cout); //ability to mark a primer for deletion at a specific position in the array. 
+	bool delete_primer(int *position, unsigned int number_of_primers_to_delete, ostream & err_msg = cout); //ability to mark a primer for deletion at a specific position in the array. 
 //	bool delete_primer(int primer_value, ostream & err_msg = cout); //mark a primer for deletion based on its value
 //	bool delete_primer(char * primer, ostream & err_msg = cout); //mark a primer for deletion based on its sequence
 
@@ -203,6 +203,7 @@ bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _p
 unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostream & err_msg)
 {
 	char * conversion_primer = new char[primer_length];
+	char * reverse_complement_primer = new char[primer_length];
 	_itoa((int)primer[position], conversion_primer, 10);
 	int ii = 0;
 	for (int i = 5; i >= 0; i--)
@@ -210,15 +211,15 @@ unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostr
 		
 		switch (conversion_primer[i])
 		{
-		case '1':conversion_primer[ii] = 'T'; break;
-		case '2':conversion_primer[ii] = 'A'; break;
-		case '3':conversion_primer[ii] = 'G'; break;
-		case '4':conversion_primer[ii] = 'C'; break;
-		default: conversion_primer[ii] = 'N';
+		case '1':reverse_complement_primer[ii] = '2'; break;
+		case '2':reverse_complement_primer[ii] = '1'; break;
+		case '3':reverse_complement_primer[ii] = '4'; break;
+		case '4':reverse_complement_primer[ii] = '3'; break;
+		default: reverse_complement_primer[ii] = '5';
 		}
 		ii++;
 	}
-	return atoi(conversion_primer);
+	return atoi(reverse_complement_primer);
 }
 bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 {
@@ -286,7 +287,30 @@ bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
 	primer[number_of_primers] = primer_value;
 	number_of_primers++;
 }
-
+bool Primer_Set::delete_primer(int *position, unsigned int number_of_primers_to_delete, ostream & err_msg)
+{
+	unsigned int * _primer = new unsigned[max_number_of_primers];
+	int ii = 0;
+	bool found_primer;
+	for (int i = 0; i < number_of_primers; i++)
+	{
+		found_primer = false;
+		for (int j = 0; j < number_of_primers_to_delete; j++)
+		{
+			if (i == position[j])
+			{
+				found_primer = true;
+				break;
+			}
+		}
+		if(!found_primer)_primer[ii] = primer[i];
+		ii++;
+	}
+	number_of_primers--;
+	delete[] primer;
+	primer = _primer;
+	
+}
 
 
 

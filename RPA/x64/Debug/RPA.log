@@ -1,32 +1,33 @@
 ﻿  main.cpp
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(62): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(75): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\sequence.h(104): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(150): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\array_sequences.h(158): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(69): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(103): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(126): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(150): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(158): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(227): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(235): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(252): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(278): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(79): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(84): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(89): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(93): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(124): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(150): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(155): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(157): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(185): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(189): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(197): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\main.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(262): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(288): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
-  RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.exe
-  RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.pdb (Partial PDB)
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\sequence.h(62): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\sequence.h(75): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\sequence.h(103): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\array_sequences.h(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\array_sequences.h(150): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\array_sequences.h(158): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(103): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(126): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(150): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(158): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(228): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(236): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(253): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(279): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(79): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(84): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(89): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(125): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(153): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(158): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(164): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(185): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(196): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(200): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\pcr_profile.h(210): warning C4018: '<': signed/unsigned mismatch
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\main.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(289): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
+c:\users\kamil\onedrive\documents\rpa-optimization\rpa\primer_set.h(263): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
+  RPA.vcxproj -> C:\Users\kamil\OneDrive\Documents\RPA-Optimization\x64\Debug\RPA.exe
+  RPA.vcxproj -> C:\Users\kamil\OneDrive\Documents\RPA-Optimization\x64\Debug\RPA.pdb (Partial PDB)
