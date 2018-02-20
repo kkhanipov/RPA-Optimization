@@ -141,7 +141,7 @@ bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
 }
 bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
 {
-	show_statistics();
+	show_statistics(out, err_msg);
 	return true;
 }
 

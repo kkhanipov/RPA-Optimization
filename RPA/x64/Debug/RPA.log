@@ -25,8 +25,8 @@ c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(157): warning C4018:
 c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(185): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(189): warning C4018: '<': signed/unsigned mismatch
 c:\users\kamil\documents\rpa-optimization\rpa\pcr_profile.h(197): warning C4018: '<': signed/unsigned mismatch
-c:\users\kamil\documents\rpa-optimization\rpa\main.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(288): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
+c:\users\kamil\documents\rpa-optimization\rpa\main.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(262): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
+c:\users\kamil\documents\rpa-optimization\rpa\primer_set.h(288): warning C4715: 'Primer_Set::add_primer': not all control paths return a value
   RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.exe
   RPA.vcxproj -> C:\Users\Kamil\Documents\RPA-Optimization\x64\Debug\RPA.pdb (Partial PDB)

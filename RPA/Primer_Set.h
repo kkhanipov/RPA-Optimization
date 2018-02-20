@@ -190,8 +190,8 @@ bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _p
 		switch (conversion_primer[i])
 		{
 		case '1':_primer[i] = 'A'; break;
-		case '2':_primer[i] = 'C'; break;
-		case '3':_primer[i] = 'T'; break;
+		case '2':_primer[i] = 'T'; break;
+		case '3':_primer[i] = 'C'; break;
 		case '4':_primer[i] = 'G'; break;
 		default: _primer[i] = 'N';
 		}
@@ -211,8 +211,8 @@ unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostr
 		switch (conversion_primer[i])
 		{
 		case '1':conversion_primer[ii] = 'T'; break;
-		case '2':conversion_primer[ii] = 'G'; break;
-		case '3':conversion_primer[ii] = 'A'; break;
+		case '2':conversion_primer[ii] = 'A'; break;
+		case '3':conversion_primer[ii] = 'G'; break;
 		case '4':conversion_primer[ii] = 'C'; break;
 		default: conversion_primer[ii] = 'N';
 		}
