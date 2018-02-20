@@ -18,6 +18,7 @@ class PCR_Profile
 	// an array the size of the seqeunce of interest to denote where the primers from the p_set are mapping. +1 will denote forward mapping primer location, 
 	//0 will denote a non mapped location, -1 will denote a reverse mapping primer location, -5 will denote positions which are not available due to unknown nucletodies 
 	//being present there, 5 will denote if there are primers in both directions at the same location.
+	
 	unsigned int * pos_strand_sequence_int_profile;
 	//unsigned int * neg_strand_sequence_int_profile;
 
@@ -73,7 +74,7 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profil
 	}
 	profile_length = _pcr_profile_a->get_profile_length();
 	unsigned int max_number_of_primers = _pcr_profile_a->get_pointer_to_primer_set()->get_number_of_primers() + _pcr_profile_b->get_pointer_to_primer_set()->get_number_of_primers();
-	p_set = new Primer_Set(max_number_of_primers);
+	p_set = new Primer_Set(max_number_of_primers, _pcr_profile_a->get_profile_length());
 
 	for (int i = 0; i < _pcr_profile_a->get_pointer_to_primer_set()->get_number_of_primers(); i++)
 	{
@@ -98,6 +99,7 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profil
 		if (primer_locations[i] + _pcr_profile_b->get_pointer_to_primer_locations()[i] == 0)primer_locations[i] = 5;
 		else _pcr_profile_b->get_pointer_to_primer_locations()[i];
 	}
+	calculate_statistics();
 
 
 }
@@ -119,7 +121,12 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
 	primer_locations = new int[profile_length];
 	pos_strand_sequence_int_profile = new unsigned int [profile_length];
-	
+	for (int i = 0; i < profile_length; i++)
+	{
+		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], pos_strand_sequence_int_profile[i]);
+	}
+	PCR_profile_calculation();
+	calculate_statistics();
 }
 
 bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)

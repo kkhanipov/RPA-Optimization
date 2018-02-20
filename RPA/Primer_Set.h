@@ -2,6 +2,7 @@
 #define Primer_Set_H
 
 
+
 #include <iostream>
 #include "Array_Sequences.h"
 
@@ -20,7 +21,7 @@ class Primer_Set
 
 public:
 
-	Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg = cout);
+	Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer_length, ostream & err_msg = cout);
 	Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg = cout); // ability to read a list or primers from a FASTA file
 	Primer_Set(Primer_Set * primer_set, ostream & err_msg = cout);
 	Primer_Set(unsigned int * primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout); //constructor to make a primer set from a array of primers converted to integers
@@ -52,9 +53,9 @@ public:
 	unsigned int get_primer_length() { return primer_length; };
 
 };
-Primer_Set::Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg)
+Primer_Set::Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer_length, ostream & err_msg)
 {
-	primer_length = 0;
+	primer_length = _primer_length;
 	number_of_primers = 0;
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
@@ -62,10 +63,10 @@ Primer_Set::Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg)
 Primer_Set::Primer_Set(Primer_Set * primer_set, ostream & err_msg)
 {
 	primer_length = primer_set->get_primer_length();
-	number_of_primers = primer_set->get_number_of_primers();
+	number_of_primers = 0;
 	max_number_of_primers = 4096;
 	primer = new unsigned int[max_number_of_primers];
-	for(int i=0;i<number_of_primers;i++)add_primer(primer_set->get_primer_as_value(i));
+	for(int i=0;i<primer_set->get_number_of_primers();i++)add_primer(primer_set->get_primer_as_value(i));
 }
 bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer_value, ostream & err_msg)
 {
@@ -76,11 +77,11 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 	{
 		switch (_primer[i])
 		{
-		case 'A':_primer_value[i] = 0; break;
-		case 'T':_primer_value[i] = 1; break;
-		case 'C':_primer_value[i] = 2; break;
-		case 'G':_primer_value[i]=	3; break;
-		default: _primer_value[i] = 5; return true;
+		case 'A':_primer_value[i] = '1'; break;
+		case 'T':_primer_value[i] = '2'; break;
+		case 'C':_primer_value[i] = '3'; break;
+		case 'G':_primer_value[i]=	'4'; break;
+		default: _primer_value[i] = '5'; return true;
 		}
 	}
 	primer_value = atoi(_primer_value);
@@ -199,10 +200,10 @@ bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _p
 	
 	return true;
 }
-unsigned int convert_primer_to_reverse_complement(int position, ostream & err_msg)
+unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostream & err_msg)
 {
 	char * conversion_primer = new char[primer_length];
-	itoa((int)primer[position], conversion_primer, 10);
+	_itoa((int)primer[position], conversion_primer, 10);
 	int ii = 0;
 	for (int i = 5; i >= 0; i--)
 	{
@@ -230,7 +231,9 @@ bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
 		}
-		cout << "Primer id: " << i <<" Primer Value :"<< primer[i] << " text: " << text << endl;
+		out << "Primer id: " << i << " Primer Value :" << primer[i] << " text: ";
+		for (int j = 0; j < primer_length; j++)out << text[j];
+		out << endl;
 	}
 	return true;
 }

@@ -37,8 +37,13 @@ int main()
 	individual_PCR_profiles = new PCR_Profile *[2048];
 	for (int i = 0; i < 2048; i++)
 	{
-		individual_primers[i] = new Primer_Set(1);
+		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
+		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
+		fstream out;
+		out.open("dump.txt");
+		individual_PCR_profiles[i]->show_statistics(out);
+		out.close();
 	}
 
 	
