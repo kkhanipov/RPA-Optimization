@@ -33,27 +33,27 @@ int compare_Sortable_Pareto(const void *_a,const void *_b)
 }
 int compare_Sortable_Pareto_Max_X_Min_Y(const void *_a, const void *_b)
 {
-	Sortable_Pareto a = *((Sortable_Pareto*)_a);
-	Sortable_Pareto b = *((Sortable_Pareto*)_b);
-	if (a.x > b.x) return -1;
-	if (a.x == b.x && a.y<b.y) return -1;
-	else return 1;
+	Sortable_Pareto *a = (Sortable_Pareto*)_a;
+	Sortable_Pareto *b = (Sortable_Pareto*)_b;
+	if (a->x > b->x) return -1;
+	if (a->x == b->x && a->y < b->y) return -1;
+	return 1;
 }
 int compare_Sortable_Pareto_Max_X_Max_Y(const void *_a, const void *_b)
 {
-	Sortable_Pareto a = *((Sortable_Pareto*)_a);
-	Sortable_Pareto b = *((Sortable_Pareto*)_b);
-	if (a.x > b.x) return -1;
-	if (a.x == b.x && a.y>b.y) return -1;
-	else return 1;
+	Sortable_Pareto *a = (Sortable_Pareto*)_a;
+	Sortable_Pareto *b = (Sortable_Pareto*)_b;
+	if (a->x > b->x) return -1;
+	if (a->x == b->x && a->y > b->y) return -1;
+	return 1;
 }
 int compare_Sortable_Pareto_Min_X_Min_Y(const void *_a, const void *_b)
 {
-	Sortable_Pareto a = *((Sortable_Pareto*)_a);
-	Sortable_Pareto b = *((Sortable_Pareto*)_b);
-	if (a.x < b.x) return -1;
-	if (a.x == b.x && a.y<b.y) return -1;
-	else return 1;
+	Sortable_Pareto *a = (Sortable_Pareto*)_a;
+	Sortable_Pareto *b = (Sortable_Pareto*)_b;
+	if (a->x < b->x) return -1;
+	if (a->x == b->x && a->y < b->y) return -1;
+	return 1;
 }
 int compare_Sortable_Pareto_Min_X_Max_Y(const void *_a, const void *_b)
 {
@@ -62,11 +62,6 @@ int compare_Sortable_Pareto_Min_X_Max_Y(const void *_a, const void *_b)
 	if (a->y > b->y) return -1;
 	if (a->y == b->y && a->x < b->x) return -1;
 	return 1;
-	//supposed to be lke 8x faster
-	//can u run your test thing and make sure it works
-	//yes
-	//ok
-
 }
 
 bool Optimization_Toolbox::calculate_pareto_frontier(double * x, double * y, bool * pareto_set, unsigned int number_of_values, bool maximize_x, bool maximize_y, ostream &err_msg)

@@ -28,7 +28,9 @@ int main()
 	as = new Array_Sequences("test.fasta");
 	as->show_Statistics();
 	as->show_All();
-
+	Primer_Set * pr;
+	pr = new Primer_Set("primers.fasta", 2000);
+	pr->show_All();
 	test_1();
 	system("PAUSE");
 	return 1;
