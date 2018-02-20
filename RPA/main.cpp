@@ -27,9 +27,9 @@ int main()
 {
 
 	Array_Sequences * as;
-	as = new Array_Sequences("test.fasta");
+	as = new Array_Sequences("sequence.fasta");
 	as->show_Statistics();
-	as->show_All();
+	//as->show_All();
 	Primer_Set * primers = new Primer_Set("primers.fasta", 2048);
 
 	Primer_Set ** individual_primers;
@@ -41,7 +41,7 @@ int main()
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 
-	for (int i = 0; i < 2048; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));

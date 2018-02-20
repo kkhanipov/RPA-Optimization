@@ -81,7 +81,7 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 		case 'T':_primer_value[i] = '2'; break;
 		case 'C':_primer_value[i] = '3'; break;
 		case 'G':_primer_value[i]=	'4'; break;
-		default: _primer_value[i] = '5'; return true;
+		default: strcpy(_primer_value, "555555"); primer_value = atoi(_primer_value);  return true;
 		}
 	}
 	primer_value = atoi(_primer_value);
@@ -99,10 +99,10 @@ Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ost
 	primer_length = as->get_pointer_to_sequence_object(0)->get_sequence_length();
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
-	unsigned int primer_val = 999999999;
+	unsigned int primer_val = 555555;
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		primer_val = 999999999;
+		primer_val = 555555;
 		convert_primer_txt_to_int(as->get_pointer_to_sequence_object(i)->get_pointer_to_sequence(), primer_val);
 		primer[i] = primer_val;
 	}

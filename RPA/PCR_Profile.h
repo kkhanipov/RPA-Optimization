@@ -121,9 +121,12 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	profile_length = sequence->get_sequence_length()-p_set->get_primer_length();
 	primer_locations = new int[profile_length];
 	pos_strand_sequence_int_profile = new unsigned int [profile_length];
+	unsigned int primer_val = 0;
 	for (int i = 0; i < profile_length; i++)
 	{
-		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], pos_strand_sequence_int_profile[i]);
+		primer_val = 0;
+		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], primer_val);
+		pos_strand_sequence_int_profile[i] = primer_val;
 	}
 	PCR_profile_calculation();
 	calculate_statistics();
@@ -156,7 +159,7 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 	{
 		for (int j = 0; j < profile_length; j++)
 		{
-			if (pos_strand_sequence_int_profile[j] == 999999999)
+			if (pos_strand_sequence_int_profile[j] == 555555)
 			{
 				primer_locations[j] = -5;
 				continue;
@@ -191,6 +194,8 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 				if (primer_locations[i] == 1 || primer_locations[i] == 5)
 				{
 					start_position = i;
+					number_forward_primers++;
+					break;
 				}
 			}
 		}
@@ -199,7 +204,9 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 			if (primer_locations[i] == -1 || primer_locations[i] == 5)
 			{
 				end_position = i;
+				number_reverse_primers++;
 				unsigned int distance = end_position - start_position;
+				cout << "Distance " << distance << endl;
 				if (distance >= min_primer_distance && distance <= max_primer_distance)
 				{
 					total_lenght_long_amplicons += distance;
@@ -212,8 +219,9 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 				}
 				if(primer_locations[i] == 5)start_position = end_position;
 				else start_position = 0;
-				j = end_position;
+				break;
 			}
+			j = i;
 		}
 	}
 	return true;

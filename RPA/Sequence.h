@@ -83,7 +83,6 @@ bool Sequence::show_statistics(ostream & out, ostream &err_msg)
 		case 'N':case 'n': count_N++; break;
 		default:
 			err_msg << "ERROR: Sequence::Sequence ==> unexpected character: sequence[" << i << "]=" << dna_sequence[i] << endl;
-			return false;
 		}
 	}
 
