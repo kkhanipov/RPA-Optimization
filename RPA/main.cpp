@@ -3,6 +3,7 @@
 #include "Primer_Set.h"
 #include "Optimization_Toolbox.h"
 #include <time.h>
+#include "PCR_Profile.h"
 using namespace std;
 
 void test_1()
@@ -28,10 +29,20 @@ int main()
 	as = new Array_Sequences("test.fasta");
 	as->show_Statistics();
 	as->show_All();
-	Primer_Set * pr;
-	pr = new Primer_Set("primers.fasta", 2000);
-	pr->show_All();
-	test_1();
+	Primer_Set * primers = new Primer_Set("primers.fasta", 2048);
+
+	Primer_Set ** individual_primers;
+	individual_primers = new Primer_Set *[2048];
+	PCR_Profile ** individual_PCR_profiles;
+	individual_PCR_profiles = new PCR_Profile *[2048];
+	for (int i = 0; i < 2048; i++)
+	{
+		individual_primers[i] = new Primer_Set(1);
+		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
+	}
+
+	
+	
 	system("PAUSE");
 	return 1;
 }

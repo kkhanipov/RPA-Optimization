@@ -130,10 +130,12 @@ bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
 	out << "number_long_amplicons " << get_number_long_amplicons() << endl;
 	out << "total_lenght_short_amplicons " << get_total_lenght_short_amplicons() << endl;
 	out << "total_lenght_long_amplicons " << get_total_lenght_long_amplicons() << endl;
+	return true;
 }
 bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
 {
 	show_statistics();
+	return true;
 }
 
 bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
@@ -143,7 +145,7 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 		primer_locations[j] = 0;
 	}
 
-	for (int i = 0; i < p_set->get_number_of_primers; i++)
+	for (int i = 0; i < p_set->get_number_of_primers(); i++)
 	{
 		for (int j = 0; j < profile_length; j++)
 		{
@@ -153,7 +155,7 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 				continue;
 			}
 
-			if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_primer_array[i])
+			if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_primer_array()[i])
 			{
 				if (primer_locations[j] == -1 || primer_locations[j] == 5) primer_locations[j] = 5;
 				else primer_locations[j] = 1;
@@ -167,6 +169,7 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 		}
 
 	}
+	return true;
 }
 bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 {
@@ -206,7 +209,7 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 			}
 		}
 	}
-
+	return true;
 }
 
 

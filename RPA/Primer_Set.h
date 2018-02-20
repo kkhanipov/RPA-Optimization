@@ -59,22 +59,32 @@ Primer_Set::Primer_Set(unsigned int _max_number_of_primers, ostream & err_msg)
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
 }
+Primer_Set::Primer_Set(Primer_Set * primer_set, ostream & err_msg)
+{
+	primer_length = primer_set->get_primer_length();
+	number_of_primers = primer_set->get_number_of_primers();
+	max_number_of_primers = 4096;
+	primer = new unsigned int[max_number_of_primers];
+	for(int i=0;i<number_of_primers;i++)add_primer(primer_set->get_primer_as_value(i));
+}
 bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer_value, ostream & err_msg)
 {
 	primer_value = 0;
-	int n = 1024;
+	char * _primer_value;
+	_primer_value = new char[primer_length];
 	for (int i = 0; i < 6; i++)
 	{
 		switch (_primer[i])
 		{
-		case 'A':primer_value += 0; break;
-		case 'T':primer_value += n; break;
-		case 'C':primer_value += n * 2; break;
-		case 'G':primer_value += n * 3; break;
-		default: return 999999999;
+		case 'A':_primer_value[i] = 0; break;
+		case 'T':_primer_value[i] = 1; break;
+		case 'C':_primer_value[i] = 2; break;
+		case 'G':_primer_value[i]=	3; break;
+		default: _primer_value[i] = 5; return true;
 		}
-		n /= 4;
 	}
+	primer_value = atoi(_primer_value);
+	return true;
 }
 Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg)
 {
@@ -138,7 +148,8 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 	out << "Number of primers is " << number_of_primers << endl;
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		char * text;
+		char * text = NULL;
+		
 		if (!convert_primer_int_to_txt(primer[i], text))
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
@@ -166,30 +177,62 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 	out << "N :" << count_N << endl;
 
 	return true;
-	return true;
 }
 
-bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& primer, ostream & err_msg)
+bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _primer, ostream & err_msg)
 {
+	_primer = new char[primer_length+1];
+	char * conversion_primer = new char[primer_length];
+	_itoa((int)primer_value, conversion_primer, 10);
+	for (int i = 0; i < 6; i++)
+	{
+		switch (conversion_primer[i])
+		{
+		case '1':_primer[i] = 'A'; break;
+		case '2':_primer[i] = 'C'; break;
+		case '3':_primer[i] = 'T'; break;
+		case '4':_primer[i] = 'G'; break;
+		default: _primer[i] = 'N';
+		}
+	}
+	_primer[primer_length] = '\0';
+	
 	return true;
 }
-
+unsigned int convert_primer_to_reverse_complement(int position, ostream & err_msg)
+{
+	char * conversion_primer = new char[primer_length];
+	itoa((int)primer[position], conversion_primer, 10);
+	int ii = 0;
+	for (int i = 5; i >= 0; i--)
+	{
+		
+		switch (conversion_primer[i])
+		{
+		case '1':conversion_primer[ii] = 'T'; break;
+		case '2':conversion_primer[ii] = 'G'; break;
+		case '3':conversion_primer[ii] = 'A'; break;
+		case '4':conversion_primer[ii] = 'C'; break;
+		default: conversion_primer[ii] = 'N';
+		}
+		ii++;
+	}
+	return atoi(conversion_primer);
+}
 bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 {
 	show_statistics();
 
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		char * text;
+		char * text = NULL;
 		if (!convert_primer_int_to_txt(primer[i], text))
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
-
-			cout << "Primer id: " << i << " text: " << text << endl;
 		}
-
-		return true;
+		cout << "Primer id: " << i <<" Primer Value :"<< primer[i] << " text: " << text << endl;
 	}
+	return true;
 }
 bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 {

@@ -29,6 +29,24 @@ Sequence::~Sequence()
 		delete[] dna_sequence;
 	}
 }
+Sequence::Sequence(Sequence *_sequence, ostream & err_msg)
+{
+	if (_sequence->get_sequence_length() == 0)
+	{
+		err_msg << "ERROR: Sequence::Sequence ==> _sequence_length == 0" << endl; throw ("Sequence could not be allocated b/c length is 0");
+	}
+	dna_sequence = new char[_sequence->get_sequence_length()];
+	seq_length = _sequence->get_sequence_length();
+	if (dna_sequence == NULL)
+	{
+		err_msg << "ERROR: Sequence::Sequence ==> sequence == NULL" << endl; throw ("Sequence could not be allocated");
+	}
+	for (int i = 0; i < _sequence->get_sequence_length(); i++)
+	{
+		dna_sequence[i] = _sequence->get_pointer_to_sequence()[i];
+	}
+}
+
 Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & err_msg)
 {
 	if (_sequence_length == 0)
