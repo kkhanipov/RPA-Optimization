@@ -76,6 +76,7 @@ int main()
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
+	#pragma omp parallel for schedule (static)
 	for (int i = 0; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
