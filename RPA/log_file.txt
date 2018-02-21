@@ -22,3 +22,9 @@ number_short_amplicons 407
 number_long_amplicons 5787
 total_lenght_short_amplicons 11024
 total_lenght_long_amplicons 3438571
+number_forward_primers 14043
+number_reverse_primers 14042
+number_short_amplicons 1524
+number_long_amplicons 10087
+total_lenght_short_amplicons 32098
+total_lenght_long_amplicons 5099416

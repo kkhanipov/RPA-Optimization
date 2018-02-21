@@ -5,6 +5,7 @@
 #include <time.h>
 #include "PCR_Profile.h"
 #include <fstream>
+#include <cstdlib>
 using namespace std;
 
 void test_1()
@@ -75,7 +76,7 @@ int main()
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
@@ -85,7 +86,7 @@ int main()
 	}
 	log_out.close();
 	PCR_Profile * pareto_PCR_profile;
-	prepare_pareto(individual_PCR_profiles, 10, pareto_PCR_profile);
+	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_PCR_profile);
 	pareto_PCR_profile->show_All();
 	
 	system("PAUSE");

@@ -1,7 +1,8 @@
 #include <iostream>
 #include <assert.h>
 #include <time.h>
-
+#include <limits>
+#include <algorithm>
 using namespace std;
 
 class Optimization_Toolbox

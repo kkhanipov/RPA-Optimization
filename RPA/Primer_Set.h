@@ -4,6 +4,10 @@
 
 
 #include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 #include "Array_Sequences.h"
 
 
@@ -184,7 +188,7 @@ bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _p
 {
 	_primer = new char[primer_length+1];
 	char * conversion_primer = new char[primer_length];
-	_itoa((int)primer_value, conversion_primer, 10);
+	sprintf(conversion_primer, "%d", primer_value);
 	for (int i = 0; i < 6; i++)
 	{
 		switch (conversion_primer[i])
@@ -204,7 +208,7 @@ unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostr
 {
 	char * conversion_primer = new char[primer_length];
 	char * reverse_complement_primer = new char[primer_length];
-	_itoa((int)primer[position], conversion_primer, 10);
+	sprintf(conversion_primer, "%d", primer[position]);
 	int ii = 0;
 	for (int i = 5; i >= 0; i--)
 	{
