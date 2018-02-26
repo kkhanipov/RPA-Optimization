@@ -85,11 +85,16 @@ int main()
 		individual_PCR_profiles[i]->show_All(log_out);
 		cout << "Processed a PCR profile" << endl;
 	}
-	log_out.close();
+
 	PCR_Profile * pareto_PCR_profile;
 	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_PCR_profile);
-	pareto_PCR_profile->show_All();
-	
+	pareto_PCR_profile->show_All(log_out);
+
+	PCR_Profile * temp_pareto_PCR_profile;
+
+
+
+	log_out.close();
 	system("PAUSE");
 	return 1;
 }

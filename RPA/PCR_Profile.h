@@ -154,7 +154,9 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 		p_set->convert_primer_txt_to_int(&sequence->get_pointer_to_sequence()[i], primer_val);
 		pos_strand_sequence_int_profile[i] = primer_val;
 	}
+	delete sequence;
 	PCR_profile_calculation();
+	delete [] pos_strand_sequence_int_profile;
 	calculate_statistics();
 }
 
@@ -208,7 +210,6 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 
 		}
 	}
-	delete sequence;
 	return true;
 }
 bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
