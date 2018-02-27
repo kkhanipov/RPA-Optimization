@@ -103,14 +103,17 @@ bool Optimization_Toolbox::calculate_pareto_frontier(double * x, double * y, boo
 			}
 
 		}
-		cout << "index :" << sorted_set[i].index << "\t";
-		cout << "x :" << sorted_set[i].x << "\t";
-		cout << "y :" << sorted_set[i].y << "\t";
-		cout << "x/y :" << sorted_set[i].x/sorted_set[i].y << "\t";
-		cout << "pareto set :" << sorted_set[i].pareto_set << endl;
+		//err_msg << "index :" << sorted_set[i].index << "\t";
+		//err_msg << "x :" << sorted_set[i].x << "\t";
+		//err_msg << "y :" << sorted_set[i].y << "\t";
+		//err_msg << "x/y :" << sorted_set[i].x/sorted_set[i].y << "\t";
+		//err_msg << "pareto set :" << sorted_set[i].pareto_set << endl;
 	}
 
-	
+	for (unsigned int i = 0; i < number_of_values; i++)
+	{
+		if (sorted_set[i].pareto_set == true) pareto_set[sorted_set[i].index] = true;
+	}
 
 	return true;
 }

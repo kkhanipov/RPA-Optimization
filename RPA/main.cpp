@@ -23,7 +23,7 @@ void test_1()
 	
 	Optimization_Toolbox::calculate_pareto_frontier(x, y, pareto, 100, false, true);
 }
-bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_pcr_profiles, PCR_Profile *& optimal_solution)
+bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_pcr_profiles, PCR_Profile *& optimal_solution, ostream &err_msg)
 {
 	double *genome_coverage, *genome_overrepresentation;
 	bool *pareto_set;
@@ -39,16 +39,16 @@ bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_p
 		pareto_set[i] = false;
 	}
 
-	Optimization_Toolbox::calculate_pareto_frontier(genome_coverage, genome_overrepresentation, pareto_set, num_pcr_profiles, true, false);
+	Optimization_Toolbox::calculate_pareto_frontier(genome_coverage, genome_overrepresentation, pareto_set, num_pcr_profiles, true, false, err_msg);
 	srand(time(0));
-	int position = rand()% num_pcr_profiles;
-	int ii = position;
+	int position = -1;
+	int ii = rand()% num_pcr_profiles;
 	for (int i = 0; i < num_pcr_profiles; i++)
 	{
 		if (ii >= num_pcr_profiles) ii = 0;
-		if (pareto_set[ii])
+		if (pareto_set[ii]==true)
 		{
-			position = i;
+			position = ii;
 			break;
 		}
 		ii++;
@@ -63,6 +63,8 @@ int main()
 
 	Array_Sequences * as;
 	as = new Array_Sequences("sequence.fasta");
+	//as = new Array_Sequences("synthetic.fasta");
+
 	as->show_Statistics();
 	//as->show_All();
 	Primer_Set * primers = new Primer_Set("primers.fasta", 2048);
@@ -83,30 +85,28 @@ int main()
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
 		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
-#pragma omp critical
-		{		cout << "Processed a PCR profile" << endl; }
+//#pragma omp critical
 	}
-	for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
-	PCR_Profile * pareto_PCR_profile;
-	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_PCR_profile);
+	//for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
+	PCR_Profile * pareto_PCR_profile = NULL;
+	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_PCR_profile, log_out);
 	pareto_PCR_profile->show_All();
-
-	PCR_Profile * temp_pareto_PCR_profile;
-	temp_pareto_PCR_profile = new PCR_Profile(pareto_PCR_profile);
 
 	while (true)
 	{
 		PCR_Profile ** temp_pareto_PCR_profile;
 		temp_pareto_PCR_profile = new PCR_Profile *[number_of_individual_primers];
-
+		#pragma omp parallel for
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
 			temp_pareto_PCR_profile[i] = new PCR_Profile(pareto_PCR_profile, individual_PCR_profiles[i]);
-			cout << "Processed a PCR profile" << endl;
+			//cout << "Processed a PCR profile" << endl;
 		}
 
-		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_PCR_profile);
+		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_PCR_profile, log_out);
 		pareto_PCR_profile->show_All();
+		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
+		delete[]temp_pareto_PCR_profile;
 	}
 
 

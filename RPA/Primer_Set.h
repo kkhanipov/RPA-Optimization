@@ -328,7 +328,7 @@ bool Primer_Set::delete_primer(int *position, unsigned int number_of_primers_to_
 	delete[] reverse_complement;
 	primer = _primer;
 	reverse_complement = _reverse_complement;
-	
+	return true;
 }
 
 
