@@ -9,6 +9,7 @@ using namespace std;
 class Sequence
 {
 	char * dna_sequence;
+	int * int_dna_sequence;
 	unsigned int seq_length;
 
 public:

@@ -40,6 +40,7 @@ public:
 	PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profile_b, ostream &err_msg = cout);
 	PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg = cout);
 	PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream &err_msg = cout);
+	PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, unsigned int * _pos_strand_sequence_int_profile, ostream &err_msg = cout);
 
 	bool PCR_profile_calculation(ostream &err_msg = cout);
 	bool calculate_statistics(ostream & out = cout, ostream &err_msg = cout); //calculates statistics on the primer_locations array
@@ -56,6 +57,7 @@ public:
 	unsigned int get_profile_length() { return profile_length; }
 	Primer_Set * get_pointer_to_primer_set() { return p_set; }
 	int * get_pointer_to_primer_locations() { return primer_locations; }
+	unsigned int * get_pointer_to_pos_strand_sequence_int_profile() { return pos_strand_sequence_int_profile; }
 };
 PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profile_b, ostream &err_msg)
 {
@@ -133,7 +135,31 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg)
 		primer_locations[i] = _pcr_profile->get_pointer_to_primer_locations()[i];
 	}
 }
+PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, unsigned int * _pos_strand_sequence_int_profile, ostream &err_msg)
+{
+	number_forward_primers = 0;
+	number_reverse_primers = 0;
+	number_short_amplicons = 0;
+	number_long_amplicons = 0;
+	total_lenght_short_amplicons = 0;
+	total_lenght_long_amplicons = 0;
+	min_primer_distance = 100;
+	max_primer_distance = 500;
 
+	p_set = new Primer_Set(_primer_set, err_msg);
+	
+	profile_length = _sequence->get_sequence_length() - p_set->get_primer_length();
+	primer_locations = new int[profile_length];
+	pos_strand_sequence_int_profile = new unsigned int[profile_length];
+	unsigned int primer_val = 0;
+	for (int i = 0; i < profile_length; i++)
+	{
+		pos_strand_sequence_int_profile[i] = _pos_strand_sequence_int_profile[i];
+	}
+	PCR_profile_calculation();
+	delete[] pos_strand_sequence_int_profile;
+	calculate_statistics();
+}
 PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream &err_msg)
 {
 	number_forward_primers = 0;
@@ -160,7 +186,7 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	}
 	delete sequence;
 	PCR_profile_calculation();
-	delete [] pos_strand_sequence_int_profile;
+	//delete [] pos_strand_sequence_int_profile;
 	calculate_statistics();
 }
 

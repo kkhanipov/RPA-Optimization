@@ -62,8 +62,8 @@ int main()
 {
 
 	Array_Sequences * as;
-	as = new Array_Sequences("sequence.fasta");
-	//as = new Array_Sequences("synthetic.fasta");
+	//as = new Array_Sequences("sequence.fasta");
+	as = new Array_Sequences("synthetic.fasta");
 
 	as->show_Statistics();
 	//as->show_All();
@@ -79,12 +79,16 @@ int main()
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
 	//#pragma omp parallel for schedule (static)
+	individual_primers[0] = new Primer_Set(1, 6);
+	individual_primers[0]->add_primer(primers->get_primer_as_value(0));
+	individual_PCR_profiles[0] = new PCR_Profile(individual_primers[0], as->get_pointer_to_sequence_object(0));
+
 	#pragma omp parallel for
-	for (int i = 0; i < number_of_individual_primers; i++)
+	for (int i = 1; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
-		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
+		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0), individual_PCR_profiles[0]->get_pointer_to_pos_strand_sequence_int_profile());
 //#pragma omp critical
 	}
 	//for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
