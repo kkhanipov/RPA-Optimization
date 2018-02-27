@@ -19,6 +19,7 @@ class Primer_Set
 	unsigned int primer_length; // the length of the primers
 
 	unsigned int * primer; // contains a list of primers in their integer value
+	unsigned int * reverse_complement;
 	unsigned int max_number_of_primers; // the array size of the list
 
 	unsigned int number_of_primers; // the number of primers in the list
@@ -52,6 +53,7 @@ public:
 	bool convert_primer_txt_to_int(char * primer, unsigned int & primer_value, ostream & err_msg = cout);
 	unsigned int convert_primer_to_reverse_complement(int position, ostream & err_msg = cout);
 	unsigned int * get_pointer_to_primer_array() { return primer; };
+	unsigned int * get_pointer_to_reverse_complement_primer_array() { return reverse_complement; };
 
 	unsigned int get_number_of_primers() { return number_of_primers; };
 	unsigned int get_primer_length() { return primer_length; };
@@ -63,6 +65,7 @@ Primer_Set::Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer
 	number_of_primers = 0;
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
+	reverse_complement= new unsigned int[_max_number_of_primers];
 }
 Primer_Set::Primer_Set(Primer_Set * primer_set, ostream & err_msg)
 {
@@ -70,6 +73,7 @@ Primer_Set::Primer_Set(Primer_Set * primer_set, ostream & err_msg)
 	number_of_primers = 0;
 	max_number_of_primers = 4096;
 	primer = new unsigned int[max_number_of_primers];
+	reverse_complement = new unsigned int[max_number_of_primers];
 	for(int i=0;i<primer_set->get_number_of_primers();i++)add_primer(primer_set->get_primer_as_value(i));
 }
 bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer_value, ostream & err_msg)
@@ -103,12 +107,14 @@ Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ost
 	primer_length = as->get_pointer_to_sequence_object(0)->get_sequence_length();
 	max_number_of_primers = _max_number_of_primers;
 	primer = new unsigned int[_max_number_of_primers];
+	reverse_complement = new unsigned int[_max_number_of_primers];
 	unsigned int primer_val = 555555;
 	for (int i = 0; i < number_of_primers; i++)
 	{
 		primer_val = 555555;
 		convert_primer_txt_to_int(as->get_pointer_to_sequence_object(i)->get_pointer_to_sequence(), primer_val);
 		primer[i] = primer_val;
+		reverse_complement[i] = convert_primer_to_reverse_complement(i);
 	}
 	as->~Array_Sequences();
 }
@@ -263,6 +269,7 @@ bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 		}
 	}
 	primer[number_of_primers] = primer_value;
+	reverse_complement[number_of_primers] = convert_primer_to_reverse_complement(number_of_primers);
 	number_of_primers++;
 }
 bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
@@ -289,11 +296,13 @@ bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
 		}
 	}
 	primer[number_of_primers] = primer_value;
+	reverse_complement[number_of_primers] = convert_primer_to_reverse_complement(number_of_primers);
 	number_of_primers++;
 }
 bool Primer_Set::delete_primer(int *position, unsigned int number_of_primers_to_delete, ostream & err_msg)
 {
 	unsigned int * _primer = new unsigned[max_number_of_primers];
+	unsigned int * _reverse_complement = new unsigned[max_number_of_primers];
 	int ii = 0;
 	bool found_primer;
 	for (int i = 0; i < number_of_primers; i++)
@@ -307,12 +316,18 @@ bool Primer_Set::delete_primer(int *position, unsigned int number_of_primers_to_
 				break;
 			}
 		}
-		if(!found_primer)_primer[ii] = primer[i];
+		if (!found_primer)
+		{
+			_primer[ii] = primer[i];
+			_reverse_complement[ii] = reverse_complement[i];
+		}
 		ii++;
 	}
 	number_of_primers--;
 	delete[] primer;
+	delete[] reverse_complement;
 	primer = _primer;
+	reverse_complement = _reverse_complement;
 	
 }
 

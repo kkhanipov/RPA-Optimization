@@ -76,15 +76,14 @@ int main()
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
-	//#pragma omp parallel for schedule (static)
-	#pragma omp parallel for
+	#pragma omp parallel for schedule (static)
 	for (int i = 0; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
 		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
-#pragma omp critical
-		{		cout << "Processed a PCR profile" << endl; }
+		
+		cout << "Processed a PCR profile" << endl;
 	}
 	for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
 	PCR_Profile * pareto_PCR_profile;

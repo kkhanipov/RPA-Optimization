@@ -185,8 +185,9 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 
 	for (int i = 0; i < p_set->get_number_of_primers(); i++)
 	{
+		cout << "num of primers" << p_set->get_number_of_primers() << endl;
 		cout << "Primer " << p_set->get_pointer_to_primer_array()[i]<<endl;
-		cout << "Reverse complement " << p_set->convert_primer_to_reverse_complement(i) << endl;
+		cout << "Reverse complement " << p_set->get_pointer_to_reverse_complement_primer_array()[i] << endl;
 
 
 		for (int j = 0; j < profile_length; j++)
@@ -202,7 +203,7 @@ bool PCR_Profile::PCR_profile_calculation(ostream &err_msg)
 				if (primer_locations[j] == -1 || primer_locations[j] == 5) primer_locations[j] = 5;
 				else primer_locations[j] = 1;
 			}
-			if (pos_strand_sequence_int_profile[j] == p_set->convert_primer_to_reverse_complement(i))
+			if (pos_strand_sequence_int_profile[j] == p_set->get_pointer_to_reverse_complement_primer_array()[i])
 			{
 				if (primer_locations[j] == 1 || primer_locations[j] == 5) primer_locations[j] = 5;
 				else primer_locations[j] = -1;
