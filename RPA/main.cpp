@@ -23,7 +23,7 @@ void test_1()
 	
 	Optimization_Toolbox::calculate_pareto_frontier(x, y, pareto, 100, false, true);
 }
-bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_pcr_profiles, PCR_Profile *& optimal_solution, ostream &err_msg)
+bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_pcr_profiles, unsigned int & optimal_solution, ostream &err_msg=cout)
 {
 	double *genome_coverage, *genome_overrepresentation;
 	bool *pareto_set;
@@ -40,26 +40,27 @@ bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_p
 	}
 
 	Optimization_Toolbox::calculate_pareto_frontier(genome_coverage, genome_overrepresentation, pareto_set, num_pcr_profiles, true, false, err_msg);
-	srand(time(0));
+	
 	int position = -1;
-	int ii = rand()% num_pcr_profiles;
-	for (int i = 0; i < num_pcr_profiles; i++)
-	{
-		if (ii >= num_pcr_profiles) ii = 0;
-		if (pareto_set[ii]==true)
-		{
-			position = ii;
-			break;
-		}
-		ii++;
-	}
-	if (optimal_solution != NULL) delete optimal_solution;
-	optimal_solution = new PCR_Profile(pcr_profiles_4_comparison[position]);
+	
+	int *tmp_pareto = new int[num_pcr_profiles];
+	memset(tmp_pareto, 0, sizeof(int)*num_pcr_profiles);
+	int n_pareto = 0;
+	for (int i = 0; i < num_pcr_profiles; i++) if (pareto_set[i] == true) tmp_pareto[n_pareto++] = i;
+	assert(n_pareto);
+	position = tmp_pareto[rand() % n_pareto];
+	delete[]tmp_pareto;
 
+
+	optimal_solution = position;
+	delete[] genome_coverage;
+	delete[] genome_overrepresentation;
+	delete[] pareto_set;
 	return true;
 }
 int main()
 {
+	srand(time(0));
 
 	Array_Sequences * as;
 	//as = new Array_Sequences("sequence.fasta");
@@ -78,39 +79,67 @@ int main()
 
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
-	//#pragma omp parallel for schedule (static)
+	
 	individual_primers[0] = new Primer_Set(1, 6);
 	individual_primers[0]->add_primer(primers->get_primer_as_value(0));
+	cout << "YIKI" << endl;
 	individual_PCR_profiles[0] = new PCR_Profile(individual_primers[0], as->get_pointer_to_sequence_object(0));
-
+	unsigned int count = 0;
 	#pragma omp parallel for
 	for (int i = 1; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1,6);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
 		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0), individual_PCR_profiles[0]->get_pointer_to_pos_strand_sequence_int_profile());
-//#pragma omp critical
+		count++;
+		#pragma omp critical
+		{if (count % 300 == 0)cout << "Processed " << count << " primers" << endl; }
+			
+		
 	}
 	//for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
-	PCR_Profile * pareto_PCR_profile = NULL;
-	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_PCR_profile, log_out);
+	
+	unsigned int pareto_index;
+	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_index);
+	PCR_Profile * pareto_PCR_profile;
+	pareto_PCR_profile = new PCR_Profile(individual_PCR_profiles[pareto_index]);
+	
 	pareto_PCR_profile->show_All();
 
 	while (true)
 	{
+		count = 0;
 		PCR_Profile ** temp_pareto_PCR_profile;
 		temp_pareto_PCR_profile = new PCR_Profile *[number_of_individual_primers];
 		#pragma omp parallel for
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
 			temp_pareto_PCR_profile[i] = new PCR_Profile(pareto_PCR_profile, individual_PCR_profiles[i]);
-			//cout << "Processed a PCR profile" << endl;
-		}
+			//for (int j = 0; j < temp_pareto_PCR_profile[i]->get_profile_length(); j++)
+			//{
+			//	if (temp_pareto_PCR_profile[i]->get_pointer_to_primer_locations()[j] != 0) cout << temp_pareto_PCR_profile[i]->get_pointer_to_primer_locations()[j];
+			//}
+			//cout << endl;
+			count++;
+			#pragma omp critical
+			{if (count % 300 == 0)cout << "Processed " << count << " primers" << endl; }
 
-		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_PCR_profile, log_out);
+
+		}
+		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
+		cout << "Pareto finished" << endl;
+		delete pareto_PCR_profile;
+		pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]);
+		//for (int i = 0; i < pareto_PCR_profile->get_profile_length(); i++)
+		//{
+		//	if (pareto_PCR_profile->get_pointer_to_primer_locations()[i] != 0) cout << pareto_PCR_profile->get_pointer_to_primer_locations()[i];
+		//}
+		//cout << endl;
 		pareto_PCR_profile->show_All();
+
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
 		delete[]temp_pareto_PCR_profile;
+
 	}
 
 

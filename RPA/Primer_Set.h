@@ -31,7 +31,7 @@ public:
 	Primer_Set(Primer_Set * primer_set, ostream & err_msg = cout);
 	Primer_Set(unsigned int * primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout); //constructor to make a primer set from a array of primers converted to integers
 	Primer_Set(char ** primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout);//constructor to make a primer set from a array of primers in char array
-
+	~Primer_Set();
 	bool write_to_file(char * filename, ostream & err_msg = cout); //writes the list of primers in FASTA format to file
 
 	bool show_statistics(ostream & out = cout, ostream &err_msg = cout); //prints out the nucleotide contribution of the sequence
@@ -59,6 +59,11 @@ public:
 	unsigned int get_primer_length() { return primer_length; };
 
 };
+Primer_Set::~Primer_Set()
+{
+	if (primer != NULL) delete[] primer;
+	if (reverse_complement != NULL) delete[] reverse_complement;
+}
 Primer_Set::Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer_length, ostream & err_msg)
 {
 	primer_length = _primer_length;
@@ -250,14 +255,10 @@ bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 }
 bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 {
-	if (primer_value == NULL)
+
+	if (number_of_primers >= max_number_of_primers)
 	{
-		err_msg << "ERROR: bool Primer_Set::add_primer() no primer_value==NULL" << endl;
-		return false;
-	}
-	if (number_of_primers > max_number_of_primers - 1)
-	{
-		err_msg << "ERROR: bool Primer_Set::add_primer() number_of_primers > max_number_of_primers - 1" << endl;
+		err_msg << "ERROR: bool Primer_Set::add_primer() number_of_primers >= max_number_of_primers" << endl;
 		return false;
 	}
 	for (int i = 0; i < number_of_primers; i++)
@@ -269,8 +270,9 @@ bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 		}
 	}
 	primer[number_of_primers] = primer_value;
-	reverse_complement[number_of_primers] = convert_primer_to_reverse_complement(number_of_primers);
+	reverse_complement[number_of_primers] = convert_primer_to_reverse_complement(number_of_primers);//TODO: make argument unsigned int
 	number_of_primers++;
+	return true;
 }
 bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
 {
