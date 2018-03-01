@@ -2,6 +2,7 @@
 #define Sequence_H
 
 #include <iostream>
+#include <assert.h>
 
 using namespace std;
 
@@ -38,14 +39,18 @@ Sequence::Sequence(Sequence *_sequence, ostream & err_msg)
 {
 	if (_sequence->get_sequence_length() == 0)
 	{
-		err_msg << "ERROR: Sequence::Sequence ==> _sequence_length == 0" << endl; throw ("Sequence could not be allocated b/c length is 0");
+		err_msg << "ERROR: Sequence::Sequence ==> _sequence_length == 0" << endl; 
+		err_msg << "Sequence could not be allocated b/c length is 0" << endl;
+		assert(NULL);
 	}
 	int_dna_sequence = NULL;
 	dna_sequence = new char[_sequence->get_sequence_length()+1];
 	seq_length = _sequence->get_sequence_length();
 	if (dna_sequence == NULL)
 	{
-		err_msg << "ERROR: Sequence::Sequence ==> sequence == NULL" << endl; throw ("Sequence could not be allocated");
+		err_msg << "ERROR: Sequence::Sequence ==> sequence == NULL" << endl; 
+		err_msg << "Sequence could not be allocated" << endl;
+		assert(NULL);
 	}
 	for (int i = 0; i < _sequence->get_sequence_length(); i++)
 	{
@@ -58,13 +63,18 @@ Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & er
 {
 	if (_sequence_length == 0)
 	{
-		err_msg << "ERROR: Sequence::Sequence ==> _sequence_length == 0" << endl; throw ("Sequence could not be allocated b/c length is 0");
+		err_msg << "ERROR: Sequence::Sequence ==> _sequence_length == 0" << endl; 
+		err_msg << "Sequence could not be allocated b/c length is 0" << endl;
+		assert(NULL);
 	}
 	int_dna_sequence = NULL;
+	seq_length = _sequence_length;
 	dna_sequence = new char[_sequence_length + 1];
 	if (dna_sequence == NULL)
 	{
-		err_msg << "ERROR: Sequence::Sequence ==> sequence == NULL" << endl; throw ("Sequence could not be allocated");
+		err_msg << "ERROR: Sequence::Sequence ==> sequence == NULL" << endl; 
+		err_msg << "Sequence could not be allocated" << endl;
+		assert(NULL);
 	}
 	for (int i = 0; i < _sequence_length; i++)
 	{

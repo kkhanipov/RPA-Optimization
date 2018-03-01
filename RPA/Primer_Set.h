@@ -10,24 +10,23 @@
 #include <stdlib.h>
 #include "Array_Sequences.h"
 
-
 using namespace std;
 //this object will hold a list of primers to be used in the computation. It will be part of the PCR profile object. 
 
 class Primer_Set
 {
+	static unsigned int max_number_of_primers;
 	unsigned int primer_length; // the length of the primers
 
 	unsigned int * primer; // contains a list of primers in their integer value
 	unsigned int * reverse_complement;
-	unsigned int max_number_of_primers; // the array size of the list
 
 	unsigned int number_of_primers; // the number of primers in the list
 
 public:
 
-	Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer_length, ostream & err_msg = cout);
-	Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg = cout); // ability to read a list or primers from a FASTA file
+	Primer_Set(unsigned int array_size_primers, unsigned int _primer_length, ostream & err_msg = cout);
+	Primer_Set(char * filename, ostream & err_msg = cout); // ability to read a list or primers from a FASTA file
 	Primer_Set(Primer_Set * primer_set, ostream & err_msg = cout);
 	Primer_Set(unsigned int * primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout); //constructor to make a primer set from a array of primers converted to integers
 	Primer_Set(char ** primers, unsigned int number_primers, unsigned int _max_number_of_primers, ostream & err_msg = cout);//constructor to make a primer set from a array of primers in char array
@@ -59,34 +58,36 @@ public:
 	unsigned int get_primer_length() { return primer_length; };
 
 };
+
+unsigned int Primer_Set::max_number_of_primers = 5000;
+
 Primer_Set::~Primer_Set()
 {
 	if (primer != NULL) delete[] primer;
 	if (reverse_complement != NULL) delete[] reverse_complement;
 }
-Primer_Set::Primer_Set(unsigned int _max_number_of_primers, unsigned int _primer_length, ostream & err_msg)
+Primer_Set::Primer_Set(unsigned int array_size_primers, unsigned int _primer_length, ostream & err_msg)
 {
+	assert(array_size_primers <= max_number_of_primers);
+
 	primer_length = _primer_length;
 	number_of_primers = 0;
-	max_number_of_primers = _max_number_of_primers;
-	primer = new unsigned int[_max_number_of_primers];
-	reverse_complement= new unsigned int[_max_number_of_primers];
+	primer = new unsigned int[array_size_primers]; assert(primer);
+	reverse_complement = new unsigned int[array_size_primers]; assert(reverse_complement);
 }
 Primer_Set::Primer_Set(Primer_Set * primer_set, ostream & err_msg)
 {
 	primer_length = primer_set->get_primer_length();
 	number_of_primers = 0;
-	max_number_of_primers = 4096;
-	primer = new unsigned int[max_number_of_primers];
-	reverse_complement = new unsigned int[max_number_of_primers];
-	for(int i=0;i<primer_set->get_number_of_primers();i++)add_primer(primer_set->get_primer_as_value(i));
+	primer = new unsigned int[max_number_of_primers]; assert(primer);
+	reverse_complement = new unsigned int[max_number_of_primers]; assert(reverse_complement);
+	for(int i=0;i<primer_set->get_number_of_primers();i++) add_primer(primer_set->get_primer_as_value(i));
 }
 bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer_value, ostream & err_msg)
 {
 	primer_value = 0;
-	char * _primer_value;
-	_primer_value = new char[primer_length];
-	for (int i = 0; i < 6; i++)
+	char * _primer_value = new char[primer_length]; assert(_primer_value);
+	for (int i = 0; i < primer_length; i++)
 	{
 		switch (_primer[i])
 		{
@@ -100,28 +101,31 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 	primer_value = atoi(_primer_value);
 	return true;
 }
-Primer_Set::Primer_Set(char * filename, unsigned int _max_number_of_primers, ostream & err_msg)
+Primer_Set::Primer_Set(char * filename, ostream & err_msg)
 {
-	Array_Sequences * as = new Array_Sequences(filename, err_msg);
-	number_of_primers = as->get_number_of_sequences();
-	if (number_of_primers == 0)
+	Array_Sequences * as = new Array_Sequences(filename, err_msg); assert(as);
+	if (as->get_number_of_sequences() == 0)
 	{
 		err_msg << "Primer_Set::Primer_Set(...) 0 primers were read from the file";
-		throw("could not read file with primers");
+		err_msg << "could not read file with primers" << endl;
+		assert(NULL);
 	}
+
+	number_of_primers = as->get_number_of_sequences();
+	
 	primer_length = as->get_pointer_to_sequence_object(0)->get_sequence_length();
-	max_number_of_primers = _max_number_of_primers;
-	primer = new unsigned int[_max_number_of_primers];
-	reverse_complement = new unsigned int[_max_number_of_primers];
-	unsigned int primer_val = 555555;
+	primer = new unsigned int[max_number_of_primers]; assert(primer);
+	reverse_complement = new unsigned int[max_number_of_primers]; assert(reverse_complement);
+
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		primer_val = 555555;
+		unsigned int primer_val = 555555;
 		convert_primer_txt_to_int(as->get_pointer_to_sequence_object(i)->get_pointer_to_sequence(), primer_val);
 		primer[i] = primer_val;
 		reverse_complement[i] = convert_primer_to_reverse_complement(i);
 	}
-	as->~Array_Sequences();
+
+	delete as;
 }
 
 bool Primer_Set::write_to_file(char * filename, ostream & err_msg)
@@ -131,12 +135,12 @@ bool Primer_Set::write_to_file(char * filename, ostream & err_msg)
 	if (!out.is_open())
 	{
 		err_msg << "ERROR: bool Primer_Set::write_to_file(), could not open " << filename << " file" << endl;
-		return false;
+		assert(NULL);
 	}
 	if (number_of_primers == 0)
 	{
 		err_msg << "ERROR: bool Primer_Set::write_to_file() there are no primers to write" << endl;
-		return false;
+		assert(NULL);
 	}
 	for (int i = 0; i < number_of_primers; i++)
 	{
@@ -145,6 +149,7 @@ bool Primer_Set::write_to_file(char * filename, ostream & err_msg)
 		if (!convert_primer_int_to_txt(primer[i], text_primer))
 		{
 			err_msg << "ERROR: bool Primer_Set::write_to_file() could not convert primer " << i << " to text" << endl;
+			assert(NULL);
 		}
 		out << text_primer << endl;
 	}
@@ -164,15 +169,16 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 	out << "Number of primers is " << number_of_primers << endl;
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		char * text = NULL;
+		char * primer_seq = NULL;
 		
-		if (!convert_primer_int_to_txt(primer[i], text))
+		if (!convert_primer_int_to_txt(primer[i], primer_seq))
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
+			assert(NULL);
 		}
 		for (int i = 0; i < primer_length; i++)
 		{
-			switch (text[i])
+			switch (primer_seq[i])
 			{
 			case 'A':case 'a': count_A++; break;
 			case 'T':case 't': count_T++; break;
@@ -180,10 +186,12 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 			case 'G':case 'g': count_G++; break;
 			case 'N':case 'n': count_N++; break;
 			default:
-				err_msg << "ERROR: Sequence::Sequence ==> unexpected character: sequence[" << i << "]=" << text[i] << endl;
-				return false;
+				err_msg << "ERROR: Sequence::Sequence ==> unexpected character: sequence[" << i << "]=" << primer_seq[i] << endl;
+				assert(NULL);
 			}
 		}
+
+		delete[] primer_seq;
 	}
 	out << "Nucleotide Contribution is:" << endl;
 	out << "A :" << count_A << endl;
@@ -197,10 +205,10 @@ bool Primer_Set::show_statistics(ostream & out, ostream &err_msg)
 
 bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _primer, ostream & err_msg)
 {
-	_primer = new char[primer_length+1];
-	char * conversion_primer = new char[primer_length];
+	_primer = new char[primer_length + 1]; assert(_primer);
+	char * conversion_primer = new char[primer_length]; assert(conversion_primer);
 	sprintf(conversion_primer, "%d", primer_value);
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < primer_length; i++)
 	{
 		switch (conversion_primer[i])
 		{
@@ -217,11 +225,11 @@ bool Primer_Set::convert_primer_int_to_txt(unsigned int primer_value, char *& _p
 }
 unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostream & err_msg)
 {
-	char * conversion_primer = new char[primer_length];
-	char * reverse_complement_primer = new char[primer_length];
+	char * conversion_primer = new char[primer_length]; assert(conversion_primer);
+	char * reverse_complement_primer = new char[primer_length]; assert(reverse_complement_primer);
 	sprintf(conversion_primer, "%d", primer[position]);
 	int ii = 0;
-	for (int i = 5; i >= 0; i--)
+	for (int i = primer_length-1; i >= 0; i--)
 	{
 		
 		switch (conversion_primer[i])
@@ -238,18 +246,21 @@ unsigned int Primer_Set::convert_primer_to_reverse_complement(int position, ostr
 }
 bool Primer_Set::show_All(ostream & out, ostream &err_msg)
 {
-	show_statistics();
+	show_statistics(out,err_msg);
 
 	for (int i = 0; i < number_of_primers; i++)
 	{
-		char * text = NULL;
-		if (!convert_primer_int_to_txt(primer[i], text))
+		char * primer_seq = NULL;
+		if (!convert_primer_int_to_txt(primer[i], primer_seq))
 		{
 			err_msg << "ERROR: bool Primer_Set::show_statistics() could not convert primer " << i << " to text" << endl;
+			assert(NULL);
 		}
 		out << "Primer id: " << i << " Primer Value :" << primer[i] << " text: ";
-		for (int j = 0; j < primer_length; j++)out << text[j];
+		for (int j = 0; j < primer_length; j++)out << primer_seq[j];
 		out << endl;
+
+		delete[] primer_seq;
 	}
 	return true;
 }
@@ -259,13 +270,13 @@ bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 	if (number_of_primers >= max_number_of_primers)
 	{
 		err_msg << "ERROR: bool Primer_Set::add_primer() number_of_primers >= max_number_of_primers" << endl;
-		return false;
+		assert(NULL);
 	}
 	for (int i = 0; i < number_of_primers; i++)
 	{
 		if (primer[i] == primer_value)
 		{
-			err_msg << "ERROR: bool Primer_Set::add_primer() primer already included in the list" << endl;
+			//err_msg << "WARNING: bool Primer_Set::add_primer() primer already included in the list" << endl;
 			return true;
 		}
 	}
@@ -276,35 +287,17 @@ bool Primer_Set::add_primer(unsigned int primer_value, ostream & err_msg)
 }
 bool Primer_Set::add_primer(char * _primer, ostream & err_msg)
 {
-	if (_primer == NULL)
-	{
-		err_msg << "ERROR: bool Primer_Set::add_primer() no primer_value==NULL" << endl;
-		return false;
-	}
-	if (number_of_primers > max_number_of_primers - 1)
-	{
-		err_msg << "ERROR: bool Primer_Set::add_primer() number_of_primers > max_number_of_primers - 1" << endl;
-		return false;
-	}
 	unsigned int primer_value = 0;
 	convert_primer_txt_to_int(_primer, primer_value);
-
-	for (int i = 0; i < number_of_primers; i++)
-	{
-		if (primer[i] == primer_value)
-		{
-			err_msg << "ERROR: bool Primer_Set::add_primer() primer already included in the list" << endl;
-			return true;
-		}
-	}
-	primer[number_of_primers] = primer_value;
-	reverse_complement[number_of_primers] = convert_primer_to_reverse_complement(number_of_primers);
-	number_of_primers++;
+	add_primer(primer_value, err_msg);
+	return true;
 }
 bool Primer_Set::delete_primer(int *position, unsigned int number_of_primers_to_delete, ostream & err_msg)
 {
-	unsigned int * _primer = new unsigned[max_number_of_primers];
-	unsigned int * _reverse_complement = new unsigned[max_number_of_primers];
+	assert(number_of_primers >= 1);
+
+	unsigned int * _primer = new unsigned[max_number_of_primers]; assert(_primer);
+	unsigned int * _reverse_complement = new unsigned[max_number_of_primers]; assert(_reverse_complement);
 	int ii = 0;
 	bool found_primer;
 	for (int i = 0; i < number_of_primers; i++)

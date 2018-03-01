@@ -103,6 +103,10 @@ bool Optimization_Toolbox::calculate_pareto_frontier(double * x, double * y, boo
 			}
 
 		}
+
+		//TODO: missing implementation of maxx maxy
+		//if (maximize_x && maximize_y)
+
 		if (sorted_set[i].pareto_set)
 		{
 			err_msg << "index :" << sorted_set[i].index << "\t";
