@@ -201,7 +201,7 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	for (int i = 0; i < primer_profile_array_size; i++)
 	{
 		location_of_primer[i] = -1;
-		type_of_primer[i] = 0;
+		type_of_primer[i] = -1;
 	}
 	
 	PCR_profile_calculation(_sequence);
@@ -211,23 +211,7 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 
 bool PCR_Profile::add_primer_location_to_profile(unsigned int position, int primer_type, ostream &err_msg)
 {
-	if (number_of_primers==0)
-	{
-		location_of_primer[number_of_primers] = position;
-		type_of_primer[number_of_primers] = primer_type;
-		number_of_primers++;
-		return true;
-	}
-
-	if (location_of_primer[number_of_primers-1] < position)
-	{
-		location_of_primer[number_of_primers] = position;
-		type_of_primer[number_of_primers] = primer_type;
-		number_of_primers++;
-		return true;
-	}
-
-	for (int i = number_of_primers-1; i = 0; i++)
+	for (int i = 0; i < number_of_primers; i++)
 	{
 		if (location_of_primer[i] == position)
 		{
@@ -238,6 +222,10 @@ bool PCR_Profile::add_primer_location_to_profile(unsigned int position, int prim
 			return true;
 		}
 	}
+	location_of_primer[number_of_primers] = position;
+	type_of_primer[number_of_primers] = primer_type;
+	number_of_primers++;
+	return true;
 
 }
 bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
