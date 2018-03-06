@@ -35,6 +35,7 @@ class PCR_Profile
 		unsigned int total_lenght_short_amplicons; // calculated by calculate_statistics(),  total length of the primer locations profile covered by short amplicons
 		unsigned int total_lenght_long_amplicons;// calculated by calculate_statistics(),  total length of the primer locations profile covered by long amplicons
 		unsigned int total_lenght_too_long_amplicons;
+		unsigned int total_length_uncovered;
 	} stats;
 
 public:
@@ -57,6 +58,7 @@ public:
 	unsigned int get_total_lenght_long_amplicons() { return stats.total_lenght_long_amplicons; }
 	unsigned int get_profile_length() { return profile_length; }
 	unsigned int get_total_lenght_too_long_amplicons() { return stats.total_lenght_too_long_amplicons; }
+	unsigned int get_total_length_uncovered() {	return stats.total_length_uncovered;}
 	Primer_Set * get_pointer_to_primer_set() { return p_set; }
 	unsigned int get_number_of_primers_primer_set() { return p_set->get_number_of_primers(); }
 	unsigned int get_primer_profile_array_size() { return primer_profile_array_size; }
@@ -118,16 +120,19 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profil
 			location_of_primer[i] = _pcr_profile_a->get_location_of_primer()[counter_profile_a];
 			type_of_primer[i] = _pcr_profile_a->get_type_of_primer()[counter_profile_a];
 			counter_profile_a++;
+			continue;
 		}
 		if (_pcr_profile_a->get_location_of_primer()[counter_profile_a] > _pcr_profile_b->get_location_of_primer()[counter_profile_b])
 		{
 			location_of_primer[i] = _pcr_profile_b->get_location_of_primer()[counter_profile_b];
 			type_of_primer[i] = _pcr_profile_b->get_type_of_primer()[counter_profile_b];
 			counter_profile_b++;
+			continue;
 		}
 		if (_pcr_profile_a->get_location_of_primer()[counter_profile_a] == _pcr_profile_b->get_location_of_primer()[counter_profile_b])
 		{
 			location_of_primer[i] = _pcr_profile_a->get_location_of_primer()[counter_profile_b];
+			
 			if (_pcr_profile_a->get_type_of_primer()[counter_profile_a] == 5 || _pcr_profile_b->get_type_of_primer()[counter_profile_b] == 5)
 			{
 				type_of_primer[i] = 5;
@@ -167,7 +172,7 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg)
 	}
 
 	primer_profile_array_size = _pcr_profile->get_number_of_primers_location_profile();
-	number_of_primers = primer_profile_array_size;
+	number_of_primers = _pcr_profile->get_number_of_primers_location_profile();
 	location_of_primer = new int[primer_profile_array_size];
 	type_of_primer = new int[primer_profile_array_size];
 
@@ -224,7 +229,7 @@ bool PCR_Profile::add_primer_location_to_profile(unsigned int position, int prim
 
 	for (int i = number_of_primers-1; i = 0; i++)
 	{
-		if (location_of_primer[i] == position) //this position has been added before
+		if (location_of_primer[i] == position)
 		{
 			if (type_of_primer[i] != primer_type)
 			{
@@ -244,6 +249,11 @@ bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
 	out << "total_lenght_short_amplicons " << get_total_lenght_short_amplicons() << endl;
 	out << "total_lenght_long_amplicons " << get_total_lenght_long_amplicons() << endl;
 	out << "total_lenght_too_long_amplicons " << get_total_lenght_too_long_amplicons() << endl;
+	out << "total_length_uncovered" << get_total_length_uncovered() << endl;
+	out << "total_length" << get_total_length_uncovered()+ get_total_lenght_too_long_amplicons() + get_total_lenght_long_amplicons() + get_total_lenght_short_amplicons() << endl;
+	cout << "distance" << endl;
+	for (int z = 0; z < number_of_primers; z++)cout << "Position " << location_of_primer[z] << "type " << type_of_primer[z] << endl;
+	cout << "distance" << endl;
 	return true;
 }
 bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
@@ -285,78 +295,59 @@ bool PCR_Profile::PCR_profile_calculation(Sequence * _sequence,ostream &err_msg)
 	return true;
 }
 
-//#define DEBUG
+
 bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 {
-#ifdef DEBUG
-	char msg[64];
-	static int call_count = 0;
-	sprintf(msg,"island_%d.txt", call_count++);
-	ofstream out_f(msg);
-	out_f << "id\tbegin\tend\tdist" << endl;
-#endif
 	int start_position = 0;
 	int end_position = 0;
-	bool start_found;
-	for (int j = 0; j < number_of_primers; j++)
+	unsigned int distance = 0;
+	bool start_found = false;
+	bool end_found = false;
+	for (int i = 0; i < number_of_primers; i++)
 	{
-		start_found = false;
-		if (start_position == 0)
+		if (start_found == true && end_found == true)
 		{
-			for (int i = j; i < number_of_primers; i++)
-			{
-				if (type_of_primer[i] == 1 || type_of_primer[i] == 5)
-				{
-					start_found = true;
-					start_position = location_of_primer[i];
-					stats.number_forward_primers++;
-					j = i;
-					break;
-				}
-			}
-			if (!start_found) return true;
+			start_found = false;
+			end_found = false;
 		}
-		for (int i = j+1; i < number_of_primers; i++)
+		if (!start_found && (type_of_primer[i] == 1 || type_of_primer[i] == 5))
 		{
-			if (type_of_primer[i] == -1 || type_of_primer[i] == 5)
-			{
-				end_position = location_of_primer[i];
-				stats.number_reverse_primers++;
-				unsigned int distance = end_position - start_position+p_set->get_primer_length();
-
-				if (distance >= min_primer_distance && distance <= max_primer_distance)
-				{
-					stats.total_lenght_long_amplicons += distance;
-					stats.number_long_amplicons++;
-				}
-				if (distance < min_primer_distance)
-				{
-					stats.total_lenght_short_amplicons += distance;
-					stats.number_short_amplicons++;
-				}
-				if(distance>max_primer_distance) stats.total_lenght_too_long_amplicons += distance;
-
-				if (type_of_primer[i] == 5)
-				{
-					stats.number_forward_primers++;
-					start_position = end_position;
-				}
-				else start_position = 0;
-				j = i;
-				break;
-			}
-			j = i;
+			start_found = true;
+			end_found = false;
+			start_position = location_of_primer[i];
+			stats.number_forward_primers++;
 		}
+		if (start_found && !end_found && (type_of_primer[i] == -1 || type_of_primer[i] == 5))
+		{
+			start_found = false;
+			end_found = true;
+
+			end_position = location_of_primer[i];
+			stats.number_reverse_primers++;
+			distance = end_position - start_position + p_set->get_primer_length();
+			if (distance > 10000000)
+			{
+				cout << "distance broke" << endl;
+				for (int z = 0; z < number_of_primers; z++)cout << "Position " << location_of_primer[z] << "type " << type_of_primer[z] << endl;
+				cout << "distance broke" << endl;
+			}
+			if (distance >= min_primer_distance && distance <= max_primer_distance)
+			{
+				stats.total_lenght_long_amplicons += distance;
+				stats.number_long_amplicons++;
+			}
+			if (distance < min_primer_distance)
+			{
+				stats.total_lenght_short_amplicons += distance;
+				stats.number_short_amplicons++;
+			}
+			if (distance>max_primer_distance) stats.total_lenght_too_long_amplicons += distance;
+
+		}
+
 	}
-
-#ifdef DEBUG
-	out_f.close();
-#endif
-
 	return true;
 }
-#ifdef DEBUG
-#undef DEBUG
-#endif
+
 
 #endif

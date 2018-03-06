@@ -110,18 +110,20 @@ int main()
 		count = 0;
 		PCR_Profile ** temp_pareto_PCR_profile;
 		temp_pareto_PCR_profile = new PCR_Profile *[number_of_individual_primers]; assert(temp_pareto_PCR_profile);
-		//#pragma omp parallel for
+		
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
 			temp_pareto_PCR_profile[i] = new PCR_Profile(pareto_PCR_profile, individual_PCR_profiles[i]); assert(temp_pareto_PCR_profile[i]);
 			count++;
 		}
+
+		cout << "Pareto started" << endl;
 		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
 		cout << "Pareto finished" << endl;
 		delete pareto_PCR_profile;
 		pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
 		pareto_PCR_profile->show_All();
-
+		system("PAUSE");
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
 		delete[]temp_pareto_PCR_profile;
 
