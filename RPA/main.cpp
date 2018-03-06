@@ -6,6 +6,7 @@
 #include "PCR_Profile.h"
 #include <fstream>
 #include <cstdlib>
+
 using namespace std;
 
 void test_1()
@@ -49,10 +50,11 @@ bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_p
 	for (int i = 0; i < num_pcr_profiles; i++) if (pareto_set[i] == true) tmp_pareto[n_pareto++] = i;
 	assert(n_pareto);
 	position = tmp_pareto[rand() % n_pareto];
-	delete[]tmp_pareto;
+	
 
 
 	optimal_solution = position;
+	delete[]tmp_pareto;
 	delete[] genome_coverage;
 	delete[] genome_overrepresentation;
 	delete[] pareto_set;
@@ -61,14 +63,17 @@ bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_p
 int main()
 {
 	srand(time(0));
-
+	char * file = "test";
 	Array_Sequences * as;
 	//as = new Array_Sequences("sequence.fasta");
-	as = new Array_Sequences("synthetic.fasta"); assert(as);
+	Primer_Set * primers = new Primer_Set("primers.fasta"); assert(primers);
+
+	as = new Array_Sequences("synthetic.fasta",primers->get_primer_length()); assert(as);
 
 	as->show_Statistics();
-	//as->show_All();
-	Primer_Set * primers = new Primer_Set("primers.fasta"); assert(primers);
+	
+//	as->show_All();
+
 	unsigned int number_of_individual_primers = 2048;
 	Primer_Set ** individual_primers;
 	individual_primers = new Primer_Set *[number_of_individual_primers]; assert(individual_primers);
@@ -80,33 +85,25 @@ int main()
 	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
 	//pareralize this loop
 	
-	individual_primers[0] = new Primer_Set(1, 6); assert(individual_primers[0]);
-	individual_primers[0]->add_primer(primers->get_primer_as_value(0));
-
-	individual_PCR_profiles[0] = new PCR_Profile(individual_primers[0], as->get_pointer_to_sequence_object(0)); assert(individual_PCR_profiles[0]);
 	unsigned int count = 0;
 	//#pragma omp parallel for
-	for (int i = 1; i < number_of_individual_primers; i++)
+	for (int i = 0; i < number_of_individual_primers; i++)
 	{
 		individual_primers[i] = new Primer_Set(1, 6); assert(individual_primers[i]);
 		individual_primers[i]->add_primer(primers->get_primer_as_value(i));
-		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0), individual_PCR_profiles[0]->get_pointer_to_pos_strand_sequence_int_profile());
+		individual_PCR_profiles[i] = new PCR_Profile(individual_primers[i], as->get_pointer_to_sequence_object(0));
 		assert(individual_PCR_profiles[i]);
-		
-		//#pragma omp critical
-		{
-			count++;
-			//if (count % 300 == 0)cout << "Processed " << count << " primers" << endl; 
-		}
-				
+		count++;
+
+		if (count % 300==0)cout << count << endl;
 	}
 	//for (int i = 0; i < number_of_individual_primers; i++)individual_PCR_profiles[i]->show_All();
 	
 	unsigned int pareto_index;
 	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_index);
 	PCR_Profile * pareto_PCR_profile = new PCR_Profile(individual_PCR_profiles[pareto_index]); assert(pareto_PCR_profile);
-	
 	pareto_PCR_profile->show_All();
+	system("PAUSE");
 
 	while (true)
 	{
@@ -117,29 +114,12 @@ int main()
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
 			temp_pareto_PCR_profile[i] = new PCR_Profile(pareto_PCR_profile, individual_PCR_profiles[i]); assert(temp_pareto_PCR_profile[i]);
-			//for (int j = 0; j < temp_pareto_PCR_profile[i]->get_profile_length(); j++)
-			//{
-			//	if (temp_pareto_PCR_profile[i]->get_pointer_to_primer_locations()[j] != 0) cout << temp_pareto_PCR_profile[i]->get_pointer_to_primer_locations()[j];
-			//}
-			//cout << endl;
-			
-			//#pragma omp critical
-			{
-				count++;
-				//if (count % 300 == 0)cout << "Processed " << count << " primers" << endl; 
-			}
-
-
+			count++;
 		}
 		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
 		cout << "Pareto finished" << endl;
 		delete pareto_PCR_profile;
 		pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
-		//for (int i = 0; i < pareto_PCR_profile->get_profile_length(); i++)
-		//{
-		//	if (pareto_PCR_profile->get_pointer_to_primer_locations()[i] != 0) cout << pareto_PCR_profile->get_pointer_to_primer_locations()[i];
-		//}
-		//cout << endl;
 		pareto_PCR_profile->show_All();
 
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];

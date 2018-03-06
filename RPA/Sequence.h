@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <assert.h>
+#include "Optimization_Toolbox.h"
 
 using namespace std;
 
@@ -10,18 +11,19 @@ using namespace std;
 class Sequence
 {
 	char * dna_sequence;
-	int * int_dna_sequence;
+	unsigned int * int_dna_sequence;
 	unsigned int seq_length;
 
 public:
 	
-	Sequence(char * sequence, unsigned int sequence_length, ostream & err_msg=cout);
-	Sequence(Sequence *_sequence, ostream & err_msg = cout);
+	Sequence(char * sequence, unsigned int sequence_length, unsigned int primer_length=0,ostream & err_msg=cout);
+	Sequence(Sequence *_sequence, unsigned int primer_length = 0, ostream & err_msg = cout);
 	~Sequence();
 	bool show_statistics(ostream & out=cout, ostream &err_msg=cout); //prints out the nucleotide contribution of the sequence
 	bool show_All(ostream & out = cout, ostream &err_msg = cout); //prints out the show_statistics() and then the actual sequence
 
 	char * get_pointer_to_sequence() {return dna_sequence;}
+	unsigned int * get_pointer_to_sequence_int() { return int_dna_sequence; }
 	int get_sequence_length() { return seq_length; }
 };
 Sequence::~Sequence()
@@ -35,7 +37,7 @@ Sequence::~Sequence()
 		delete[] int_dna_sequence;
 	}
 }
-Sequence::Sequence(Sequence *_sequence, ostream & err_msg)
+Sequence::Sequence(Sequence *_sequence, unsigned int _primer_length, ostream & err_msg)
 {
 	if (_sequence->get_sequence_length() == 0)
 	{
@@ -43,7 +45,6 @@ Sequence::Sequence(Sequence *_sequence, ostream & err_msg)
 		err_msg << "Sequence could not be allocated b/c length is 0" << endl;
 		assert(NULL);
 	}
-	int_dna_sequence = NULL;
 	dna_sequence = new char[_sequence->get_sequence_length()+1];
 	seq_length = _sequence->get_sequence_length();
 	if (dna_sequence == NULL)
@@ -57,9 +58,23 @@ Sequence::Sequence(Sequence *_sequence, ostream & err_msg)
 		dna_sequence[i] = _sequence->get_pointer_to_sequence()[i];
 	}
 	dna_sequence[seq_length] = '\0';
+	if (_primer_length == 0)int_dna_sequence = NULL;
+	else
+	{
+		int_dna_sequence = new unsigned int[seq_length - _primer_length];
+		unsigned int primer_length = _primer_length;
+		unsigned int primer_value = 555555;
+		for (int i = 0; i < seq_length; i++)
+		{
+			primer_value = 555555;
+			Optimization_Toolbox::convert_primer_txt_to_int(&dna_sequence[i], primer_length, primer_value);
+			int_dna_sequence[i] = primer_value;
+		}
+	}
+	
 }
 
-Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & err_msg)
+Sequence::Sequence(char * _sequence, unsigned int _sequence_length, unsigned int _primer_length, ostream & err_msg)
 {
 	if (_sequence_length == 0)
 	{
@@ -67,7 +82,6 @@ Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & er
 		err_msg << "Sequence could not be allocated b/c length is 0" << endl;
 		assert(NULL);
 	}
-	int_dna_sequence = NULL;
 	seq_length = _sequence_length;
 	dna_sequence = new char[_sequence_length + 1];
 	if (dna_sequence == NULL)
@@ -81,6 +95,19 @@ Sequence::Sequence(char * _sequence, unsigned int _sequence_length, ostream & er
 		dna_sequence[i] = _sequence[i];
 	}
 	dna_sequence[seq_length] = '\0';
+	if (_primer_length == 0)int_dna_sequence = NULL;
+	else
+	{
+		int_dna_sequence = new unsigned int[seq_length - _primer_length];
+		unsigned int primer_length = _primer_length;
+		unsigned int primer_value = 555555;
+		for (int i = 0; i < seq_length; i++)
+		{
+			primer_value = 555555;
+			Optimization_Toolbox::convert_primer_txt_to_int(&dna_sequence[i], primer_length, primer_value);
+			int_dna_sequence[i] = primer_value;
+		}
+	}
 }
 
 bool Sequence::show_statistics(ostream & out, ostream &err_msg)
@@ -120,7 +147,8 @@ bool Sequence::show_All(ostream & out, ostream &err_msg)
 
 	for (int i = 0; i < seq_length; i++)
 	{
-		out << dna_sequence[i];
+		out << dna_sequence[i] << "\t";
+		out << int_dna_sequence[i] << "\t";
 	}
 	out << endl;
 

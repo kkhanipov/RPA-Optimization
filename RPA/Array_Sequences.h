@@ -23,17 +23,17 @@ public:
 	static unsigned int max_sequence_length;
 	static unsigned int max_number_of_sequences;
 
-	Array_Sequences(char * filename, ostream &err_msg = cout); //constructor to be able to read a FASTA file and create the individual sequences and array of sequences
+	Array_Sequences(char * filename, unsigned int primer_value=0, ostream &err_msg = cout); //constructor to be able to read a FASTA file and create the individual sequences and array of sequences
 	Array_Sequences(ostream &err_msg = cout); //constructor to be able to read a FASTA file and create the individual sequences and array of sequences
 
-	Array_Sequences(Array_Sequences * _arr_seq, ostream &err_msg = cout);
+	//Array_Sequences(Array_Sequences * _arr_seq, unsigned int primer_value = 0, ostream &err_msg = cout);
 	~Array_Sequences();
 	bool show_Statistics(ostream & out = cout, ostream &err_msg = cout); //show basic statistics about the array of sequences, number of sequences present,  and their nucleotide contribution
 
 	bool show_All(ostream & out = cout, ostream &err_msg = cout); // shows the basic statistics about the array of sequences and then prints to screen the actual sequences
 
-	bool add_sequence(Sequence * _sequence, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by sequence object
-	bool add_sequence(char * _sequence, unsigned int _sequence_length, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by giving the actual sequence
+	bool add_sequence(Sequence * _sequence, unsigned int primer_value = 0, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by sequence object
+	bool add_sequence(char * _sequence, unsigned int _sequence_length, unsigned int primer_value = 0, ostream &err_msg = cout); //ability to add a sequence to the array of sequences by giving the actual sequence
 	
 	unsigned int get_number_of_sequences() { return number_of_sequences; }
 	Sequence * get_pointer_to_sequence_object(unsigned int position) { return sequence[position]; }
@@ -57,7 +57,7 @@ Array_Sequences::Array_Sequences(ostream &err_msg)
 }
 
 //NOTE: will not read NCBI fasta with multiple lines
-Array_Sequences::Array_Sequences(char * filename, ostream &err_msg)
+Array_Sequences::Array_Sequences(char * filename, unsigned int _primer_value, ostream &err_msg)
 {
 	number_of_sequences = 0;
 	// Check if input file is opened successfully
@@ -109,7 +109,7 @@ Array_Sequences::Array_Sequences(char * filename, ostream &err_msg)
 		in.getline(_sequence, max_sequence_length + 1);
 		
 		unsigned int tmp_sequence_length = strlen(_sequence);
-		sequence[number_of_sequences] = new Sequence(_sequence, tmp_sequence_length); assert(sequence[number_of_sequences]);
+		sequence[number_of_sequences] = new Sequence(_sequence, tmp_sequence_length, _primer_value); assert(sequence[number_of_sequences]);
 
 		number_of_sequences++;
 		//TODO: implement if necessary 
@@ -125,22 +125,22 @@ Array_Sequences::Array_Sequences(char * filename, ostream &err_msg)
 	delete[] _sequence;
 }
 
-bool Array_Sequences::add_sequence(char * _sequence, unsigned int _sequence_length, ostream &err_msg)
+bool Array_Sequences::add_sequence(char * _sequence, unsigned int _sequence_length, unsigned int _primer_value, ostream &err_msg)
 {
 	if (number_of_sequences >= max_number_of_sequences)
 	{
 		err_msg << "ERROR: Array_Sequences::add_sequence(...) ==> Not array size needs to be increased == NULL)" << endl;
 		return false;
 	}
-	sequence[number_of_sequences] = new Sequence(_sequence, _sequence_length);
+	sequence[number_of_sequences] = new Sequence(_sequence, _sequence_length, _primer_value);
 	assert(sequence[number_of_sequences]);
 	number_of_sequences++;
 	return true;
 }
 
-bool Array_Sequences::add_sequence(Sequence * _sequence, ostream &err_msg)
+bool Array_Sequences::add_sequence(Sequence * _sequence, unsigned int _primer_value,ostream &err_msg)
 {
-	return add_sequence(_sequence->get_pointer_to_sequence(), _sequence->get_sequence_length());
+	return add_sequence(_sequence->get_pointer_to_sequence(), _sequence->get_sequence_length(), _primer_value);
 }
 
 bool Array_Sequences::show_Statistics(ostream & out, ostream &err_msg)

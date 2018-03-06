@@ -1,3 +1,6 @@
+#ifndef Optimization_Toolbox_H
+#define Optimization_Toolbox_H
+
 #include <iostream>
 #include <assert.h>
 #include <time.h>
@@ -14,9 +17,27 @@ public:
 	//Use quicksort on them and pick the best point.
 	//From there it will go left and right to determine all of the points which belong in the parretto frontier. The function will return the paretto_set marking positions in which points are part of the 
 	//paretto frontier as "true".
+	static bool convert_primer_txt_to_int(char * _primer, unsigned int primer_length, unsigned int & primer_value, ostream & err_msg = cout);
 
 };
-
+bool Optimization_Toolbox::convert_primer_txt_to_int(char * _primer, unsigned int primer_length, unsigned int & primer_value, ostream & err_msg)
+{
+	primer_value = 0;
+	char * _primer_value = new char[primer_length]; assert(_primer_value);
+	for (int i = 0; i < primer_length; i++)
+	{
+		switch (_primer[i])
+		{
+		case 'A':_primer_value[i] = '1'; break;
+		case 'T':_primer_value[i] = '2'; break;
+		case 'C':_primer_value[i] = '3'; break;
+		case 'G':_primer_value[i] = '4'; break;
+		default: strcpy(_primer_value, "555555"); primer_value = atoi(_primer_value);  return true;
+		}
+	}
+	primer_value = atoi(_primer_value);
+	return true;
+}
 struct Sortable_Pareto
 {
 	unsigned int index;
@@ -124,3 +145,5 @@ bool Optimization_Toolbox::calculate_pareto_frontier(double * x, double * y, boo
 
 	return true;
 }
+
+#endif

@@ -103,7 +103,7 @@ bool Primer_Set::convert_primer_txt_to_int(char * _primer, unsigned int & primer
 }
 Primer_Set::Primer_Set(char * filename, ostream & err_msg)
 {
-	Array_Sequences * as = new Array_Sequences(filename, err_msg); assert(as);
+	Array_Sequences * as = new Array_Sequences(filename,0, err_msg); assert(as);
 	if (as->get_number_of_sequences() == 0)
 	{
 		err_msg << "Primer_Set::Primer_Set(...) 0 primers were read from the file";
