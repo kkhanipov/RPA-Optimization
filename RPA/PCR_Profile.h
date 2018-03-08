@@ -14,13 +14,13 @@ class PCR_Profile
 	static unsigned int min_primer_distance;
 	static unsigned int max_primer_distance;
 	Primer_Set * p_set; // this will be the primer set used to create the primer locations profile
-
+	
 	unsigned int profile_length; //length of the primer_locations array, should be the size of the sequence of interest
 
 	int * location_of_primer;
 	int * type_of_primer;
 	unsigned int primer_profile_array_size;
-	unsigned int number_of_primers;
+	unsigned int number_of_primer_locations;
 	// an array the size of the seqeunce of interest to denote where the primers from the p_set are mapping. +1 will denote forward mapping primer location, 
 	//0 will denote a non mapped location, -1 will denote a reverse mapping primer location, -5 will denote positions which are not available due to unknown nucletodies 
 	//being present there, 5 will denote if there are primers in both directions at the same location.
@@ -62,7 +62,7 @@ public:
 	Primer_Set * get_pointer_to_primer_set() { return p_set; }
 	unsigned int get_number_of_primers_primer_set() { return p_set->get_number_of_primers(); }
 	unsigned int get_primer_profile_array_size() { return primer_profile_array_size; }
-	unsigned int get_number_of_primers_location_profile() { return number_of_primers; }
+	unsigned int get_number_of_primers_location_profile() { return number_of_primer_locations; }
 	int * get_location_of_primer() {return location_of_primer;}
 	int * get_type_of_primer() { return type_of_primer; }
 
@@ -70,8 +70,8 @@ public:
 	Stats get_Stats() { return stats; }
 };
 
-unsigned int PCR_Profile::min_primer_distance = 100;
-unsigned int PCR_Profile::max_primer_distance = 500;
+unsigned int PCR_Profile::min_primer_distance = 50;
+unsigned int PCR_Profile::max_primer_distance = 1500;
 
 PCR_Profile::~PCR_Profile()
 {
@@ -106,53 +106,86 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile_a, PCR_Profile * _pcr_profil
 	}
 
 	primer_profile_array_size = _pcr_profile_a->get_number_of_primers_location_profile() + _pcr_profile_b->get_number_of_primers_location_profile();
-	number_of_primers = primer_profile_array_size;
-	location_of_primer = new int[primer_profile_array_size];
-	type_of_primer = new int[primer_profile_array_size];
+	number_of_primer_locations = 0;
+	location_of_primer = new int[primer_profile_array_size]; assert(location_of_primer);
+	type_of_primer = new int[primer_profile_array_size]; assert(type_of_primer);
 
-	unsigned int counter_profile_a = 0;
-	unsigned int counter_profile_b = 0;
+	//for (unsigned int i = 1; i < _pcr_profile_a->get_number_of_primers_location_profile(); i++)
+	//{
+	//	cout << "A: " << _pcr_profile_a->get_location_of_primer()[i - 1] << "  " << _pcr_profile_a->get_location_of_primer()[i] << endl;
+	//	assert(_pcr_profile_a->get_location_of_primer()[i - 1] < _pcr_profile_a->get_location_of_primer()[i]);
+	//}
+	//for (unsigned int i = 1; i < _pcr_profile_b->get_number_of_primers_location_profile(); i++)
+	//{
+	//	cout << "B: " << _pcr_profile_b->get_location_of_primer()[i - 1] << "  " << _pcr_profile_b->get_location_of_primer()[i] << endl;
+	//	assert(_pcr_profile_b->get_location_of_primer()[i - 1] < _pcr_profile_b->get_location_of_primer()[i]);
+	//}
 
-	for (int i = 0; i < number_of_primers; i++)
+	unsigned int k = 0;
+	unsigned int index_A = 0;
+	unsigned int index_B = 0;
+	for (;;)
 	{
-		if (_pcr_profile_a->get_location_of_primer()[counter_profile_a] < _pcr_profile_b->get_location_of_primer()[counter_profile_b])
+		if (index_A >= _pcr_profile_a->get_number_of_primers_location_profile()) break;
+		if (index_B >= _pcr_profile_b->get_number_of_primers_location_profile()) break;
+
+		if (_pcr_profile_a->get_location_of_primer()[index_A] < _pcr_profile_b->get_location_of_primer()[index_B])
 		{
-			location_of_primer[i] = _pcr_profile_a->get_location_of_primer()[counter_profile_a];
-			type_of_primer[i] = _pcr_profile_a->get_type_of_primer()[counter_profile_a];
-			counter_profile_a++;
-			continue;
+			location_of_primer[k] = _pcr_profile_a->get_location_of_primer()[index_A];
+			type_of_primer[k] = _pcr_profile_a->get_type_of_primer()[index_A];
+			k++;
+			index_A++;
 		}
-		if (_pcr_profile_a->get_location_of_primer()[counter_profile_a] > _pcr_profile_b->get_location_of_primer()[counter_profile_b])
+		else if (_pcr_profile_a->get_location_of_primer()[index_A] > _pcr_profile_b->get_location_of_primer()[index_B])
 		{
-			location_of_primer[i] = _pcr_profile_b->get_location_of_primer()[counter_profile_b];
-			type_of_primer[i] = _pcr_profile_b->get_type_of_primer()[counter_profile_b];
-			counter_profile_b++;
-			continue;
+			location_of_primer[k] = _pcr_profile_b->get_location_of_primer()[index_B];
+			type_of_primer[k] = _pcr_profile_b->get_type_of_primer()[index_B];
+			k++;
+			index_B++;
 		}
-		if (_pcr_profile_a->get_location_of_primer()[counter_profile_a] == _pcr_profile_b->get_location_of_primer()[counter_profile_b])
+		else
 		{
-			location_of_primer[i] = _pcr_profile_a->get_location_of_primer()[counter_profile_b];
-			
-			if (_pcr_profile_a->get_type_of_primer()[counter_profile_a] == 5 || _pcr_profile_b->get_type_of_primer()[counter_profile_b] == 5)
+			location_of_primer[k] = _pcr_profile_a->get_location_of_primer()[index_A];
+
+			if (_pcr_profile_a->get_type_of_primer()[index_A] == 5 || _pcr_profile_b->get_type_of_primer()[index_B] == 5)
 			{
-				type_of_primer[i] = 5;
+				type_of_primer[k] = 5;
 
 			}
-			else if (_pcr_profile_a->get_type_of_primer()[counter_profile_a] == _pcr_profile_b->get_type_of_primer()[counter_profile_b])
+			else if (_pcr_profile_a->get_type_of_primer()[index_A] == _pcr_profile_b->get_type_of_primer()[index_B])
 			{
-				type_of_primer[i] = _pcr_profile_b->get_type_of_primer()[counter_profile_b];
+				type_of_primer[k] = _pcr_profile_b->get_type_of_primer()[index_B];
 			}
-			else if (_pcr_profile_a->get_type_of_primer()[counter_profile_a] != _pcr_profile_b->get_type_of_primer()[counter_profile_b])
+			else if (_pcr_profile_a->get_type_of_primer()[index_A] != _pcr_profile_b->get_type_of_primer()[index_B])
 			{
-				type_of_primer[i] = 5;
+				type_of_primer[k] = 5;
 			}
 
-			counter_profile_a++;
-			counter_profile_b++;
-			number_of_primers--;
+			k++;
+			index_A++;
+			index_B++;
 		}
 	}
 
+	number_of_primer_locations = k;
+
+	for (unsigned int i = index_A; i < _pcr_profile_a->get_number_of_primers_location_profile(); i++)
+	{
+		add_primer_location_to_profile(_pcr_profile_a->get_location_of_primer()[index_A], _pcr_profile_a->get_type_of_primer()[index_A]);
+		k++;
+	}
+	for (unsigned int i = index_B; i < _pcr_profile_b->get_number_of_primers_location_profile(); i++)
+	{
+		add_primer_location_to_profile(_pcr_profile_b->get_location_of_primer()[index_B], _pcr_profile_b->get_type_of_primer()[index_B]);
+		k++;
+	}
+
+
+	for (unsigned int i = 1; i < number_of_primer_locations; i++)
+	{ 
+		//cout << location_of_primer[i - 1] << "  " << location_of_primer[i] << endl;
+		assert(location_of_primer[i - 1] < location_of_primer[i]);
+	}
 
 	calculate_statistics();
 
@@ -172,14 +205,18 @@ PCR_Profile::PCR_Profile(PCR_Profile * _pcr_profile, ostream &err_msg)
 	}
 
 	primer_profile_array_size = _pcr_profile->get_number_of_primers_location_profile();
-	number_of_primers = _pcr_profile->get_number_of_primers_location_profile();
+	number_of_primer_locations = _pcr_profile->get_number_of_primers_location_profile();
 	location_of_primer = new int[primer_profile_array_size];
 	type_of_primer = new int[primer_profile_array_size];
 
-	for (int i = 0; i < number_of_primers; i++)
+	for (int i = 0; i < number_of_primer_locations; i++)
 	{
 		location_of_primer[i] = _pcr_profile->get_location_of_primer()[i];
 		type_of_primer[i] = _pcr_profile->get_type_of_primer()[i];
+	}
+	for (unsigned int i = 1; i < number_of_primer_locations; i++)
+	{
+		assert(location_of_primer[i - 1] < location_of_primer[i]);
 	}
 
 
@@ -194,8 +231,8 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	assert(_sequence->get_sequence_length() >= p_set->get_primer_length());
 	profile_length = _sequence->get_sequence_length()-p_set->get_primer_length();
 
-	primer_profile_array_size = 10000;
-	number_of_primers = 0;
+	primer_profile_array_size = 100000;
+	number_of_primer_locations = 0;
 	location_of_primer = new int[primer_profile_array_size];
 	type_of_primer = new int[primer_profile_array_size];
 	for (int i = 0; i < primer_profile_array_size; i++)
@@ -205,13 +242,16 @@ PCR_Profile::PCR_Profile(Primer_Set * _primer_set, Sequence * _sequence, ostream
 	}
 	
 	PCR_profile_calculation(_sequence);
-	
+	for (unsigned int i = 1; i < number_of_primer_locations; i++)
+	{
+		assert(location_of_primer[i - 1] < location_of_primer[i]);
+	}
 	calculate_statistics();
 }
 
 bool PCR_Profile::add_primer_location_to_profile(unsigned int position, int primer_type, ostream &err_msg)
 {
-	for (int i = 0; i < number_of_primers; i++)
+	for (int i = 0; i < number_of_primer_locations; i++)
 	{
 		if (location_of_primer[i] == position)
 		{
@@ -222,26 +262,27 @@ bool PCR_Profile::add_primer_location_to_profile(unsigned int position, int prim
 			return true;
 		}
 	}
-	location_of_primer[number_of_primers] = position;
-	type_of_primer[number_of_primers] = primer_type;
-	number_of_primers++;
+	location_of_primer[number_of_primer_locations] = position;
+	type_of_primer[number_of_primer_locations] = primer_type;
+	number_of_primer_locations++;
 	return true;
 
 }
 bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
 {
-	out << "number_forward_primers " << get_number_forward_primers() << endl;
-	out << "number_reverse_primers " << get_number_reverse_primers() << endl;
-	out << "number_short_amplicons " << get_number_short_amplicons() << endl;
-	out << "number_long_amplicons " << get_number_long_amplicons() << endl;
-	out << "total_lenght_short_amplicons " << get_total_lenght_short_amplicons() << endl;
-	out << "total_lenght_long_amplicons " << get_total_lenght_long_amplicons() << endl;
-	out << "total_lenght_too_long_amplicons " << get_total_lenght_too_long_amplicons() << endl;
-	out << "total_length_uncovered" << get_total_length_uncovered() << endl;
-	out << "total_length" << get_total_length_uncovered()+ get_total_lenght_too_long_amplicons() + get_total_lenght_long_amplicons() + get_total_lenght_short_amplicons() << endl;
-	cout << "distance" << endl;
-	for (int z = 0; z < number_of_primers; z++)cout << "Position " << location_of_primer[z] << "type " << type_of_primer[z] << endl;
-	cout << "distance" << endl;
+	//out << "number_forward_primers " << get_number_forward_primers() << "\t";
+	//out << "number_reverse_primers " << get_number_reverse_primers() << "\t";
+	//out << "number_short_amplicons " << get_number_short_amplicons() << "\t";
+	//out << "number_long_amplicons " << get_number_long_amplicons() << "\t";
+	out << "total_lenght_short_amplicons " << (double) get_total_lenght_short_amplicons() / (double)profile_length << "\t";
+	out << "total_lenght_long_amplicons " << (double)get_total_lenght_long_amplicons()/ (double)profile_length << "\t";
+	out << "total_lenght_too_long_amplicons " << (double)get_total_lenght_too_long_amplicons()/ (double)profile_length << "\t";
+	//out << "total_length_uncovered" << get_total_length_uncovered()/ profile_length << "\t";
+	//out << "total_length" << get_total_length_uncovered()+ get_total_lenght_too_long_amplicons() + get_total_lenght_long_amplicons() + get_total_lenght_short_amplicons() << endl;
+	//cout << "distance" << endl;
+	//for (int i = 0; i < number_of_primer_locations; i++)cout << "Position " << location_of_primer[i] << "type " << type_of_primer[i] << endl;
+	//cout << "distance" << endl;
+	out << endl;
 	return true;
 }
 bool PCR_Profile::show_All(ostream & out, ostream &err_msg)
@@ -262,9 +303,8 @@ bool PCR_Profile::PCR_profile_calculation(Sequence * _sequence,ostream &err_msg)
 	{
 		for (int j = 0; j < profile_length; j++)
 		{
-			if (number_of_primers >= primer_profile_array_size)
+			if (number_of_primer_locations >= primer_profile_array_size)
 			{
-				cout << "Realloc is being attempted made" << endl;
 				primer_profile_array_size *= 1.5;
 				location_of_primer = (int*)realloc(location_of_primer, sizeof(int)*primer_profile_array_size);
 				type_of_primer = (int*)realloc(type_of_primer, sizeof(int)*primer_profile_array_size);
@@ -291,13 +331,8 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 	unsigned int distance = 0;
 	bool start_found = false;
 	bool end_found = false;
-	for (int i = 0; i < number_of_primers; i++)
+	for (int i = 0; i < number_of_primer_locations; i++)
 	{
-		if (start_found == true && end_found == true)
-		{
-			start_found = false;
-			end_found = false;
-		}
 		if (!start_found && (type_of_primer[i] == 1 || type_of_primer[i] == 5))
 		{
 			start_found = true;
@@ -313,12 +348,14 @@ bool PCR_Profile::calculate_statistics(ostream & out, ostream &err_msg)
 			end_position = location_of_primer[i];
 			stats.number_reverse_primers++;
 			distance = end_position - start_position + p_set->get_primer_length();
-			if (distance > 10000000)
+	/*
+			if (end_position <= start_position)
 			{
 				cout << "distance broke" << endl;
-				for (int z = 0; z < number_of_primers; z++)cout << "Position " << location_of_primer[z] << "type " << type_of_primer[z] << endl;
+				for (int j = 0; j < number_of_primer_locations; j++) cout << "Position " << location_of_primer[j] << "type " << type_of_primer[j] << endl;
 				cout << "distance broke" << endl;
 			}
+	*/
 			if (distance >= min_primer_distance && distance <= max_primer_distance)
 			{
 				stats.total_lenght_long_amplicons += distance;

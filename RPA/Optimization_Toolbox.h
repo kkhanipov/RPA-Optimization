@@ -6,6 +6,10 @@
 #include <time.h>
 #include <limits>
 #include <algorithm>
+#include <cstring>
+#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 class Optimization_Toolbox
@@ -128,14 +132,14 @@ bool Optimization_Toolbox::calculate_pareto_frontier(double * x, double * y, boo
 		//TODO: missing implementation of maxx maxy
 		//if (maximize_x && maximize_y)
 
-		if (sorted_set[i].pareto_set)
-		{
-			err_msg << "index :" << sorted_set[i].index << "\t";
-			err_msg << "x :" << sorted_set[i].x << "\t";
-			err_msg << "y :" << sorted_set[i].y << "\t";
-			err_msg << "x/y :" << sorted_set[i].x / sorted_set[i].y << "\t";
-			err_msg << "pareto set :" << sorted_set[i].pareto_set << endl;
-		}
+		//if (sorted_set[i].pareto_set)
+		//{
+		//	err_msg << "index :" << sorted_set[i].index << "\t";
+		//	err_msg << "x :" << sorted_set[i].x << "\t";
+		//	err_msg << "y :" << sorted_set[i].y << "\t";
+		//	err_msg << "x/y :" << sorted_set[i].x / sorted_set[i].y << "\t";
+		//	err_msg << "pareto set :" << sorted_set[i].pareto_set << endl;
+		//}
 	}
 
 	for (unsigned int i = 0; i < number_of_values; i++)
