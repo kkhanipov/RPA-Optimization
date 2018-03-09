@@ -80,12 +80,7 @@ int main()
 	individual_primers = new Primer_Set *[number_of_individual_primers]; assert(individual_primers);
 	PCR_Profile ** individual_PCR_profiles;
 	individual_PCR_profiles = new PCR_Profile *[number_of_individual_primers]; assert(individual_PCR_profiles);
-	ofstream log_out;
-	log_out.open("log_file.txt");
 
-	if (!log_out.is_open()) cout << "couldnt open log file" << endl;
-	//pareralize this loop
-	
 	unsigned int count = 0;
 	#pragma omp parallel for
 	for (int i = 0; i < number_of_individual_primers; i++)
@@ -101,9 +96,9 @@ int main()
 	prepare_pareto(individual_PCR_profiles, number_of_individual_primers, pareto_index);
 	PCR_Profile * pareto_PCR_profile = new PCR_Profile(individual_PCR_profiles[pareto_index]); assert(pareto_PCR_profile);
 	pareto_PCR_profile->show_statistics();
+	count = 0;
 	while (true)
 	{
-		count = 0;
 		PCR_Profile ** temp_pareto_PCR_profile;
 		temp_pareto_PCR_profile = new PCR_Profile *[number_of_individual_primers]; assert(temp_pareto_PCR_profile);
 		
@@ -111,23 +106,18 @@ int main()
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
 			temp_pareto_PCR_profile[i] = new PCR_Profile(pareto_PCR_profile, individual_PCR_profiles[i]); assert(temp_pareto_PCR_profile[i]);
-			count++;
 		}
-		
-		cout << "Pareto started" << endl;
+		count++;
 		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
-		cout << "Pareto finished" << endl;
 		delete pareto_PCR_profile;
 		pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
 		pareto_PCR_profile->show_statistics();
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
 		delete[]temp_pareto_PCR_profile;
-		if (count == 50) break;
+		if (count == 100) break;
 
 	}
 
 
-	log_out.close();
-	system("PAUSE");
 	return 1;
 }
