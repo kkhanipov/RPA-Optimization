@@ -67,8 +67,8 @@ int main()
 	Array_Sequences * as;
 	
 	Primer_Set * primers = new Primer_Set("primers.fasta"); assert(primers);
-	as = new Array_Sequences("sequence.fasta", primers->get_primer_length());
-	//as = new Array_Sequences("synthetic.fasta",primers->get_primer_length()); 
+	//as = new Array_Sequences("sequence.fasta", primers->get_primer_length());
+	as = new Array_Sequences("synthetic.fasta",primers->get_primer_length()); 
 	assert(as);
 
 	as->show_Statistics();
@@ -101,7 +101,7 @@ int main()
 	{
 		PCR_Profile ** temp_pareto_PCR_profile;
 		temp_pareto_PCR_profile = new PCR_Profile *[number_of_individual_primers]; assert(temp_pareto_PCR_profile);
-		
+
 #pragma omp parallel for
 		for (int i = 0; i < number_of_individual_primers; i++)
 		{
@@ -109,15 +109,21 @@ int main()
 		}
 		count++;
 		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
-		delete pareto_PCR_profile;
-		pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
-		pareto_PCR_profile->show_statistics();
+
+		if (temp_pareto_PCR_profile[pareto_index]->get_total_lenght_long_amplicons() > pareto_PCR_profile->get_total_lenght_long_amplicons() ||
+			temp_pareto_PCR_profile[pareto_index]->get_total_lenght_short_amplicons() < pareto_PCR_profile->get_total_lenght_short_amplicons())
+		{
+			delete pareto_PCR_profile;
+			pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
+			pareto_PCR_profile->show_statistics();
+		}
+		else break;
+		
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
 		delete[]temp_pareto_PCR_profile;
-		if (count == 100) break;
 
 	}
 
-
+	system("PAUSE");
 	return 1;
 }
