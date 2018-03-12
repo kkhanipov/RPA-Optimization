@@ -41,7 +41,7 @@ bool prepare_pareto(PCR_Profile ** pcr_profiles_4_comparison, unsigned int num_p
 	}
 
 	Optimization_Toolbox::calculate_pareto_frontier(genome_coverage, genome_overrepresentation, pareto_set, num_pcr_profiles, true, false, err_msg);
-	
+
 	int position = -1;
 	
 	int *tmp_pareto = new int[num_pcr_profiles];
@@ -110,17 +110,18 @@ int main()
 		count++;
 		prepare_pareto(temp_pareto_PCR_profile, number_of_individual_primers, pareto_index);
 
-		if (temp_pareto_PCR_profile[pareto_index]->get_total_lenght_long_amplicons() > pareto_PCR_profile->get_total_lenght_long_amplicons() ||
-			temp_pareto_PCR_profile[pareto_index]->get_total_lenght_short_amplicons() < pareto_PCR_profile->get_total_lenght_short_amplicons())
-		{
+		//if (temp_pareto_PCR_profile[pareto_index]->get_total_lenght_long_amplicons() > pareto_PCR_profile->get_total_lenght_long_amplicons() ||
+		//	temp_pareto_PCR_profile[pareto_index]->get_total_lenght_short_amplicons() < pareto_PCR_profile->get_total_lenght_short_amplicons())
+		//{
 			delete pareto_PCR_profile;
 			pareto_PCR_profile = new PCR_Profile(temp_pareto_PCR_profile[pareto_index]); assert(pareto_PCR_profile);
 			pareto_PCR_profile->show_statistics();
-		}
-		else break;
+		//}
+		//else break;
 		
 		for (int i = 0; i<number_of_individual_primers; i++) delete temp_pareto_PCR_profile[i];
 		delete[]temp_pareto_PCR_profile;
+		if (count == 300)break;
 
 	}
 
