@@ -116,7 +116,7 @@
     <ClInclude Include="Array_Sequences.h" />
     <ClInclude Include="Optimization_Toolbox.h" />
     <ClInclude Include="PCR_Profile.h" />
-    <ClInclude Include="PCR_Profile_Toolbox.h" />
+    <ClInclude Include="PCR_Profile_Array.h" />
     <ClInclude Include="Primer_Set.h" />
     <ClInclude Include="Sequence.h" />
   </ItemGroup>

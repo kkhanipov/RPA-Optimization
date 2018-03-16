@@ -24,13 +24,13 @@
     <ClInclude Include="PCR_Profile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PCR_Profile_Toolbox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Primer_Set.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sequence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PCR_Profile_Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

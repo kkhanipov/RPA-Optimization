@@ -274,9 +274,9 @@ bool PCR_Profile::show_statistics(ostream & out, ostream &err_msg)
 	//out << "number_reverse_primers " << get_number_reverse_primers() << "\t";
 	//out << "number_short_amplicons " << get_number_short_amplicons() << "\t";
 	//out << "number_long_amplicons " << get_number_long_amplicons() << "\t";
-	out << "total_lenght_short_amplicons " << (double) get_total_lenght_short_amplicons() / (double)profile_length << "\t";
-	out << "total_lenght_long_amplicons " << (double)get_total_lenght_long_amplicons()/ (double)profile_length << "\t";
-	out << "total_lenght_too_long_amplicons " << (double)get_total_lenght_too_long_amplicons()/ (double)profile_length << "\t";
+	out << "total_lenght_short_amplicons " << (double) get_total_lenght_short_amplicons()/(double) profile_length  << "\t";
+	out << "total_lenght_long_amplicons " << (double)get_total_lenght_long_amplicons() / (double)profile_length << "\t";
+	out << "total_lenght_too_long_amplicons " << (double)get_total_lenght_too_long_amplicons() / (double)profile_length << "\t";
 	//out << "total_length_uncovered" << get_total_length_uncovered()/ profile_length << "\t";
 	//out << "total_length" << get_total_length_uncovered()+ get_total_lenght_too_long_amplicons() + get_total_lenght_long_amplicons() + get_total_lenght_short_amplicons() << endl;
 	//cout << "distance" << endl;
