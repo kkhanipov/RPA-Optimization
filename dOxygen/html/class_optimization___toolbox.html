@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RPA: Optimization_Toolbox Class Reference</title>
+<title>Random Primer Optimization Single Genome: Optimization_Toolbox Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RPA
+   <div id="projectname">Random Primer Optimization Single Genome
    </div>
   </td>
  </tr>
@@ -68,18 +68,169 @@ $(function() {
 <div class="title">Optimization_Toolbox Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acb0793203243d200d9154f2e98011d44"><td class="memItemLeft" align="right" valign="top"><a id="acb0793203243d200d9154f2e98011d44"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>calculate_pareto_frontier</b> (double *x, double *y, bool *paretto_set, unsigned int number_of_values, bool maximize_x, bool maximize_y, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:acb0793203243d200d9154f2e98011d44"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization___toolbox.html#acb0793203243d200d9154f2e98011d44">calculate_pareto_frontier</a> (double *x, double *y, bool *paretto_set, unsigned int number_of_values, bool maximize_x, bool maximize_y, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:acb0793203243d200d9154f2e98011d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f2c18904985dd9591efe0a63bfae9b"><td class="memItemLeft" align="right" valign="top"><a id="a44f2c18904985dd9591efe0a63bfae9b"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>convert_primer_txt_to_int</b> (char *_primer, unsigned int primer_length, unsigned int &amp;primer_value, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a44f2c18904985dd9591efe0a63bfae9b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization___toolbox.html#a44f2c18904985dd9591efe0a63bfae9b">convert_primer_txt_to_int</a> (char *_primer, unsigned int primer_length, unsigned int &amp;primer_value, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a44f2c18904985dd9591efe0a63bfae9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_optimization___toolbox_8h_source.html#l00015">15</a> of file <a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="acb0793203243d200d9154f2e98011d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0793203243d200d9154f2e98011d44">&#9670;&nbsp;</a></span>calculate_pareto_frontier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Optimization_Toolbox::calculate_pareto_frontier </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>paretto_set</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>number_of_values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>maximize_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>maximize_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_optimization___toolbox_8h_source.html#l00093">93</a> of file <a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_cgraph.png" border="0" usemap="#class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_cgraph" alt=""/></div>
+<map name="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_cgraph" id="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_cgraph">
+<area shape="rect" id="node2" href="_optimization___toolbox_8h.html#aa74e0a79912d629cbf41d83fc575f9bc" title="compare_Sortable_Pareto\l_Max_X_Min_Y" alt="" coords="225,5,397,47"/>
+<area shape="rect" id="node3" href="_optimization___toolbox_8h.html#a09b7fe972a329ae529f0a0262771bb05" title="compare_Sortable_Pareto\l_Max_X_Max_Y" alt="" coords="225,71,397,112"/>
+<area shape="rect" id="node4" href="_optimization___toolbox_8h.html#a6c51d146459ac7ae396e14b322de9f5d" title="compare_Sortable_Pareto\l_Min_X_Min_Y" alt="" coords="225,136,397,177"/>
+<area shape="rect" id="node5" href="_optimization___toolbox_8h.html#af5343591d09a5b1da10c5466caa04b76" title="compare_Sortable_Pareto\l_Min_X_Max_Y" alt="" coords="225,201,397,243"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_icgraph.png" border="0" usemap="#class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_icgraph" alt=""/></div>
+<map name="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_icgraph" id="class_optimization___toolbox_acb0793203243d200d9154f2e98011d44_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#a51e1074e8597e86adc19d4af6a2a8b7c" title="test_1" alt="" coords="250,5,309,32"/>
+<area shape="rect" id="node3" href="main_8cpp.html#aa1388cd044dd1623f14866d9040062b9" title="prepare_pareto" alt="" coords="225,56,333,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="381,56,432,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a44f2c18904985dd9591efe0a63bfae9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f2c18904985dd9591efe0a63bfae9b">&#9670;&nbsp;</a></span>convert_primer_txt_to_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Optimization_Toolbox::convert_primer_txt_to_int </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_primer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>primer_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_optimization___toolbox_8h_source.html#l00027">27</a> of file <a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization___toolbox_a44f2c18904985dd9591efe0a63bfae9b_icgraph.png" border="0" usemap="#class_optimization___toolbox_a44f2c18904985dd9591efe0a63bfae9b_icgraph" alt=""/></div>
+<map name="class_optimization___toolbox_a44f2c18904985dd9591efe0a63bfae9b_icgraph" id="class_optimization___toolbox_a44f2c18904985dd9591efe0a63bfae9b_icgraph">
+<area shape="rect" id="node2" href="class_sequence.html#ad6f16ee0cacbb22596c7a34d8a2f4c14" title="Sequence::Sequence" alt="" coords="201,20,348,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Kamil/Documents/RPA-Optimization/RPA/<a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a></li>
+<li>RPA/<a class="el" href="_optimization___toolbox_8h_source.html">Optimization_Toolbox.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

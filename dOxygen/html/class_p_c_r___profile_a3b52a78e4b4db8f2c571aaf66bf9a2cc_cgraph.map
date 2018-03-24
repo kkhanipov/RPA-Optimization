@@ -1,0 +1,11 @@
+<map id="PCR_Profile::PCR_Profile" name="PCR_Profile::PCR_Profile">
+<area shape="rect" id="node2" href="$class_p_c_r___profile.html#ad25903940b769ad48abaf472175e5ccf" title="PCR_Profile::get_profile\l_length" alt="" coords="237,5,398,47"/>
+<area shape="rect" id="node3" href="$class_p_c_r___profile.html#a3adc7245807935d0d10c7600593254a2" title="PCR_Profile::get_number\l_of_primers_primer_set" alt="" coords="233,71,402,112"/>
+<area shape="rect" id="node5" href="$class_p_c_r___profile.html#a24577af6213a4f6ae4215d19836c5673" title="PCR_Profile::get_pointer\l_to_primer_set" alt="" coords="235,136,400,177"/>
+<area shape="rect" id="node6" href="$class_primer___set.html#af53fe2ae85933f04a5cc2e159a3ed49f" title="Primer_Set::get_primer\l_length" alt="" coords="239,201,395,243"/>
+<area shape="rect" id="node7" href="$class_primer___set.html#a7c639e643b36dea739026862f12a64d4" title="Primer_Set::get_primer\l_as_value" alt="" coords="239,267,395,308"/>
+<area shape="rect" id="node8" href="$class_p_c_r___profile.html#a7b3b84627171a22a57366adc1992ff3d" title="PCR_Profile::get_number\l_of_primers_location_profile" alt="" coords="225,332,409,373"/>
+<area shape="rect" id="node9" href="$class_p_c_r___profile.html#a7f9b958200413a71f4edd93277da1765" title="PCR_Profile::get_location\l_of_primer" alt="" coords="232,397,403,439"/>
+<area shape="rect" id="node10" href="$class_p_c_r___profile.html#a6243b3536533df498c781f9e592a86db" title="PCR_Profile::get_type\l_of_primer" alt="" coords="242,463,393,504"/>
+<area shape="rect" id="node4" href="$class_primer___set.html#af9cc2185ff8cb758f383481d138faf8f" title="Primer_Set::get_number\l_of_primers" alt="" coords="457,71,620,112"/>
+</map>

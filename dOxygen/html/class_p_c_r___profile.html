@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RPA: PCR_Profile Class Reference</title>
+<title>Random Primer Optimization Single Genome: PCR_Profile Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RPA
+   <div id="projectname">Random Primer Optimization Single Genome
    </div>
   </td>
  </tr>
@@ -69,157 +69,918 @@ $(function() {
 <div class="title">PCR_Profile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b52a78e4b4db8f2c571aaf66bf9a2cc"><td class="memItemLeft" align="right" valign="top"><a id="a3b52a78e4b4db8f2c571aaf66bf9a2cc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_a, <a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_b, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a3b52a78e4b4db8f2c571aaf66bf9a2cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc">PCR_Profile</a> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_a, <a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_b, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a3b52a78e4b4db8f2c571aaf66bf9a2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b621dd306d51186d84ac65929f14e7b"><td class="memItemLeft" align="right" valign="top"><a id="a4b621dd306d51186d84ac65929f14e7b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a4b621dd306d51186d84ac65929f14e7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a4b621dd306d51186d84ac65929f14e7b">PCR_Profile</a> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a4b621dd306d51186d84ac65929f14e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2772873e5a43e8b8c1dde4b6ca9d8a2f"><td class="memItemLeft" align="right" valign="top"><a id="a2772873e5a43e8b8c1dde4b6ca9d8a2f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_primer___set.html">Primer_Set</a> *_primer_set, <a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a2772873e5a43e8b8c1dde4b6ca9d8a2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a2772873e5a43e8b8c1dde4b6ca9d8a2f">PCR_Profile</a> (<a class="el" href="class_primer___set.html">Primer_Set</a> *_primer_set, <a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a2772873e5a43e8b8c1dde4b6ca9d8a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a339a01da69e5e709f6b33678bd9f73dc"><td class="memItemLeft" align="right" valign="top"><a id="a339a01da69e5e709f6b33678bd9f73dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_profile_calculation</b> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a0e83f85f3689ebd7c07005dd8440b185"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a0e83f85f3689ebd7c07005dd8440b185">~PCR_Profile</a> ()</td></tr>
+<tr class="separator:a0e83f85f3689ebd7c07005dd8440b185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339a01da69e5e709f6b33678bd9f73dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a339a01da69e5e709f6b33678bd9f73dc">PCR_profile_calculation</a> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a339a01da69e5e709f6b33678bd9f73dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f209d643d15a15c7a7b940e18df9497"><td class="memItemLeft" align="right" valign="top"><a id="a6f209d643d15a15c7a7b940e18df9497"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>calculate_statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a6f209d643d15a15c7a7b940e18df9497"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a6f209d643d15a15c7a7b940e18df9497">calculate_statistics</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a6f209d643d15a15c7a7b940e18df9497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9897676b415905e30809e69c399a859a"><td class="memItemLeft" align="right" valign="top"><a id="a9897676b415905e30809e69c399a859a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a9897676b415905e30809e69c399a859a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a9897676b415905e30809e69c399a859a">show_statistics</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a9897676b415905e30809e69c399a859a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad744529e3bbcdc019d259667460340b"><td class="memItemLeft" align="right" valign="top"><a id="aad744529e3bbcdc019d259667460340b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_All</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:aad744529e3bbcdc019d259667460340b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#aad744529e3bbcdc019d259667460340b">show_All</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:aad744529e3bbcdc019d259667460340b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95758e5dff688b7b85bd1009ba28e112"><td class="memItemLeft" align="right" valign="top"><a id="a95758e5dff688b7b85bd1009ba28e112"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>add_primer_location_to_profile</b> (unsigned int position, int primer_type, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a95758e5dff688b7b85bd1009ba28e112"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a95758e5dff688b7b85bd1009ba28e112">add_primer_location_to_profile</a> (unsigned int position, int primer_type, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a95758e5dff688b7b85bd1009ba28e112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5222753c5f4b1568f7254be8fbc7c862"><td class="memItemLeft" align="right" valign="top"><a id="a5222753c5f4b1568f7254be8fbc7c862"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_forward_primers</b> ()</td></tr>
+<tr class="memitem:a5222753c5f4b1568f7254be8fbc7c862"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a5222753c5f4b1568f7254be8fbc7c862">get_number_forward_primers</a> ()</td></tr>
 <tr class="separator:a5222753c5f4b1568f7254be8fbc7c862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5470c4248e9c347b66ee1ad977d2a6f9"><td class="memItemLeft" align="right" valign="top"><a id="a5470c4248e9c347b66ee1ad977d2a6f9"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_reverse_primers</b> ()</td></tr>
+<tr class="memitem:a5470c4248e9c347b66ee1ad977d2a6f9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a5470c4248e9c347b66ee1ad977d2a6f9">get_number_reverse_primers</a> ()</td></tr>
 <tr class="separator:a5470c4248e9c347b66ee1ad977d2a6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1470db4482cb29be8e29b96f913023c"><td class="memItemLeft" align="right" valign="top"><a id="ae1470db4482cb29be8e29b96f913023c"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_short_amplicons</b> ()</td></tr>
+<tr class="memitem:ae1470db4482cb29be8e29b96f913023c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#ae1470db4482cb29be8e29b96f913023c">get_number_short_amplicons</a> ()</td></tr>
 <tr class="separator:ae1470db4482cb29be8e29b96f913023c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a98d9005a63450de3f782c9374972a"><td class="memItemLeft" align="right" valign="top"><a id="a91a98d9005a63450de3f782c9374972a"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_long_amplicons</b> ()</td></tr>
+<tr class="memitem:a91a98d9005a63450de3f782c9374972a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a91a98d9005a63450de3f782c9374972a">get_number_long_amplicons</a> ()</td></tr>
 <tr class="separator:a91a98d9005a63450de3f782c9374972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8f3e8fc43865af8734090436a0d729e"><td class="memItemLeft" align="right" valign="top"><a id="aa8f3e8fc43865af8734090436a0d729e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_short_amplicons</b> ()</td></tr>
+<tr class="memitem:aa8f3e8fc43865af8734090436a0d729e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#aa8f3e8fc43865af8734090436a0d729e">get_total_lenght_short_amplicons</a> ()</td></tr>
 <tr class="separator:aa8f3e8fc43865af8734090436a0d729e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf41a697d05489582745d650d4e7c956"><td class="memItemLeft" align="right" valign="top"><a id="adf41a697d05489582745d650d4e7c956"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_long_amplicons</b> ()</td></tr>
+<tr class="memitem:adf41a697d05489582745d650d4e7c956"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#adf41a697d05489582745d650d4e7c956">get_total_lenght_long_amplicons</a> ()</td></tr>
 <tr class="separator:adf41a697d05489582745d650d4e7c956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25903940b769ad48abaf472175e5ccf"><td class="memItemLeft" align="right" valign="top"><a id="ad25903940b769ad48abaf472175e5ccf"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_profile_length</b> ()</td></tr>
+<tr class="memitem:ad25903940b769ad48abaf472175e5ccf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#ad25903940b769ad48abaf472175e5ccf">get_profile_length</a> ()</td></tr>
 <tr class="separator:ad25903940b769ad48abaf472175e5ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c37a463d8adedb60c5b4d8d213c182e"><td class="memItemLeft" align="right" valign="top"><a id="a0c37a463d8adedb60c5b4d8d213c182e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_too_long_amplicons</b> ()</td></tr>
+<tr class="memitem:a0c37a463d8adedb60c5b4d8d213c182e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a0c37a463d8adedb60c5b4d8d213c182e">get_total_lenght_too_long_amplicons</a> ()</td></tr>
 <tr class="separator:a0c37a463d8adedb60c5b4d8d213c182e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcd1baf20c93c633b00b1fbd3e662b8f"><td class="memItemLeft" align="right" valign="top"><a id="abcd1baf20c93c633b00b1fbd3e662b8f"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_length_uncovered</b> ()</td></tr>
+<tr class="memitem:abcd1baf20c93c633b00b1fbd3e662b8f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#abcd1baf20c93c633b00b1fbd3e662b8f">get_total_length_uncovered</a> ()</td></tr>
 <tr class="separator:abcd1baf20c93c633b00b1fbd3e662b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24577af6213a4f6ae4215d19836c5673"><td class="memItemLeft" align="right" valign="top"><a id="a24577af6213a4f6ae4215d19836c5673"></a>
-<a class="el" href="class_primer___set.html">Primer_Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to_primer_set</b> ()</td></tr>
+<tr class="memitem:a24577af6213a4f6ae4215d19836c5673"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_primer___set.html">Primer_Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a24577af6213a4f6ae4215d19836c5673">get_pointer_to_primer_set</a> ()</td></tr>
 <tr class="separator:a24577af6213a4f6ae4215d19836c5673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3adc7245807935d0d10c7600593254a2"><td class="memItemLeft" align="right" valign="top"><a id="a3adc7245807935d0d10c7600593254a2"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_of_primers_primer_set</b> ()</td></tr>
+<tr class="memitem:a3adc7245807935d0d10c7600593254a2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a3adc7245807935d0d10c7600593254a2">get_number_of_primers_primer_set</a> ()</td></tr>
 <tr class="separator:a3adc7245807935d0d10c7600593254a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43b9d518bca0cd7f37ce008fcfa1b37b"><td class="memItemLeft" align="right" valign="top"><a id="a43b9d518bca0cd7f37ce008fcfa1b37b"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_primer_profile_array_size</b> ()</td></tr>
+<tr class="memitem:a43b9d518bca0cd7f37ce008fcfa1b37b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a43b9d518bca0cd7f37ce008fcfa1b37b">get_primer_profile_array_size</a> ()</td></tr>
 <tr class="separator:a43b9d518bca0cd7f37ce008fcfa1b37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3b84627171a22a57366adc1992ff3d"><td class="memItemLeft" align="right" valign="top"><a id="a7b3b84627171a22a57366adc1992ff3d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_of_primers_location_profile</b> ()</td></tr>
+<tr class="memitem:a7b3b84627171a22a57366adc1992ff3d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a7b3b84627171a22a57366adc1992ff3d">get_number_of_primers_location_profile</a> ()</td></tr>
 <tr class="separator:a7b3b84627171a22a57366adc1992ff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9b958200413a71f4edd93277da1765"><td class="memItemLeft" align="right" valign="top"><a id="a7f9b958200413a71f4edd93277da1765"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><b>get_location_of_primer</b> ()</td></tr>
+<tr class="memitem:a7f9b958200413a71f4edd93277da1765"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a7f9b958200413a71f4edd93277da1765">get_location_of_primer</a> ()</td></tr>
 <tr class="separator:a7f9b958200413a71f4edd93277da1765"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6243b3536533df498c781f9e592a86db"><td class="memItemLeft" align="right" valign="top"><a id="a6243b3536533df498c781f9e592a86db"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><b>get_type_of_primer</b> ()</td></tr>
+<tr class="memitem:a6243b3536533df498c781f9e592a86db"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a6243b3536533df498c781f9e592a86db">get_type_of_primer</a> ()</td></tr>
 <tr class="separator:a6243b3536533df498c781f9e592a86db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e64bbe69413cb969b31ffae46e6a10"><td class="memItemLeft" align="right" valign="top"><a id="a05e64bbe69413cb969b31ffae46e6a10"></a>
-Stats&#160;</td><td class="memItemRight" valign="bottom"><b>get_Stats</b> ()</td></tr>
-<tr class="separator:a05e64bbe69413cb969b31ffae46e6a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b52a78e4b4db8f2c571aaf66bf9a2cc"><td class="memItemLeft" align="right" valign="top"><a id="a3b52a78e4b4db8f2c571aaf66bf9a2cc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_a, <a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile_b, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a3b52a78e4b4db8f2c571aaf66bf9a2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b621dd306d51186d84ac65929f14e7b"><td class="memItemLeft" align="right" valign="top"><a id="a4b621dd306d51186d84ac65929f14e7b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *_pcr_profile, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a4b621dd306d51186d84ac65929f14e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2772873e5a43e8b8c1dde4b6ca9d8a2f"><td class="memItemLeft" align="right" valign="top"><a id="a2772873e5a43e8b8c1dde4b6ca9d8a2f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_Profile</b> (<a class="el" href="class_primer___set.html">Primer_Set</a> *_primer_set, <a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a2772873e5a43e8b8c1dde4b6ca9d8a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a339a01da69e5e709f6b33678bd9f73dc"><td class="memItemLeft" align="right" valign="top"><a id="a339a01da69e5e709f6b33678bd9f73dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>PCR_profile_calculation</b> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a339a01da69e5e709f6b33678bd9f73dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f209d643d15a15c7a7b940e18df9497"><td class="memItemLeft" align="right" valign="top"><a id="a6f209d643d15a15c7a7b940e18df9497"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>calculate_statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a6f209d643d15a15c7a7b940e18df9497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9897676b415905e30809e69c399a859a"><td class="memItemLeft" align="right" valign="top"><a id="a9897676b415905e30809e69c399a859a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a9897676b415905e30809e69c399a859a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad744529e3bbcdc019d259667460340b"><td class="memItemLeft" align="right" valign="top"><a id="aad744529e3bbcdc019d259667460340b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_All</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:aad744529e3bbcdc019d259667460340b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95758e5dff688b7b85bd1009ba28e112"><td class="memItemLeft" align="right" valign="top"><a id="a95758e5dff688b7b85bd1009ba28e112"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>add_primer_location_to_profile</b> (unsigned int position, int primer_type, ostream &amp;err_msg=cout)</td></tr>
-<tr class="separator:a95758e5dff688b7b85bd1009ba28e112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5222753c5f4b1568f7254be8fbc7c862"><td class="memItemLeft" align="right" valign="top"><a id="a5222753c5f4b1568f7254be8fbc7c862"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_forward_primers</b> ()</td></tr>
-<tr class="separator:a5222753c5f4b1568f7254be8fbc7c862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5470c4248e9c347b66ee1ad977d2a6f9"><td class="memItemLeft" align="right" valign="top"><a id="a5470c4248e9c347b66ee1ad977d2a6f9"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_reverse_primers</b> ()</td></tr>
-<tr class="separator:a5470c4248e9c347b66ee1ad977d2a6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1470db4482cb29be8e29b96f913023c"><td class="memItemLeft" align="right" valign="top"><a id="ae1470db4482cb29be8e29b96f913023c"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_short_amplicons</b> ()</td></tr>
-<tr class="separator:ae1470db4482cb29be8e29b96f913023c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a98d9005a63450de3f782c9374972a"><td class="memItemLeft" align="right" valign="top"><a id="a91a98d9005a63450de3f782c9374972a"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_long_amplicons</b> ()</td></tr>
-<tr class="separator:a91a98d9005a63450de3f782c9374972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8f3e8fc43865af8734090436a0d729e"><td class="memItemLeft" align="right" valign="top"><a id="aa8f3e8fc43865af8734090436a0d729e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_short_amplicons</b> ()</td></tr>
-<tr class="separator:aa8f3e8fc43865af8734090436a0d729e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf41a697d05489582745d650d4e7c956"><td class="memItemLeft" align="right" valign="top"><a id="adf41a697d05489582745d650d4e7c956"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_long_amplicons</b> ()</td></tr>
-<tr class="separator:adf41a697d05489582745d650d4e7c956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25903940b769ad48abaf472175e5ccf"><td class="memItemLeft" align="right" valign="top"><a id="ad25903940b769ad48abaf472175e5ccf"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_profile_length</b> ()</td></tr>
-<tr class="separator:ad25903940b769ad48abaf472175e5ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c37a463d8adedb60c5b4d8d213c182e"><td class="memItemLeft" align="right" valign="top"><a id="a0c37a463d8adedb60c5b4d8d213c182e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_lenght_too_long_amplicons</b> ()</td></tr>
-<tr class="separator:a0c37a463d8adedb60c5b4d8d213c182e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcd1baf20c93c633b00b1fbd3e662b8f"><td class="memItemLeft" align="right" valign="top"><a id="abcd1baf20c93c633b00b1fbd3e662b8f"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_length_uncovered</b> ()</td></tr>
-<tr class="separator:abcd1baf20c93c633b00b1fbd3e662b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24577af6213a4f6ae4215d19836c5673"><td class="memItemLeft" align="right" valign="top"><a id="a24577af6213a4f6ae4215d19836c5673"></a>
-<a class="el" href="class_primer___set.html">Primer_Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to_primer_set</b> ()</td></tr>
-<tr class="separator:a24577af6213a4f6ae4215d19836c5673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3adc7245807935d0d10c7600593254a2"><td class="memItemLeft" align="right" valign="top"><a id="a3adc7245807935d0d10c7600593254a2"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_of_primers_primer_set</b> ()</td></tr>
-<tr class="separator:a3adc7245807935d0d10c7600593254a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43b9d518bca0cd7f37ce008fcfa1b37b"><td class="memItemLeft" align="right" valign="top"><a id="a43b9d518bca0cd7f37ce008fcfa1b37b"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_primer_profile_array_size</b> ()</td></tr>
-<tr class="separator:a43b9d518bca0cd7f37ce008fcfa1b37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3b84627171a22a57366adc1992ff3d"><td class="memItemLeft" align="right" valign="top"><a id="a7b3b84627171a22a57366adc1992ff3d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_of_primers_location_profile</b> ()</td></tr>
-<tr class="separator:a7b3b84627171a22a57366adc1992ff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9b958200413a71f4edd93277da1765"><td class="memItemLeft" align="right" valign="top"><a id="a7f9b958200413a71f4edd93277da1765"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><b>get_location_of_primer</b> ()</td></tr>
-<tr class="separator:a7f9b958200413a71f4edd93277da1765"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6243b3536533df498c781f9e592a86db"><td class="memItemLeft" align="right" valign="top"><a id="a6243b3536533df498c781f9e592a86db"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><b>get_type_of_primer</b> ()</td></tr>
-<tr class="separator:a6243b3536533df498c781f9e592a86db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e64bbe69413cb969b31ffae46e6a10"><td class="memItemLeft" align="right" valign="top"><a id="a05e64bbe69413cb969b31ffae46e6a10"></a>
-Stats&#160;</td><td class="memItemRight" valign="bottom"><b>get_Stats</b> ()</td></tr>
+<tr class="memitem:a05e64bbe69413cb969b31ffae46e6a10"><td class="memItemLeft" align="right" valign="top">Stats&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_c_r___profile.html#a05e64bbe69413cb969b31ffae46e6a10">get_Stats</a> ()</td></tr>
 <tr class="separator:a05e64bbe69413cb969b31ffae46e6a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Kamil/Documents/RPA-Optimization/RPA/<a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a></li>
-<li>C:/Users/Kamil/Documents/RPA-Optimization/RPA/<a class="el" href="_p_c_r___profile__bak_8h_source.html">PCR_Profile_bak.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00012">12</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3b52a78e4b4db8f2c571aaf66bf9a2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b52a78e4b4db8f2c571aaf66bf9a2cc">&#9670;&nbsp;</a></span>PCR_Profile() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCR_Profile::PCR_Profile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *&#160;</td>
+          <td class="paramname"><em>_pcr_profile_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *&#160;</td>
+          <td class="paramname"><em>_pcr_profile_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00082">82</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a3b52a78e4b4db8f2c571aaf66bf9a2cc_cgraph.png" border="0" usemap="#class_p_c_r___profile_a3b52a78e4b4db8f2c571aaf66bf9a2cc_cgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a3b52a78e4b4db8f2c571aaf66bf9a2cc_cgraph" id="class_p_c_r___profile_a3b52a78e4b4db8f2c571aaf66bf9a2cc_cgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#ad25903940b769ad48abaf472175e5ccf" title="PCR_Profile::get_profile\l_length" alt="" coords="237,5,398,47"/>
+<area shape="rect" id="node3" href="class_p_c_r___profile.html#a3adc7245807935d0d10c7600593254a2" title="PCR_Profile::get_number\l_of_primers_primer_set" alt="" coords="233,71,402,112"/>
+<area shape="rect" id="node5" href="class_p_c_r___profile.html#a24577af6213a4f6ae4215d19836c5673" title="PCR_Profile::get_pointer\l_to_primer_set" alt="" coords="235,136,400,177"/>
+<area shape="rect" id="node6" href="class_primer___set.html#af53fe2ae85933f04a5cc2e159a3ed49f" title="Primer_Set::get_primer\l_length" alt="" coords="239,201,395,243"/>
+<area shape="rect" id="node7" href="class_primer___set.html#a7c639e643b36dea739026862f12a64d4" title="Primer_Set::get_primer\l_as_value" alt="" coords="239,267,395,308"/>
+<area shape="rect" id="node8" href="class_p_c_r___profile.html#a7b3b84627171a22a57366adc1992ff3d" title="PCR_Profile::get_number\l_of_primers_location_profile" alt="" coords="225,332,409,373"/>
+<area shape="rect" id="node9" href="class_p_c_r___profile.html#a7f9b958200413a71f4edd93277da1765" title="PCR_Profile::get_location\l_of_primer" alt="" coords="232,397,403,439"/>
+<area shape="rect" id="node10" href="class_p_c_r___profile.html#a6243b3536533df498c781f9e592a86db" title="PCR_Profile::get_type\l_of_primer" alt="" coords="242,463,393,504"/>
+<area shape="rect" id="node4" href="class_primer___set.html#af9cc2185ff8cb758f383481d138faf8f" title="Primer_Set::get_number\l_of_primers" alt="" coords="457,71,620,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b621dd306d51186d84ac65929f14e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b621dd306d51186d84ac65929f14e7b">&#9670;&nbsp;</a></span>PCR_Profile() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCR_Profile::PCR_Profile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_p_c_r___profile.html">PCR_Profile</a> *&#160;</td>
+          <td class="paramname"><em>_pcr_profile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00194">194</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a4b621dd306d51186d84ac65929f14e7b_cgraph.png" border="0" usemap="#class_p_c_r___profile_a4b621dd306d51186d84ac65929f14e7b_cgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a4b621dd306d51186d84ac65929f14e7b_cgraph" id="class_p_c_r___profile_a4b621dd306d51186d84ac65929f14e7b_cgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a05e64bbe69413cb969b31ffae46e6a10" title="PCR_Profile::get_Stats" alt="" coords="239,5,396,32"/>
+<area shape="rect" id="node3" href="class_p_c_r___profile.html#ad25903940b769ad48abaf472175e5ccf" title="PCR_Profile::get_profile\l_length" alt="" coords="237,57,398,98"/>
+<area shape="rect" id="node4" href="class_p_c_r___profile.html#a3adc7245807935d0d10c7600593254a2" title="PCR_Profile::get_number\l_of_primers_primer_set" alt="" coords="233,122,402,163"/>
+<area shape="rect" id="node6" href="class_p_c_r___profile.html#a24577af6213a4f6ae4215d19836c5673" title="PCR_Profile::get_pointer\l_to_primer_set" alt="" coords="235,187,400,229"/>
+<area shape="rect" id="node7" href="class_primer___set.html#af53fe2ae85933f04a5cc2e159a3ed49f" title="Primer_Set::get_primer\l_length" alt="" coords="239,253,395,294"/>
+<area shape="rect" id="node8" href="class_primer___set.html#a136e11664762cb801c833209a68204fe" title="Primer_Set::add_primer" alt="" coords="238,319,397,345"/>
+<area shape="rect" id="node9" href="class_primer___set.html#a7c639e643b36dea739026862f12a64d4" title="Primer_Set::get_primer\l_as_value" alt="" coords="239,370,395,411"/>
+<area shape="rect" id="node10" href="class_p_c_r___profile.html#a7b3b84627171a22a57366adc1992ff3d" title="PCR_Profile::get_number\l_of_primers_location_profile" alt="" coords="225,435,409,477"/>
+<area shape="rect" id="node11" href="class_p_c_r___profile.html#a7f9b958200413a71f4edd93277da1765" title="PCR_Profile::get_location\l_of_primer" alt="" coords="232,501,403,542"/>
+<area shape="rect" id="node12" href="class_p_c_r___profile.html#a6243b3536533df498c781f9e592a86db" title="PCR_Profile::get_type\l_of_primer" alt="" coords="242,566,393,607"/>
+<area shape="rect" id="node5" href="class_primer___set.html#af9cc2185ff8cb758f383481d138faf8f" title="Primer_Set::get_number\l_of_primers" alt="" coords="457,122,620,163"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2772873e5a43e8b8c1dde4b6ca9d8a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2772873e5a43e8b8c1dde4b6ca9d8a2f">&#9670;&nbsp;</a></span>PCR_Profile() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCR_Profile::PCR_Profile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_primer___set.html">Primer_Set</a> *&#160;</td>
+          <td class="paramname"><em>_primer_set</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sequence.html">Sequence</a> *&#160;</td>
+          <td class="paramname"><em>_sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00225">225</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a2772873e5a43e8b8c1dde4b6ca9d8a2f_cgraph.png" border="0" usemap="#class_p_c_r___profile_a2772873e5a43e8b8c1dde4b6ca9d8a2f_cgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a2772873e5a43e8b8c1dde4b6ca9d8a2f_cgraph" id="class_p_c_r___profile_a2772873e5a43e8b8c1dde4b6ca9d8a2f_cgraph">
+<area shape="rect" id="node2" href="class_sequence.html#a5454c394570fa19c2b0ac771c6e74097" title="Sequence::get_sequence\l_length" alt="" coords="225,5,395,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0e83f85f3689ebd7c07005dd8440b185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e83f85f3689ebd7c07005dd8440b185">&#9670;&nbsp;</a></span>~PCR_Profile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCR_Profile::~PCR_Profile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00076">76</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a95758e5dff688b7b85bd1009ba28e112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95758e5dff688b7b85bd1009ba28e112">&#9670;&nbsp;</a></span>add_primer_location_to_profile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCR_Profile::add_primer_location_to_profile </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>primer_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00252">252</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a6f209d643d15a15c7a7b940e18df9497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f209d643d15a15c7a7b940e18df9497">&#9670;&nbsp;</a></span>calculate_statistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCR_Profile::calculate_statistics </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00327">327</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a7f9b958200413a71f4edd93277da1765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f9b958200413a71f4edd93277da1765">&#9670;&nbsp;</a></span>get_location_of_primer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* PCR_Profile::get_location_of_primer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00066">66</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a7f9b958200413a71f4edd93277da1765_icgraph.png" border="0" usemap="#class_p_c_r___profile_a7f9b958200413a71f4edd93277da1765_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a7f9b958200413a71f4edd93277da1765_icgraph" id="class_p_c_r___profile_a7f9b958200413a71f4edd93277da1765_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="224,13,396,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5222753c5f4b1568f7254be8fbc7c862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5222753c5f4b1568f7254be8fbc7c862">&#9670;&nbsp;</a></span>get_number_forward_primers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_forward_primers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00053">53</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a91a98d9005a63450de3f782c9374972a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a98d9005a63450de3f782c9374972a">&#9670;&nbsp;</a></span>get_number_long_amplicons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_long_amplicons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00056">56</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a7b3b84627171a22a57366adc1992ff3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3b84627171a22a57366adc1992ff3d">&#9670;&nbsp;</a></span>get_number_of_primers_location_profile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_of_primers_location_profile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00065">65</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a7b3b84627171a22a57366adc1992ff3d_icgraph.png" border="0" usemap="#class_p_c_r___profile_a7b3b84627171a22a57366adc1992ff3d_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a7b3b84627171a22a57366adc1992ff3d_icgraph" id="class_p_c_r___profile_a7b3b84627171a22a57366adc1992ff3d_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="237,13,409,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3adc7245807935d0d10c7600593254a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3adc7245807935d0d10c7600593254a2">&#9670;&nbsp;</a></span>get_number_of_primers_primer_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_of_primers_primer_set </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00063">63</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_cgraph.png" border="0" usemap="#class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_cgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_cgraph" id="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_cgraph">
+<area shape="rect" id="node2" href="class_primer___set.html#af9cc2185ff8cb758f383481d138faf8f" title="Primer_Set::get_number\l_of_primers" alt="" coords="223,5,385,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_icgraph.png" border="0" usemap="#class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_icgraph" id="class_p_c_r___profile_a3adc7245807935d0d10c7600593254a2_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="223,13,395,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5470c4248e9c347b66ee1ad977d2a6f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5470c4248e9c347b66ee1ad977d2a6f9">&#9670;&nbsp;</a></span>get_number_reverse_primers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_reverse_primers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00054">54</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1470db4482cb29be8e29b96f913023c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1470db4482cb29be8e29b96f913023c">&#9670;&nbsp;</a></span>get_number_short_amplicons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_number_short_amplicons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00055">55</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a24577af6213a4f6ae4215d19836c5673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24577af6213a4f6ae4215d19836c5673">&#9670;&nbsp;</a></span>get_pointer_to_primer_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_primer___set.html">Primer_Set</a>* PCR_Profile::get_pointer_to_primer_set </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00062">62</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a24577af6213a4f6ae4215d19836c5673_icgraph.png" border="0" usemap="#class_p_c_r___profile_a24577af6213a4f6ae4215d19836c5673_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a24577af6213a4f6ae4215d19836c5673_icgraph" id="class_p_c_r___profile_a24577af6213a4f6ae4215d19836c5673_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="219,13,391,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a43b9d518bca0cd7f37ce008fcfa1b37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b9d518bca0cd7f37ce008fcfa1b37b">&#9670;&nbsp;</a></span>get_primer_profile_array_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_primer_profile_array_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00064">64</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="ad25903940b769ad48abaf472175e5ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25903940b769ad48abaf472175e5ccf">&#9670;&nbsp;</a></span>get_profile_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_profile_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00059">59</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_ad25903940b769ad48abaf472175e5ccf_icgraph.png" border="0" usemap="#class_p_c_r___profile_ad25903940b769ad48abaf472175e5ccf_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_ad25903940b769ad48abaf472175e5ccf_icgraph" id="class_p_c_r___profile_ad25903940b769ad48abaf472175e5ccf_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="215,13,387,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a05e64bbe69413cb969b31ffae46e6a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e64bbe69413cb969b31ffae46e6a10">&#9670;&nbsp;</a></span>get_Stats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Stats PCR_Profile::get_Stats </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00070">70</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a05e64bbe69413cb969b31ffae46e6a10_icgraph.png" border="0" usemap="#class_p_c_r___profile_a05e64bbe69413cb969b31ffae46e6a10_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a05e64bbe69413cb969b31ffae46e6a10_icgraph" id="class_p_c_r___profile_a05e64bbe69413cb969b31ffae46e6a10_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a4b621dd306d51186d84ac65929f14e7b" title="PCR_Profile::PCR_Profile" alt="" coords="211,5,383,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adf41a697d05489582745d650d4e7c956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf41a697d05489582745d650d4e7c956">&#9670;&nbsp;</a></span>get_total_lenght_long_amplicons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_total_lenght_long_amplicons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00058">58</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_adf41a697d05489582745d650d4e7c956_icgraph.png" border="0" usemap="#class_p_c_r___profile_adf41a697d05489582745d650d4e7c956_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_adf41a697d05489582745d650d4e7c956_icgraph" id="class_p_c_r___profile_adf41a697d05489582745d650d4e7c956_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#aa1388cd044dd1623f14866d9040062b9" title="prepare_pareto" alt="" coords="215,13,323,39"/>
+<area shape="rect" id="node3" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="371,13,421,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa8f3e8fc43865af8734090436a0d729e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f3e8fc43865af8734090436a0d729e">&#9670;&nbsp;</a></span>get_total_lenght_short_amplicons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_total_lenght_short_amplicons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00057">57</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_aa8f3e8fc43865af8734090436a0d729e_icgraph.png" border="0" usemap="#class_p_c_r___profile_aa8f3e8fc43865af8734090436a0d729e_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_aa8f3e8fc43865af8734090436a0d729e_icgraph" id="class_p_c_r___profile_aa8f3e8fc43865af8734090436a0d729e_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#aa1388cd044dd1623f14866d9040062b9" title="prepare_pareto" alt="" coords="220,13,328,39"/>
+<area shape="rect" id="node3" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="376,13,427,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0c37a463d8adedb60c5b4d8d213c182e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c37a463d8adedb60c5b4d8d213c182e">&#9670;&nbsp;</a></span>get_total_lenght_too_long_amplicons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_total_lenght_too_long_amplicons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00060">60</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="abcd1baf20c93c633b00b1fbd3e662b8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd1baf20c93c633b00b1fbd3e662b8f">&#9670;&nbsp;</a></span>get_total_length_uncovered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PCR_Profile::get_total_length_uncovered </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00061">61</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a6243b3536533df498c781f9e592a86db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6243b3536533df498c781f9e592a86db">&#9670;&nbsp;</a></span>get_type_of_primer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* PCR_Profile::get_type_of_primer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00067">67</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a6243b3536533df498c781f9e592a86db_icgraph.png" border="0" usemap="#class_p_c_r___profile_a6243b3536533df498c781f9e592a86db_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a6243b3536533df498c781f9e592a86db_icgraph" id="class_p_c_r___profile_a6243b3536533df498c781f9e592a86db_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a3b52a78e4b4db8f2c571aaf66bf9a2cc" title="PCR_Profile::PCR_Profile" alt="" coords="204,13,376,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a339a01da69e5e709f6b33678bd9f73dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339a01da69e5e709f6b33678bd9f73dc">&#9670;&nbsp;</a></span>PCR_profile_calculation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCR_Profile::PCR_profile_calculation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sequence.html">Sequence</a> *&#160;</td>
+          <td class="paramname"><em>_sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00299">299</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a339a01da69e5e709f6b33678bd9f73dc_cgraph.png" border="0" usemap="#class_p_c_r___profile_a339a01da69e5e709f6b33678bd9f73dc_cgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a339a01da69e5e709f6b33678bd9f73dc_cgraph" id="class_p_c_r___profile_a339a01da69e5e709f6b33678bd9f73dc_cgraph">
+<area shape="rect" id="node2" href="class_sequence.html#af37c4ac41b89a5081ca71ff2a9d9bd1c" title="Sequence::get_pointer\l_to_sequence_int" alt="" coords="224,5,376,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aad744529e3bbcdc019d259667460340b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad744529e3bbcdc019d259667460340b">&#9670;&nbsp;</a></span>show_All()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCR_Profile::show_All </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00288">288</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+
+</div>
+</div>
+<a id="a9897676b415905e30809e69c399a859a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9897676b415905e30809e69c399a859a">&#9670;&nbsp;</a></span>show_statistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PCR_Profile::show_statistics </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_p_c_r___profile_8h_source.html#l00271">271</a> of file <a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_c_r___profile_a9897676b415905e30809e69c399a859a_icgraph.png" border="0" usemap="#class_p_c_r___profile_a9897676b415905e30809e69c399a859a_icgraph" alt=""/></div>
+<map name="class_p_c_r___profile_a9897676b415905e30809e69c399a859a_icgraph" id="class_p_c_r___profile_a9897676b415905e30809e69c399a859a_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="244,5,295,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>RPA/<a class="el" href="_p_c_r___profile_8h_source.html">PCR_Profile.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

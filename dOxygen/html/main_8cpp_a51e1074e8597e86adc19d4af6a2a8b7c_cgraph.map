@@ -1,0 +1,7 @@
+<map id="test_1" name="test_1">
+<area shape="rect" id="node2" href="$class_optimization___toolbox.html#acb0793203243d200d9154f2e98011d44" title="Optimization_Toolbox\l::calculate_pareto_frontier" alt="" coords="112,104,284,145"/>
+<area shape="rect" id="node3" href="$_optimization___toolbox_8h.html#aa74e0a79912d629cbf41d83fc575f9bc" title="compare_Sortable_Pareto\l_Max_X_Min_Y" alt="" coords="332,5,504,47"/>
+<area shape="rect" id="node4" href="$_optimization___toolbox_8h.html#a09b7fe972a329ae529f0a0262771bb05" title="compare_Sortable_Pareto\l_Max_X_Max_Y" alt="" coords="332,71,504,112"/>
+<area shape="rect" id="node5" href="$_optimization___toolbox_8h.html#a6c51d146459ac7ae396e14b322de9f5d" title="compare_Sortable_Pareto\l_Min_X_Min_Y" alt="" coords="332,136,504,177"/>
+<area shape="rect" id="node6" href="$_optimization___toolbox_8h.html#af5343591d09a5b1da10c5466caa04b76" title="compare_Sortable_Pareto\l_Min_X_Max_Y" alt="" coords="332,201,504,243"/>
+</map>

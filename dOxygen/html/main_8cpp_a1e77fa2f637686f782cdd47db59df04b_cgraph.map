@@ -1,0 +1,9 @@
+<map id="prepare_pareto" name="prepare_pareto">
+<area shape="rect" id="node2" href="$class_p_c_r___profile.html#adf41a697d05489582745d650d4e7c956" title="PCR_Profile::get_total\l_lenght_long_amplicons" alt="" coords="167,5,328,47"/>
+<area shape="rect" id="node3" href="$class_p_c_r___profile.html#aa8f3e8fc43865af8734090436a0d729e" title="PCR_Profile::get_total\l_lenght_short_amplicons" alt="" coords="164,71,331,112"/>
+<area shape="rect" id="node4" href="$class_optimization___toolbox.html#acb0793203243d200d9154f2e98011d44" title="Optimization_Toolbox\l::calculate_pareto_frontier" alt="" coords="161,136,333,177"/>
+<area shape="rect" id="node5" href="$_optimization___toolbox_8h.html#aa74e0a79912d629cbf41d83fc575f9bc" title="compare_Sortable_Pareto\l_Max_X_Min_Y" alt="" coords="381,37,553,79"/>
+<area shape="rect" id="node6" href="$_optimization___toolbox_8h.html#a09b7fe972a329ae529f0a0262771bb05" title="compare_Sortable_Pareto\l_Max_X_Max_Y" alt="" coords="381,103,553,144"/>
+<area shape="rect" id="node7" href="$_optimization___toolbox_8h.html#a6c51d146459ac7ae396e14b322de9f5d" title="compare_Sortable_Pareto\l_Min_X_Min_Y" alt="" coords="381,168,553,209"/>
+<area shape="rect" id="node8" href="$_optimization___toolbox_8h.html#af5343591d09a5b1da10c5466caa04b76" title="compare_Sortable_Pareto\l_Min_X_Max_Y" alt="" coords="381,233,553,275"/>
+</map>

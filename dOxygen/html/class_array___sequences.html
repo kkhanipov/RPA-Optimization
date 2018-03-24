@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RPA: Array_Sequences Class Reference</title>
+<title>Random Primer Optimization Single Genome: Array_Sequences Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RPA
+   <div id="projectname">Random Primer Optimization Single Genome
    </div>
   </td>
  </tr>
@@ -69,45 +69,395 @@ $(function() {
 <div class="title">Array_Sequences Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4960de248d6dceefcae88e66a5a51e8b"><td class="memItemLeft" align="right" valign="top"><a id="a4960de248d6dceefcae88e66a5a51e8b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Array_Sequences</b> (char *filename, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a4960de248d6dceefcae88e66a5a51e8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a4960de248d6dceefcae88e66a5a51e8b">Array_Sequences</a> (char *filename, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a4960de248d6dceefcae88e66a5a51e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac33a3e2bdca116464baa042a2aea2518"><td class="memItemLeft" align="right" valign="top"><a id="ac33a3e2bdca116464baa042a2aea2518"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Array_Sequences</b> (ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:ac33a3e2bdca116464baa042a2aea2518"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#ac33a3e2bdca116464baa042a2aea2518">Array_Sequences</a> (ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:ac33a3e2bdca116464baa042a2aea2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0735daa57cd712e08843e9c79e40488"><td class="memItemLeft" align="right" valign="top"><a id="ab0735daa57cd712e08843e9c79e40488"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_Statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a740bb50d572c522a093f52a1c5c79e03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a740bb50d572c522a093f52a1c5c79e03">~Array_Sequences</a> ()</td></tr>
+<tr class="separator:a740bb50d572c522a093f52a1c5c79e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0735daa57cd712e08843e9c79e40488"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#ab0735daa57cd712e08843e9c79e40488">show_Statistics</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:ab0735daa57cd712e08843e9c79e40488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad197ef5c061d0cfc564afe5504fa4961"><td class="memItemLeft" align="right" valign="top"><a id="ad197ef5c061d0cfc564afe5504fa4961"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_All</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:ad197ef5c061d0cfc564afe5504fa4961"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#ad197ef5c061d0cfc564afe5504fa4961">show_All</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:ad197ef5c061d0cfc564afe5504fa4961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4e47e71792255275b01afd35456a9a0"><td class="memItemLeft" align="right" valign="top"><a id="ae4e47e71792255275b01afd35456a9a0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>add_sequence</b> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:ae4e47e71792255275b01afd35456a9a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#ae4e47e71792255275b01afd35456a9a0">add_sequence</a> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:ae4e47e71792255275b01afd35456a9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5e6c65a85deac945f5d11442c4eb319"><td class="memItemLeft" align="right" valign="top"><a id="aa5e6c65a85deac945f5d11442c4eb319"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>add_sequence</b> (char *_sequence, unsigned int _sequence_length, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:aa5e6c65a85deac945f5d11442c4eb319"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#aa5e6c65a85deac945f5d11442c4eb319">add_sequence</a> (char *_sequence, unsigned int _sequence_length, unsigned int primer_value=0, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:aa5e6c65a85deac945f5d11442c4eb319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76fd0aa59aaf720c64088ab9c900668f"><td class="memItemLeft" align="right" valign="top"><a id="a76fd0aa59aaf720c64088ab9c900668f"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_number_of_sequences</b> ()</td></tr>
+<tr class="memitem:a76fd0aa59aaf720c64088ab9c900668f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a76fd0aa59aaf720c64088ab9c900668f">get_number_of_sequences</a> ()</td></tr>
 <tr class="separator:a76fd0aa59aaf720c64088ab9c900668f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a029592cf35f56df0714e5326a3901b74"><td class="memItemLeft" align="right" valign="top"><a id="a029592cf35f56df0714e5326a3901b74"></a>
-<a class="el" href="class_sequence.html">Sequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to_sequence_object</b> (unsigned int position)</td></tr>
+<tr class="memitem:a029592cf35f56df0714e5326a3901b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sequence.html">Sequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a029592cf35f56df0714e5326a3901b74">get_pointer_to_sequence_object</a> (unsigned int position)</td></tr>
 <tr class="separator:a029592cf35f56df0714e5326a3901b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a05103713b20762f7e2a4a970a35514f2"><td class="memItemLeft" align="right" valign="top"><a id="a05103713b20762f7e2a4a970a35514f2"></a>
-static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>max_sequence_length</b> = 1000000000</td></tr>
+<tr class="memitem:a05103713b20762f7e2a4a970a35514f2"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a05103713b20762f7e2a4a970a35514f2">max_sequence_length</a> = 1000000000</td></tr>
 <tr class="separator:a05103713b20762f7e2a4a970a35514f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15164d8882eac2d8cf368f74fde967d2"><td class="memItemLeft" align="right" valign="top"><a id="a15164d8882eac2d8cf368f74fde967d2"></a>
-static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>max_number_of_sequences</b> = 5000</td></tr>
+<tr class="memitem:a15164d8882eac2d8cf368f74fde967d2"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array___sequences.html#a15164d8882eac2d8cf368f74fde967d2">max_number_of_sequences</a> = 5000</td></tr>
 <tr class="separator:a15164d8882eac2d8cf368f74fde967d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00016">16</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4960de248d6dceefcae88e66a5a51e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4960de248d6dceefcae88e66a5a51e8b">&#9670;&nbsp;</a></span>Array_Sequences() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Array_Sequences::Array_Sequences </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_value</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00060">60</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<a id="ac33a3e2bdca116464baa042a2aea2518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33a3e2bdca116464baa042a2aea2518">&#9670;&nbsp;</a></span>Array_Sequences() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Array_Sequences::Array_Sequences </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00053">53</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<a id="a740bb50d572c522a093f52a1c5c79e03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740bb50d572c522a093f52a1c5c79e03">&#9670;&nbsp;</a></span>~Array_Sequences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Array_Sequences::~Array_Sequences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00045">45</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae4e47e71792255275b01afd35456a9a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e47e71792255275b01afd35456a9a0">&#9670;&nbsp;</a></span>add_sequence() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Array_Sequences::add_sequence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sequence.html">Sequence</a> *&#160;</td>
+          <td class="paramname"><em>_sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_value</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00141">141</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_array___sequences_ae4e47e71792255275b01afd35456a9a0_cgraph.png" border="0" usemap="#class_array___sequences_ae4e47e71792255275b01afd35456a9a0_cgraph" alt=""/></div>
+<map name="class_array___sequences_ae4e47e71792255275b01afd35456a9a0_cgraph" id="class_array___sequences_ae4e47e71792255275b01afd35456a9a0_cgraph">
+<area shape="rect" id="node2" href="class_sequence.html#a9c1e7770390e4f1d02ae250d640a32a7" title="Sequence::get_pointer\l_to_sequence" alt="" coords="217,5,369,47"/>
+<area shape="rect" id="node3" href="class_sequence.html#a5454c394570fa19c2b0ac771c6e74097" title="Sequence::get_sequence\l_length" alt="" coords="208,71,377,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa5e6c65a85deac945f5d11442c4eb319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e6c65a85deac945f5d11442c4eb319">&#9670;&nbsp;</a></span>add_sequence() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Array_Sequences::add_sequence </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>_sequence_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_value</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00128">128</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<a id="a76fd0aa59aaf720c64088ab9c900668f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76fd0aa59aaf720c64088ab9c900668f">&#9670;&nbsp;</a></span>get_number_of_sequences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Array_Sequences::get_number_of_sequences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00038">38</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_array___sequences_a76fd0aa59aaf720c64088ab9c900668f_icgraph.png" border="0" usemap="#class_array___sequences_a76fd0aa59aaf720c64088ab9c900668f_icgraph" alt=""/></div>
+<map name="class_array___sequences_a76fd0aa59aaf720c64088ab9c900668f_icgraph" id="class_array___sequences_a76fd0aa59aaf720c64088ab9c900668f_icgraph">
+<area shape="rect" id="node2" href="class_primer___set.html#ae81dafc2ac39deb5480f68dac440e88e" title="Primer_Set::Primer_Set" alt="" coords="213,13,373,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a029592cf35f56df0714e5326a3901b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a029592cf35f56df0714e5326a3901b74">&#9670;&nbsp;</a></span>get_pointer_to_sequence_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sequence.html">Sequence</a>* Array_Sequences::get_pointer_to_sequence_object </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00039">39</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_array___sequences_a029592cf35f56df0714e5326a3901b74_icgraph.png" border="0" usemap="#class_array___sequences_a029592cf35f56df0714e5326a3901b74_icgraph" alt=""/></div>
+<map name="class_array___sequences_a029592cf35f56df0714e5326a3901b74_icgraph" id="class_array___sequences_a029592cf35f56df0714e5326a3901b74_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="259,5,309,32"/>
+<area shape="rect" id="node3" href="class_primer___set.html#ae81dafc2ac39deb5480f68dac440e88e" title="Primer_Set::Primer_Set" alt="" coords="204,56,364,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad197ef5c061d0cfc564afe5504fa4961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad197ef5c061d0cfc564afe5504fa4961">&#9670;&nbsp;</a></span>show_All()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Array_Sequences::show_All </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00154">154</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0735daa57cd712e08843e9c79e40488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0735daa57cd712e08843e9c79e40488">&#9670;&nbsp;</a></span>show_Statistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Array_Sequences::show_Statistics </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00146">146</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_array___sequences_ab0735daa57cd712e08843e9c79e40488_icgraph.png" border="0" usemap="#class_array___sequences_ab0735daa57cd712e08843e9c79e40488_icgraph" alt=""/></div>
+<map name="class_array___sequences_ab0735daa57cd712e08843e9c79e40488_icgraph" id="class_array___sequences_ab0735daa57cd712e08843e9c79e40488_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="216,13,267,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a15164d8882eac2d8cf368f74fde967d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15164d8882eac2d8cf368f74fde967d2">&#9670;&nbsp;</a></span>max_number_of_sequences</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Array_Sequences::max_number_of_sequences = 5000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00024">24</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
+<a id="a05103713b20762f7e2a4a970a35514f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05103713b20762f7e2a4a970a35514f2">&#9670;&nbsp;</a></span>max_sequence_length</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Array_Sequences::max_sequence_length = 1000000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_array___sequences_8h_source.html#l00023">23</a> of file <a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Kamil/Documents/RPA-Optimization/RPA/<a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a></li>
+<li>RPA/<a class="el" href="_array___sequences_8h_source.html">Array_Sequences.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

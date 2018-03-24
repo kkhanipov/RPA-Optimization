@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RPA: Sequence Class Reference</title>
+<title>Random Primer Optimization Single Genome: Sequence Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RPA
+   <div id="projectname">Random Primer Optimization Single Genome
    </div>
   </td>
  </tr>
@@ -68,33 +68,320 @@ $(function() {
 <div class="title">Sequence Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_sequence_8h_source.html">Sequence.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acdd11b606b266e81cc5b957e86b45517"><td class="memItemLeft" align="right" valign="top"><a id="acdd11b606b266e81cc5b957e86b45517"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Sequence</b> (char *sequence, unsigned int sequence_length, unsigned int primer_length=0, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:acdd11b606b266e81cc5b957e86b45517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#acdd11b606b266e81cc5b957e86b45517">Sequence</a> (char *sequence, unsigned int sequence_length, unsigned int primer_length=0, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:acdd11b606b266e81cc5b957e86b45517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6f16ee0cacbb22596c7a34d8a2f4c14"><td class="memItemLeft" align="right" valign="top"><a id="ad6f16ee0cacbb22596c7a34d8a2f4c14"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Sequence</b> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, unsigned int primer_length=0, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:ad6f16ee0cacbb22596c7a34d8a2f4c14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#ad6f16ee0cacbb22596c7a34d8a2f4c14">Sequence</a> (<a class="el" href="class_sequence.html">Sequence</a> *_sequence, unsigned int primer_length=0, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:ad6f16ee0cacbb22596c7a34d8a2f4c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfd0c2b8558f68f764a7690ed9ad4adc"><td class="memItemLeft" align="right" valign="top"><a id="adfd0c2b8558f68f764a7690ed9ad4adc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_statistics</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:aee09a7d70c3ab523fed85da94ea1366f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#aee09a7d70c3ab523fed85da94ea1366f">~Sequence</a> ()</td></tr>
+<tr class="separator:aee09a7d70c3ab523fed85da94ea1366f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd0c2b8558f68f764a7690ed9ad4adc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#adfd0c2b8558f68f764a7690ed9ad4adc">show_statistics</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:adfd0c2b8558f68f764a7690ed9ad4adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01816c20cdd1c716a30b03c24a5a2b7f"><td class="memItemLeft" align="right" valign="top"><a id="a01816c20cdd1c716a30b03c24a5a2b7f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>show_All</b> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
+<tr class="memitem:a01816c20cdd1c716a30b03c24a5a2b7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#a01816c20cdd1c716a30b03c24a5a2b7f">show_All</a> (ostream &amp;out=cout, ostream &amp;err_msg=cout)</td></tr>
 <tr class="separator:a01816c20cdd1c716a30b03c24a5a2b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c1e7770390e4f1d02ae250d640a32a7"><td class="memItemLeft" align="right" valign="top"><a id="a9c1e7770390e4f1d02ae250d640a32a7"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to_sequence</b> ()</td></tr>
+<tr class="memitem:a9c1e7770390e4f1d02ae250d640a32a7"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#a9c1e7770390e4f1d02ae250d640a32a7">get_pointer_to_sequence</a> ()</td></tr>
 <tr class="separator:a9c1e7770390e4f1d02ae250d640a32a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37c4ac41b89a5081ca71ff2a9d9bd1c"><td class="memItemLeft" align="right" valign="top"><a id="af37c4ac41b89a5081ca71ff2a9d9bd1c"></a>
-unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to_sequence_int</b> ()</td></tr>
+<tr class="memitem:af37c4ac41b89a5081ca71ff2a9d9bd1c"><td class="memItemLeft" align="right" valign="top">unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#af37c4ac41b89a5081ca71ff2a9d9bd1c">get_pointer_to_sequence_int</a> ()</td></tr>
 <tr class="separator:af37c4ac41b89a5081ca71ff2a9d9bd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5454c394570fa19c2b0ac771c6e74097"><td class="memItemLeft" align="right" valign="top"><a id="a5454c394570fa19c2b0ac771c6e74097"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_sequence_length</b> ()</td></tr>
+<tr class="memitem:a5454c394570fa19c2b0ac771c6e74097"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sequence.html#a5454c394570fa19c2b0ac771c6e74097">get_sequence_length</a> ()</td></tr>
 <tr class="separator:a5454c394570fa19c2b0ac771c6e74097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00011">11</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acdd11b606b266e81cc5b957e86b45517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdd11b606b266e81cc5b957e86b45517">&#9670;&nbsp;</a></span>Sequence() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sequence::Sequence </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>sequence_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_length</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00077">77</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sequence_acdd11b606b266e81cc5b957e86b45517_cgraph.png" border="0" usemap="#class_sequence_acdd11b606b266e81cc5b957e86b45517_cgraph" alt=""/></div>
+<map name="class_sequence_acdd11b606b266e81cc5b957e86b45517_cgraph" id="class_sequence_acdd11b606b266e81cc5b957e86b45517_cgraph">
+<area shape="rect" id="node2" href="class_optimization___toolbox.html#a44f2c18904985dd9591efe0a63bfae9b" title="Optimization_Toolbox\l::convert_primer_txt\l_to_int" alt="" coords="200,5,348,61"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad6f16ee0cacbb22596c7a34d8a2f4c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f16ee0cacbb22596c7a34d8a2f4c14">&#9670;&nbsp;</a></span>Sequence() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sequence::Sequence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sequence.html">Sequence</a> *&#160;</td>
+          <td class="paramname"><em>_sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primer_length</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00040">40</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sequence_ad6f16ee0cacbb22596c7a34d8a2f4c14_cgraph.png" border="0" usemap="#class_sequence_ad6f16ee0cacbb22596c7a34d8a2f4c14_cgraph" alt=""/></div>
+<map name="class_sequence_ad6f16ee0cacbb22596c7a34d8a2f4c14_cgraph" id="class_sequence_ad6f16ee0cacbb22596c7a34d8a2f4c14_cgraph">
+<area shape="rect" id="node2" href="class_sequence.html#a5454c394570fa19c2b0ac771c6e74097" title="Sequence::get_sequence\l_length" alt="" coords="200,5,369,47"/>
+<area shape="rect" id="node3" href="class_sequence.html#a9c1e7770390e4f1d02ae250d640a32a7" title="Sequence::get_pointer\l_to_sequence" alt="" coords="209,71,361,112"/>
+<area shape="rect" id="node4" href="class_optimization___toolbox.html#a44f2c18904985dd9591efe0a63bfae9b" title="Optimization_Toolbox\l::convert_primer_txt\l_to_int" alt="" coords="211,137,359,193"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aee09a7d70c3ab523fed85da94ea1366f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee09a7d70c3ab523fed85da94ea1366f">&#9670;&nbsp;</a></span>~Sequence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sequence::~Sequence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00029">29</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9c1e7770390e4f1d02ae250d640a32a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1e7770390e4f1d02ae250d640a32a7">&#9670;&nbsp;</a></span>get_pointer_to_sequence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* Sequence::get_pointer_to_sequence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00025">25</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sequence_a9c1e7770390e4f1d02ae250d640a32a7_icgraph.png" border="0" usemap="#class_sequence_a9c1e7770390e4f1d02ae250d640a32a7_icgraph" alt=""/></div>
+<map name="class_sequence_a9c1e7770390e4f1d02ae250d640a32a7_icgraph" id="class_sequence_a9c1e7770390e4f1d02ae250d640a32a7_icgraph">
+<area shape="rect" id="node2" href="class_array___sequences.html#ae4e47e71792255275b01afd35456a9a0" title="Array_Sequences::add\l_sequence" alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node3" href="class_primer___set.html#ae81dafc2ac39deb5480f68dac440e88e" title="Primer_Set::Primer_Set" alt="" coords="205,71,365,98"/>
+<area shape="rect" id="node4" href="class_sequence.html#ad6f16ee0cacbb22596c7a34d8a2f4c14" title="Sequence::Sequence" alt="" coords="212,122,359,149"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af37c4ac41b89a5081ca71ff2a9d9bd1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af37c4ac41b89a5081ca71ff2a9d9bd1c">&#9670;&nbsp;</a></span>get_pointer_to_sequence_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int* Sequence::get_pointer_to_sequence_int </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00026">26</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sequence_af37c4ac41b89a5081ca71ff2a9d9bd1c_icgraph.png" border="0" usemap="#class_sequence_af37c4ac41b89a5081ca71ff2a9d9bd1c_icgraph" alt=""/></div>
+<map name="class_sequence_af37c4ac41b89a5081ca71ff2a9d9bd1c_icgraph" id="class_sequence_af37c4ac41b89a5081ca71ff2a9d9bd1c_icgraph">
+<area shape="rect" id="node2" href="class_p_c_r___profile.html#a339a01da69e5e709f6b33678bd9f73dc" title="PCR_Profile::PCR_profile\l_calculation" alt="" coords="205,5,376,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5454c394570fa19c2b0ac771c6e74097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5454c394570fa19c2b0ac771c6e74097">&#9670;&nbsp;</a></span>get_sequence_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Sequence::get_sequence_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00027">27</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sequence_a5454c394570fa19c2b0ac771c6e74097_icgraph.png" border="0" usemap="#class_sequence_a5454c394570fa19c2b0ac771c6e74097_icgraph" alt=""/></div>
+<map name="class_sequence_a5454c394570fa19c2b0ac771c6e74097_icgraph" id="class_sequence_a5454c394570fa19c2b0ac771c6e74097_icgraph">
+<area shape="rect" id="node2" href="class_array___sequences.html#ae4e47e71792255275b01afd35456a9a0" title="Array_Sequences::add\l_sequence" alt="" coords="231,5,386,47"/>
+<area shape="rect" id="node3" href="class_p_c_r___profile.html#a2772873e5a43e8b8c1dde4b6ca9d8a2f" title="PCR_Profile::PCR_Profile" alt="" coords="223,71,395,98"/>
+<area shape="rect" id="node4" href="class_primer___set.html#ae81dafc2ac39deb5480f68dac440e88e" title="Primer_Set::Primer_Set" alt="" coords="229,122,389,149"/>
+<area shape="rect" id="node5" href="class_sequence.html#ad6f16ee0cacbb22596c7a34d8a2f4c14" title="Sequence::Sequence" alt="" coords="235,173,382,199"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a01816c20cdd1c716a30b03c24a5a2b7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01816c20cdd1c716a30b03c24a5a2b7f">&#9670;&nbsp;</a></span>show_All()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Sequence::show_All </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00144">144</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+
+</div>
+</div>
+<a id="adfd0c2b8558f68f764a7690ed9ad4adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd0c2b8558f68f764a7690ed9ad4adc">&#9670;&nbsp;</a></span>show_statistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Sequence::show_statistics </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em> = <code>cout</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>err_msg</em> = <code>cout</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sequence_8h_source.html#l00113">113</a> of file <a class="el" href="_sequence_8h_source.html">Sequence.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Kamil/Documents/RPA-Optimization/RPA/<a class="el" href="_sequence_8h_source.html">Sequence.h</a></li>
+<li>RPA/<a class="el" href="_sequence_8h_source.html">Sequence.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

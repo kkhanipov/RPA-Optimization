@@ -1,0 +1,132 @@
+\hypertarget{_optimization___toolbox_8h}{}\section{R\+P\+A/\+Optimization\+\_\+\+Toolbox.h File Reference}
+\label{_optimization___toolbox_8h}\index{R\+P\+A/\+Optimization\+\_\+\+Toolbox.\+h@{R\+P\+A/\+Optimization\+\_\+\+Toolbox.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for Optimization\+\_\+\+Toolbox.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_optimization___toolbox_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{_optimization___toolbox_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_optimization___toolbox}{Optimization\+\_\+\+Toolbox}}
+\item 
+struct \mbox{\hyperlink{struct_sortable___pareto}{Sortable\+\_\+\+Pareto}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_optimization___toolbox_8h_aee8e605cb53dcc7a4c462efb77056bed}{compare\+\_\+\+Sortable\+\_\+\+Pareto}} (const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\item 
+int \mbox{\hyperlink{_optimization___toolbox_8h_aa74e0a79912d629cbf41d83fc575f9bc}{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y}} (const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\item 
+int \mbox{\hyperlink{_optimization___toolbox_8h_a09b7fe972a329ae529f0a0262771bb05}{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y}} (const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\item 
+int \mbox{\hyperlink{_optimization___toolbox_8h_a6c51d146459ac7ae396e14b322de9f5d}{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y}} (const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\item 
+int \mbox{\hyperlink{_optimization___toolbox_8h_af5343591d09a5b1da10c5466caa04b76}{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y}} (const void $\ast$\+\_\+a, const void $\ast$\+\_\+b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_optimization___toolbox_8h_aee8e605cb53dcc7a4c462efb77056bed}\label{_optimization___toolbox_8h_aee8e605cb53dcc7a4c462efb77056bed}} 
+\index{Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}!compare\+\_\+\+Sortable\+\_\+\+Pareto@{compare\+\_\+\+Sortable\+\_\+\+Pareto}}
+\index{compare\+\_\+\+Sortable\+\_\+\+Pareto@{compare\+\_\+\+Sortable\+\_\+\+Pareto}!Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}}
+\subsubsection{\texorpdfstring{compare\+\_\+\+Sortable\+\_\+\+Pareto()}{compare\_Sortable\_Pareto()}}
+{\footnotesize\ttfamily int compare\+\_\+\+Sortable\+\_\+\+Pareto (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file Optimization\+\_\+\+Toolbox.\+h.
+
+\mbox{\Hypertarget{_optimization___toolbox_8h_a09b7fe972a329ae529f0a0262771bb05}\label{_optimization___toolbox_8h_a09b7fe972a329ae529f0a0262771bb05}} 
+\index{Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}!compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y}}
+\index{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y}!Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}}
+\subsubsection{\texorpdfstring{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+\+Y()}{compare\_Sortable\_Pareto\_Max\_X\_Max\_Y()}}
+{\footnotesize\ttfamily int compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Max\+\_\+Y (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file Optimization\+\_\+\+Toolbox.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_optimization___toolbox_8h_a09b7fe972a329ae529f0a0262771bb05_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_optimization___toolbox_8h_aa74e0a79912d629cbf41d83fc575f9bc}\label{_optimization___toolbox_8h_aa74e0a79912d629cbf41d83fc575f9bc}} 
+\index{Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}!compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y}}
+\index{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y}!Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}}
+\subsubsection{\texorpdfstring{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+\+Y()}{compare\_Sortable\_Pareto\_Max\_X\_Min\_Y()}}
+{\footnotesize\ttfamily int compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Max\+\_\+\+X\+\_\+\+Min\+\_\+Y (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Optimization\+\_\+\+Toolbox.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_optimization___toolbox_8h_aa74e0a79912d629cbf41d83fc575f9bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_optimization___toolbox_8h_af5343591d09a5b1da10c5466caa04b76}\label{_optimization___toolbox_8h_af5343591d09a5b1da10c5466caa04b76}} 
+\index{Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}!compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y}}
+\index{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y}!Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}}
+\subsubsection{\texorpdfstring{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+\+Y()}{compare\_Sortable\_Pareto\_Min\_X\_Max\_Y()}}
+{\footnotesize\ttfamily int compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Max\+\_\+Y (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file Optimization\+\_\+\+Toolbox.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_optimization___toolbox_8h_af5343591d09a5b1da10c5466caa04b76_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_optimization___toolbox_8h_a6c51d146459ac7ae396e14b322de9f5d}\label{_optimization___toolbox_8h_a6c51d146459ac7ae396e14b322de9f5d}} 
+\index{Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}!compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y}}
+\index{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y@{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y}!Optimization\+\_\+\+Toolbox.\+h@{Optimization\+\_\+\+Toolbox.\+h}}
+\subsubsection{\texorpdfstring{compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+\+Y()}{compare\_Sortable\_Pareto\_Min\_X\_Min\_Y()}}
+{\footnotesize\ttfamily int compare\+\_\+\+Sortable\+\_\+\+Pareto\+\_\+\+Min\+\_\+\+X\+\_\+\+Min\+\_\+Y (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file Optimization\+\_\+\+Toolbox.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_optimization___toolbox_8h_a6c51d146459ac7ae396e14b322de9f5d_icgraph}
+\end{center}
+\end{figure}

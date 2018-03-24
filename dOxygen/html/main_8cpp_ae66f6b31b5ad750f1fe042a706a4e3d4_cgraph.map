@@ -1,0 +1,23 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_primer___set.html#af53fe2ae85933f04a5cc2e159a3ed49f" title="Primer_Set::get_primer\l_length" alt="" coords="121,5,277,47"/>
+<area shape="rect" id="node3" href="$class_array___sequences.html#ab0735daa57cd712e08843e9c79e40488" title="Array_Sequences::show\l_Statistics" alt="" coords="118,71,281,112"/>
+<area shape="rect" id="node4" href="$class_primer___set.html#a136e11664762cb801c833209a68204fe" title="Primer_Set::add_primer" alt="" coords="120,137,279,163"/>
+<area shape="rect" id="node5" href="$class_primer___set.html#a7c639e643b36dea739026862f12a64d4" title="Primer_Set::get_primer\l_as_value" alt="" coords="121,188,277,229"/>
+<area shape="rect" id="node6" href="$class_array___sequences.html#a029592cf35f56df0714e5326a3901b74" title="Array_Sequences::get\l_pointer_to_sequence\l_object" alt="" coords="124,254,275,310"/>
+<area shape="rect" id="node7" href="$class_p_c_r___profile___array.html#a5b7ae88e5672bdc86957d8ae0ceef1b0" title="PCR_Profile_Array::\ladd_pcr_profile" alt="" coords="130,335,269,376"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#aa1388cd044dd1623f14866d9040062b9" title="prepare_pareto" alt="" coords="145,451,253,478"/>
+<area shape="rect" id="node10" href="$class_p_c_r___profile___array.html#ac17c28f26c27e61b6a6fd4189a4a2201" title="PCR_Profile_Array::\lget_pcr_profile" alt="" coords="359,248,498,289"/>
+<area shape="rect" id="node21" href="$class_p_c_r___profile.html#a9897676b415905e30809e69c399a859a" title="PCR_Profile::show_statistics" alt="" coords="104,502,295,529"/>
+<area shape="rect" id="node22" href="$class_p_c_r___profile___array.html#af33c2dcfeb01b3cf9516e7a9c5515004" title="PCR_Profile_Array::\lcompress_left" alt="" coords="130,553,269,595"/>
+<area shape="rect" id="node9" href="$class_p_c_r___profile___array.html#ac135890d8866e94c20794012f38b58ab" title="PCR_Profile_Array::\lget_number_of_profiles" alt="" coords="350,313,507,355"/>
+<area shape="rect" id="node11" href="$class_p_c_r___profile.html#adf41a697d05489582745d650d4e7c956" title="PCR_Profile::get_total\l_lenght_long_amplicons" alt="" coords="348,379,509,420"/>
+<area shape="rect" id="node12" href="$class_p_c_r___profile.html#aa8f3e8fc43865af8734090436a0d729e" title="PCR_Profile::get_total\l_lenght_short_amplicons" alt="" coords="345,444,512,485"/>
+<area shape="rect" id="node13" href="$class_optimization___toolbox.html#acb0793203243d200d9154f2e98011d44" title="Optimization_Toolbox\l::calculate_pareto_frontier" alt="" coords="343,509,515,551"/>
+<area shape="rect" id="node18" href="$class_p_c_r___profile___array.html#ac05cfcb1d903bd46fb83ab32533f8fce" title="PCR_Profile_Array::\lget_to_be_considered" alt="" coords="354,575,503,616"/>
+<area shape="rect" id="node19" href="$class_p_c_r___profile___array.html#a57b22954d1a22097d45dc9083d147605" title="PCR_Profile_Array::\lmark_profile_pareto" alt="" coords="359,640,498,681"/>
+<area shape="rect" id="node20" href="$class_p_c_r___profile___array.html#a4b1ef7c1dad3c7bd8705e742b3c7eae5" title="PCR_Profile_Array::\ldelete_pcr_profile" alt="" coords="359,705,498,747"/>
+<area shape="rect" id="node14" href="$_optimization___toolbox_8h.html#aa74e0a79912d629cbf41d83fc575f9bc" title="compare_Sortable_Pareto\l_Max_X_Min_Y" alt="" coords="563,412,735,453"/>
+<area shape="rect" id="node15" href="$_optimization___toolbox_8h.html#a09b7fe972a329ae529f0a0262771bb05" title="compare_Sortable_Pareto\l_Max_X_Max_Y" alt="" coords="563,477,735,519"/>
+<area shape="rect" id="node16" href="$_optimization___toolbox_8h.html#a6c51d146459ac7ae396e14b322de9f5d" title="compare_Sortable_Pareto\l_Min_X_Min_Y" alt="" coords="563,543,735,584"/>
+<area shape="rect" id="node17" href="$_optimization___toolbox_8h.html#af5343591d09a5b1da10c5466caa04b76" title="compare_Sortable_Pareto\l_Min_X_Max_Y" alt="" coords="563,608,735,649"/>
+</map>

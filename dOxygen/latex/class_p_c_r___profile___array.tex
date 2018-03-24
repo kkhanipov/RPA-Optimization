@@ -1,0 +1,203 @@
+\hypertarget{class_p_c_r___profile___array}{}\section{P\+C\+R\+\_\+\+Profile\+\_\+\+Array Class Reference}
+\label{class_p_c_r___profile___array}\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+
+
+{\ttfamily \#include $<$P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_c_r___profile___array_a97f37de2d876094a0c8ab9edb80bfb50}{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}} ()
+\item 
+\mbox{\hyperlink{class_p_c_r___profile___array_a12e0a3168f5769787764f2e27c13a248}{$\sim$\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array}} ()
+\item 
+bool \mbox{\hyperlink{class_p_c_r___profile___array_a5b7ae88e5672bdc86957d8ae0ceef1b0}{add\+\_\+pcr\+\_\+profile}} (\mbox{\hyperlink{class_p_c_r___profile}{P\+C\+R\+\_\+\+Profile}} $\ast$pcr\+\_\+profile)
+\item 
+bool \mbox{\hyperlink{class_p_c_r___profile___array_a4b1ef7c1dad3c7bd8705e742b3c7eae5}{delete\+\_\+pcr\+\_\+profile}} (unsigned int position)
+\item 
+bool \mbox{\hyperlink{class_p_c_r___profile___array_a57b22954d1a22097d45dc9083d147605}{mark\+\_\+profile\+\_\+pareto}} (unsigned int position)
+\item 
+bool \mbox{\hyperlink{class_p_c_r___profile___array_ae8ce6ceab4a0e8cf9ad622cc418e1c7f}{get\+\_\+stats}} ()
+\item 
+bool \mbox{\hyperlink{class_p_c_r___profile___array_af33c2dcfeb01b3cf9516e7a9c5515004}{compress\+\_\+left}} ()
+\item 
+\mbox{\hyperlink{class_p_c_r___profile}{P\+C\+R\+\_\+\+Profile}} $\ast$ \mbox{\hyperlink{class_p_c_r___profile___array_ac17c28f26c27e61b6a6fd4189a4a2201}{get\+\_\+pcr\+\_\+profile}} (unsigned int position)
+\item 
+int \mbox{\hyperlink{class_p_c_r___profile___array_ac135890d8866e94c20794012f38b58ab}{get\+\_\+number\+\_\+of\+\_\+profiles}} ()
+\item 
+int $\ast$ \mbox{\hyperlink{class_p_c_r___profile___array_ac05cfcb1d903bd46fb83ab32533f8fce}{get\+\_\+to\+\_\+be\+\_\+considered}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_c_r___profile___array_a97f37de2d876094a0c8ab9edb80bfb50}\label{class_p_c_r___profile___array_a97f37de2d876094a0c8ab9edb80bfb50}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{P\+C\+R\+\_\+\+Profile\+\_\+\+Array()}{PCR\_Profile\_Array()}}
+{\footnotesize\ttfamily P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+\mbox{\Hypertarget{class_p_c_r___profile___array_a12e0a3168f5769787764f2e27c13a248}\label{class_p_c_r___profile___array_a12e0a3168f5769787764f2e27c13a248}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!````~P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{$\sim$\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\index{````~P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{$\sim$\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{$\sim$\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array()}{~PCR\_Profile\_Array()}}
+{\footnotesize\ttfamily P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::$\sim$\+P\+C\+R\+\_\+\+Profile\+\_\+\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_c_r___profile___array_a5b7ae88e5672bdc86957d8ae0ceef1b0}\label{class_p_c_r___profile___array_a5b7ae88e5672bdc86957d8ae0ceef1b0}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!add\+\_\+pcr\+\_\+profile@{add\+\_\+pcr\+\_\+profile}}
+\index{add\+\_\+pcr\+\_\+profile@{add\+\_\+pcr\+\_\+profile}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{add\+\_\+pcr\+\_\+profile()}{add\_pcr\_profile()}}
+{\footnotesize\ttfamily bool P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::add\+\_\+pcr\+\_\+profile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_c_r___profile}{P\+C\+R\+\_\+\+Profile}} $\ast$}]{pcr\+\_\+profile }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_p_c_r___profile___array_a5b7ae88e5672bdc86957d8ae0ceef1b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_af33c2dcfeb01b3cf9516e7a9c5515004}\label{class_p_c_r___profile___array_af33c2dcfeb01b3cf9516e7a9c5515004}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!compress\+\_\+left@{compress\+\_\+left}}
+\index{compress\+\_\+left@{compress\+\_\+left}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{compress\+\_\+left()}{compress\_left()}}
+{\footnotesize\ttfamily bool P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::compress\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 110 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_p_c_r___profile___array_af33c2dcfeb01b3cf9516e7a9c5515004_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_a4b1ef7c1dad3c7bd8705e742b3c7eae5}\label{class_p_c_r___profile___array_a4b1ef7c1dad3c7bd8705e742b3c7eae5}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!delete\+\_\+pcr\+\_\+profile@{delete\+\_\+pcr\+\_\+profile}}
+\index{delete\+\_\+pcr\+\_\+profile@{delete\+\_\+pcr\+\_\+profile}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{delete\+\_\+pcr\+\_\+profile()}{delete\_pcr\_profile()}}
+{\footnotesize\ttfamily bool P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::delete\+\_\+pcr\+\_\+profile (\begin{DoxyParamCaption}\item[{unsigned int}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_p_c_r___profile___array_a4b1ef7c1dad3c7bd8705e742b3c7eae5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_ac135890d8866e94c20794012f38b58ab}\label{class_p_c_r___profile___array_ac135890d8866e94c20794012f38b58ab}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!get\+\_\+number\+\_\+of\+\_\+profiles@{get\+\_\+number\+\_\+of\+\_\+profiles}}
+\index{get\+\_\+number\+\_\+of\+\_\+profiles@{get\+\_\+number\+\_\+of\+\_\+profiles}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{get\+\_\+number\+\_\+of\+\_\+profiles()}{get\_number\_of\_profiles()}}
+{\footnotesize\ttfamily int P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::get\+\_\+number\+\_\+of\+\_\+profiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_p_c_r___profile___array_ac135890d8866e94c20794012f38b58ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_ac17c28f26c27e61b6a6fd4189a4a2201}\label{class_p_c_r___profile___array_ac17c28f26c27e61b6a6fd4189a4a2201}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!get\+\_\+pcr\+\_\+profile@{get\+\_\+pcr\+\_\+profile}}
+\index{get\+\_\+pcr\+\_\+profile@{get\+\_\+pcr\+\_\+profile}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{get\+\_\+pcr\+\_\+profile()}{get\_pcr\_profile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_c_r___profile}{P\+C\+R\+\_\+\+Profile}} $\ast$ P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::get\+\_\+pcr\+\_\+profile (\begin{DoxyParamCaption}\item[{unsigned int}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_p_c_r___profile___array_ac17c28f26c27e61b6a6fd4189a4a2201_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_ae8ce6ceab4a0e8cf9ad622cc418e1c7f}\label{class_p_c_r___profile___array_ae8ce6ceab4a0e8cf9ad622cc418e1c7f}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!get\+\_\+stats@{get\+\_\+stats}}
+\index{get\+\_\+stats@{get\+\_\+stats}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{get\+\_\+stats()}{get\_stats()}}
+{\footnotesize\ttfamily bool P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::get\+\_\+stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 26 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+\mbox{\Hypertarget{class_p_c_r___profile___array_ac05cfcb1d903bd46fb83ab32533f8fce}\label{class_p_c_r___profile___array_ac05cfcb1d903bd46fb83ab32533f8fce}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!get\+\_\+to\+\_\+be\+\_\+considered@{get\+\_\+to\+\_\+be\+\_\+considered}}
+\index{get\+\_\+to\+\_\+be\+\_\+considered@{get\+\_\+to\+\_\+be\+\_\+considered}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{get\+\_\+to\+\_\+be\+\_\+considered()}{get\_to\_be\_considered()}}
+{\footnotesize\ttfamily int$\ast$ P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::get\+\_\+to\+\_\+be\+\_\+considered (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 24 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_p_c_r___profile___array_ac05cfcb1d903bd46fb83ab32533f8fce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_p_c_r___profile___array_a57b22954d1a22097d45dc9083d147605}\label{class_p_c_r___profile___array_a57b22954d1a22097d45dc9083d147605}} 
+\index{P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}!mark\+\_\+profile\+\_\+pareto@{mark\+\_\+profile\+\_\+pareto}}
+\index{mark\+\_\+profile\+\_\+pareto@{mark\+\_\+profile\+\_\+pareto}!P\+C\+R\+\_\+\+Profile\+\_\+\+Array@{P\+C\+R\+\_\+\+Profile\+\_\+\+Array}}
+\subsubsection{\texorpdfstring{mark\+\_\+profile\+\_\+pareto()}{mark\_profile\_pareto()}}
+{\footnotesize\ttfamily bool P\+C\+R\+\_\+\+Profile\+\_\+\+Array\+::mark\+\_\+profile\+\_\+pareto (\begin{DoxyParamCaption}\item[{unsigned int}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_p_c_r___profile___array_a57b22954d1a22097d45dc9083d147605_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R\+P\+A/\mbox{\hyperlink{_p_c_r___profile___array_8h}{P\+C\+R\+\_\+\+Profile\+\_\+\+Array.\+h}}\end{DoxyCompactItemize}
